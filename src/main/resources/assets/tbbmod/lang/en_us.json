@@ -5,5 +5,7 @@
   "block.tbbmod.raw_beastbossanium_block": "Raw BeastBossanium Block",
   "block.tbbmod.beastbossanium_ore": "BeastBossanium Ore",
   "block.tbbmod.deepslate_beastbossanium_ore": "Deepslate BeastBossanium Ore",
-  "itemGroup.tbbtab": "TheBeastBoss' Mod Items"
+  "itemGroup.tbbtab": "TheBeastBoss' Mod Items",
+  "block.tbbmod.beastboss_planks": "BeastBoss Planks",
+  "item.tbbmod.wood_changer": "Wood Changer"
 }

@@ -1,6 +1,7 @@
 package com.tbb.tbbmod.item;
 
 import com.tbb.tbbmod.TBBMod;
+import com.tbb.tbbmod.item.custom.WoodTypeChangerItem;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
@@ -12,6 +13,7 @@ public class ModItems {
 
     public static final RegistryObject<Item> BEASTBOSSANIUM_INGOT = ITEMS.register("beastbossanium_ingot", () -> new Item(new Item.Properties().tab(ModCreativeModeTab.TBB_TAB)));
     public static final RegistryObject<Item> RAW_BEASTBOSSANIUM_CHUNK = ITEMS.register("raw_beastbossanium_chunk", () -> new Item(new Item.Properties().tab(ModCreativeModeTab.TBB_TAB)));
+    public static final RegistryObject<Item> WOOD_CHANGER = ITEMS.register("wood_changer", () -> new WoodTypeChangerItem(new Item.Properties().tab(ModCreativeModeTab.TBB_TAB).durability(69)));
 
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);
