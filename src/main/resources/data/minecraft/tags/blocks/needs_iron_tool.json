@@ -9,6 +9,10 @@
 		"tbbmod:beastboss_stairs",
 		"tbbmod:beastboss_fence",
 		"tbbmod:beastboss_fence_gate",
-		"tbbmod:beastboss_slab"
+		"tbbmod:beastboss_slab",
+		"tbbmod:beastboss_button",
+		"tbbmod:beastboss_pressure_plate",
+		"tbbmod:beastboss_door",
+		"tbbmod:beastboss_trapdoor"
 	]
 }

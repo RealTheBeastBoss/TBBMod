@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/door_top",
+  "textures": {
+    "top": "tbbmod:block/beastboss_door_top",
+    "bottom": "tbbmod:block/beastboss_door_bottom"
+  }
+}

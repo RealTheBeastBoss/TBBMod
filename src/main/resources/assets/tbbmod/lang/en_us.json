@@ -11,5 +11,9 @@
   "block.tbbmod.beastboss_stairs": "BeastBoss Stairs",
   "block.tbbmod.beastboss_fence": "BeastBoss Fence",
   "block.tbbmod.beastboss_fence_gate": "BeastBoss Fence Gate",
-  "block.tbbmod.beastboss_slab": "BeastBoss Slab"
+  "block.tbbmod.beastboss_slab": "BeastBoss Slab",
+  "block.tbbmod.beastboss_button": "BeastBoss Button",
+  "block.tbbmod.beastboss_pressure_plate": "BeastBoss Pressure Plate",
+  "block.tbbmod.beastboss_door": "BeastBoss Door",
+  "block.tbbmod.beastboss_trapdoor": "BeastBoss Trap Door"
 }
