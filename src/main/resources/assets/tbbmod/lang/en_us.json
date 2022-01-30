@@ -7,5 +7,9 @@
   "block.tbbmod.deepslate_beastbossanium_ore": "Deepslate BeastBossanium Ore",
   "itemGroup.tbbtab": "TheBeastBoss' Mod Items",
   "block.tbbmod.beastboss_planks": "BeastBoss Planks",
-  "item.tbbmod.wood_changer": "Wood Changer"
+  "item.tbbmod.wood_changer": "Wood Changer",
+  "block.tbbmod.beastboss_stairs": "BeastBoss Stairs",
+  "block.tbbmod.beastboss_fence": "BeastBoss Fence",
+  "block.tbbmod.beastboss_fence_gate": "BeastBoss Fence Gate",
+  "block.tbbmod.beastboss_slab": "BeastBoss Slab"
 }

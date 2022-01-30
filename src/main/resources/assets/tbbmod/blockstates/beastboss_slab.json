@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "tbbmod:block/beastboss_slab"
+    },
+    "type=double": {
+      "model": "tbbmod:block/beastboss_planks"
+    },
+    "type=top": {
+      "model": "tbbmod:block/beastboss_slab_top"
+    }
+  }
+}

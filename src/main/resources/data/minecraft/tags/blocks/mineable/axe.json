@@ -1,6 +1,10 @@
 {
 	"replace": false,
 	"values": [
-		"tbbmod:beastboss_planks"
+		"tbbmod:beastboss_planks",
+		"tbbmod:beastboss_stairs",
+		"tbbmod:beastboss_fence",
+		"tbbmod:beastboss_fence_gate",
+		"tbbmod:beastboss_slab"
 	]
 }

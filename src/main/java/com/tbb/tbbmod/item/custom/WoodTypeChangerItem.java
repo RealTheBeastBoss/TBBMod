@@ -4,12 +4,11 @@ import com.google.common.collect.ImmutableMap;
 import com.tbb.tbbmod.block.ModBlocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.TextComponent;
-import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.world.InteractionResult;
-import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
@@ -29,6 +28,42 @@ public class WoodTypeChangerItem extends Item {
             .put(Blocks.CRIMSON_PLANKS, Blocks.WARPED_PLANKS)
             .put(Blocks.WARPED_PLANKS, ModBlocks.BEASTBOSS_PLANKS.get())
             .put(ModBlocks.BEASTBOSS_PLANKS.get(), Blocks.OAK_PLANKS)
+            .put(Blocks.OAK_STAIRS, Blocks.SPRUCE_STAIRS)
+            .put(Blocks.SPRUCE_STAIRS, Blocks.BIRCH_STAIRS)
+            .put(Blocks.BIRCH_STAIRS, Blocks.JUNGLE_STAIRS)
+            .put(Blocks.JUNGLE_STAIRS, Blocks.ACACIA_STAIRS)
+            .put(Blocks.ACACIA_STAIRS, Blocks.DARK_OAK_STAIRS)
+            .put(Blocks.DARK_OAK_STAIRS, Blocks.CRIMSON_STAIRS)
+            .put(Blocks.CRIMSON_STAIRS, Blocks.WARPED_STAIRS)
+            .put(Blocks.WARPED_STAIRS, ModBlocks.BEASTBOSS_STAIRS.get())
+            .put(ModBlocks.BEASTBOSS_STAIRS.get(), Blocks.OAK_STAIRS)
+            .put(Blocks.OAK_FENCE, Blocks.SPRUCE_FENCE)
+            .put(Blocks.SPRUCE_FENCE, Blocks.BIRCH_FENCE)
+            .put(Blocks.BIRCH_FENCE, Blocks.JUNGLE_FENCE)
+            .put(Blocks.JUNGLE_FENCE, Blocks.ACACIA_FENCE)
+            .put(Blocks.ACACIA_FENCE, Blocks.DARK_OAK_FENCE)
+            .put(Blocks.DARK_OAK_FENCE, Blocks.CRIMSON_FENCE)
+            .put(Blocks.CRIMSON_FENCE, Blocks.WARPED_FENCE)
+            .put(Blocks.WARPED_FENCE, ModBlocks.BEASTBOSS_FENCE.get())
+            .put(ModBlocks.BEASTBOSS_FENCE.get(), Blocks.OAK_FENCE)
+            .put(Blocks.OAK_FENCE_GATE, Blocks.SPRUCE_FENCE_GATE)
+            .put(Blocks.SPRUCE_FENCE_GATE, Blocks.BIRCH_FENCE_GATE)
+            .put(Blocks.BIRCH_FENCE_GATE, Blocks.JUNGLE_FENCE_GATE)
+            .put(Blocks.JUNGLE_FENCE_GATE, Blocks.ACACIA_FENCE_GATE)
+            .put(Blocks.ACACIA_FENCE_GATE, Blocks.DARK_OAK_FENCE_GATE)
+            .put(Blocks.DARK_OAK_FENCE_GATE, Blocks.CRIMSON_FENCE_GATE)
+            .put(Blocks.CRIMSON_FENCE_GATE, Blocks.WARPED_FENCE_GATE)
+            .put(Blocks.WARPED_FENCE_GATE, ModBlocks.BEASTBOSS_FENCE_GATE.get())
+            .put(ModBlocks.BEASTBOSS_FENCE_GATE.get(), Blocks.OAK_FENCE_GATE)
+            .put(Blocks.OAK_SLAB, Blocks.SPRUCE_SLAB)
+            .put(Blocks.SPRUCE_SLAB, Blocks.BIRCH_SLAB)
+            .put(Blocks.BIRCH_SLAB, Blocks.JUNGLE_SLAB)
+            .put(Blocks.JUNGLE_SLAB, Blocks.ACACIA_SLAB)
+            .put(Blocks.ACACIA_SLAB, Blocks.DARK_OAK_SLAB)
+            .put(Blocks.DARK_OAK_SLAB, Blocks.CRIMSON_SLAB)
+            .put(Blocks.CRIMSON_SLAB, Blocks.WARPED_SLAB)
+            .put(Blocks.WARPED_SLAB, ModBlocks.BEASTBOSS_SLAB.get())
+            .put(ModBlocks.BEASTBOSS_SLAB.get(), Blocks.OAK_SLAB)
             .build();
 
     public WoodTypeChangerItem(Properties pProperties) {
@@ -46,7 +81,8 @@ public class WoodTypeChangerItem extends Item {
             if (canChangeWood(blockClicked)) {
                 Block newBlock = WOOD_CHANGER_MAP.get(blockClicked);
                 level.destroyBlock(positionClicked, false);
-                level.setBlock(positionClicked, newBlock.defaultBlockState(), 2);
+                BlockPlaceContext newContext = new BlockPlaceContext(pContext);
+                level.setBlock(positionClicked, newBlock.getStateForPlacement(newContext), 2);
                 player.sendMessage(new TextComponent(player.getDisplayName().getString() + " used the Wood Changer"), player.getUUID());
                 pContext.getItemInHand().hurtAndBreak(1, pContext.getPlayer(), (user) -> user.broadcastBreakEvent(user.getUsedItemHand()));
             } else {

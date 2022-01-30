@@ -4,6 +4,11 @@
 		"tbbmod:raw_beastbossanium_block",
 		"tbbmod:beastbossanium_block",
 		"tbbmod:beastbossanium_ore",
-		"tbbmod:deepslate_beastbossanium_ore"
+		"tbbmod:deepslate_beastbossanium_ore",
+		"tbbmod:beastboss_planks",
+		"tbbmod:beastboss_stairs",
+		"tbbmod:beastboss_fence",
+		"tbbmod:beastboss_fence_gate",
+		"tbbmod:beastboss_slab"
 	]
 }
