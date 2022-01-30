@@ -1,0 +1,6 @@
+{
+	"parent": "block/cube_all",
+	"textures": {
+		"all": "tbbmod:block/deepslate_beastbossanium_ore"
+	}
+}
