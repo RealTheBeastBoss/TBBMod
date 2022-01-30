@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "raw_beastbossanium_chunk",
+  "ingredients": [
+    {
+      "item": "tbbmod:raw_beastbossanium_block"
+    }
+  ],
+  "result": {
+    "item": "tbbmod:raw_beastbossanium_chunk",
+    "count": 9
+  }
+}

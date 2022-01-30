@@ -1,0 +1,9 @@
+{
+	"replace": false,
+	"values": [
+		"tbbmod:raw_beastbossanium_block",
+		"tbbmod:beastbossanium_block",
+		"tbbmod:beastbossanium_ore",
+		"tbbmod:deepslate_beastbossanium_ore"
+	]
+}

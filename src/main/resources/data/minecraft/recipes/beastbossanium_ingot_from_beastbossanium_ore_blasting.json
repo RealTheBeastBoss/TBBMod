@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:blasting",
+  "group": "beastbossanium_ingot",
+  "ingredient": {
+    "item": "tbbmod:beastbossanium_ore"
+  },
+  "result": "tbbmod:beastbossanium_ingot",
+  "experience": 1.0,
+  "cookingtime": 160
+}

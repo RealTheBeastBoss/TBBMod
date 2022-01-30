@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:smelting",
+  "group": "beastbossanium_ingot",
+  "ingredient": {
+    "item": "tbbmod:raw_beastbossanium_chunk"
+  },
+  "result": "tbbmod:beastbossanium_ingot",
+  "experience": 1.5,
+  "cookingtime": 400
+}

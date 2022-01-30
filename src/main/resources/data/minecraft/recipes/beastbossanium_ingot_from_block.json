@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "beastbossanium_ingot",
+  "ingredients": [
+    {
+      "item": "tbbmod:beastbossanium_block"
+    }
+  ],
+  "result": {
+    "item": "tbbmod:beastbossanium_ingot",
+    "count": 9
+  }
+}
