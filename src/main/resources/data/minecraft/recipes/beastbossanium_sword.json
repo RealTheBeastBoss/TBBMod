@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "X",
+    "X",
+    "Z"
+  ],
+  "key": {
+    "X": {
+      "item": "tbbmod:beastbossanium_ingot"
+    },
+    "Z": {
+      "item": "minecraft:stick"
+    }
+  },
+  "result": {
+    "item": "tbbmod:beastbossanium_sword"
+  }
+}

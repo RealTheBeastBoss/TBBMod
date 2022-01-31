@@ -6,8 +6,9 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.TextComponent;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Tier;
+import net.minecraft.world.item.TieredItem;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
@@ -17,7 +18,7 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.Map;
 
-public class WoodTypeChangerItem extends Item {
+public class WoodTypeChangerItem extends TieredItem {
     public boolean canShowCraftText = true;
     private static final Map<Block, Block> WOOD_CHANGER_MAP = new ImmutableMap.Builder<Block, Block>()
             .put(Blocks.OAK_PLANKS, Blocks.SPRUCE_PLANKS)
@@ -130,8 +131,8 @@ public class WoodTypeChangerItem extends Item {
             .put(ModBlocks.STRIPPED_BEASTBOSS_WOOD.get(), Blocks.STRIPPED_OAK_WOOD)
             .build();
 
-    public WoodTypeChangerItem(Properties pProperties) {
-        super(pProperties);
+    public WoodTypeChangerItem(Tier pTier, Properties pProperties) {
+        super(pTier, pProperties);
     }
 
     @Override
@@ -147,7 +148,7 @@ public class WoodTypeChangerItem extends Item {
                 level.destroyBlock(positionClicked, false);
                 BlockPlaceContext newContext = new BlockPlaceContext(pContext);
                 level.setBlock(positionClicked, newBlock.getStateForPlacement(newContext), 2);
-                player.sendMessage(new TextComponent(player.getDisplayName().getString() + " used the Wood Changer"), player.getUUID());
+                player.sendMessage(new TextComponent(player.getDisplayName().getString() + " used the BeastBoss Wand"), player.getUUID());
                 pContext.getItemInHand().hurtAndBreak(1, pContext.getPlayer(), (user) -> user.broadcastBreakEvent(user.getUsedItemHand()));
             } else {
                 player.sendMessage(new TextComponent(player.getDisplayName().getString() + ": This block is not changeable."), player.getUUID());
@@ -159,7 +160,7 @@ public class WoodTypeChangerItem extends Item {
     @Override
     public void onCraftedBy(ItemStack pStack, Level pLevel, Player pPlayer) {
         if (this.canShowCraftText) {
-            pPlayer.sendMessage(new TextComponent(pPlayer.getDisplayName().getString() + " has crafted a Wood Changer, use this on a wood block to change its type."), pPlayer.getUUID());
+            pPlayer.sendMessage(new TextComponent(pPlayer.getDisplayName().getString() + " has crafted a BeastBoss Wand, use this on a wood block to change its type."), pPlayer.getUUID());
             this.canShowCraftText = false;
         }
     }

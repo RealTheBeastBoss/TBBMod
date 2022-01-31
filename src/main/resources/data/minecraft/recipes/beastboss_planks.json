@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "planks",
+  "ingredients": [
+    {
+      "tag": "minecraft:beastboss_logs"
+    }
+  ],
+  "result": {
+    "item": "tbbmod:beastboss_planks",
+    "count": 4
+  }
+}

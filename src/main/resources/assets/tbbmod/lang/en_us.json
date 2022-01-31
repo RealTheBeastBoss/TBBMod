@@ -7,7 +7,7 @@
   "block.tbbmod.deepslate_beastbossanium_ore": "Deepslate BeastBossanium Ore",
   "itemGroup.tbbtab": "TheBeastBoss' Mod Items",
   "block.tbbmod.beastboss_planks": "BeastBoss Planks",
-  "item.tbbmod.wood_changer": "Wood Changer",
+  "item.tbbmod.wood_changer": "BeastBoss Wand",
   "block.tbbmod.beastboss_stairs": "BeastBoss Stairs",
   "block.tbbmod.beastboss_fence": "BeastBoss Fence",
   "block.tbbmod.beastboss_fence_gate": "BeastBoss Fence Gate",
@@ -15,9 +15,14 @@
   "block.tbbmod.beastboss_button": "BeastBoss Button",
   "block.tbbmod.beastboss_pressure_plate": "BeastBoss Pressure Plate",
   "block.tbbmod.beastboss_door": "BeastBoss Door",
-  "block.tbbmod.beastboss_trapdoor": "BeastBoss Trap Door",
+  "block.tbbmod.beastboss_trapdoor": "BeastBoss Trapdoor",
   "block.tbbmod.beastboss_log": "BeastBoss Log",
   "block.tbbmod.beastboss_wood": "BeastBoss Wood",
   "block.tbbmod.stripped_beastboss_log": "Stripped BeastBoss Log",
-  "block.tbbmod.stripped_beastboss_wood": "Stripped BeastBoss Wood"
+  "block.tbbmod.stripped_beastboss_wood": "Stripped BeastBoss Wood",
+  "item.tbbmod.beastbossanium_sword": "BeastBossanium Sword",
+  "item.tbbmod.beastbossanium_pickaxe": "BeastBossanium Pickaxe",
+  "item.tbbmod.beastbossanium_axe": "BeastBossanium Axe",
+  "item.tbbmod.beastbossanium_shovel": "BeastBossanium Shovel",
+  "item.tbbmod.beastbossanium_hoe": "BeastBossanium Hoe"
 }
