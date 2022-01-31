@@ -13,6 +13,7 @@ import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.Map;
 
@@ -91,6 +92,42 @@ public class WoodTypeChangerItem extends Item {
             .put(Blocks.CRIMSON_TRAPDOOR, Blocks.WARPED_TRAPDOOR)
             .put(Blocks.WARPED_TRAPDOOR, ModBlocks.BEASTBOSS_TRAPDOOR.get())
             .put(ModBlocks.BEASTBOSS_TRAPDOOR.get(), Blocks.OAK_TRAPDOOR)
+            .put(Blocks.OAK_LOG, Blocks.SPRUCE_LOG)
+            .put(Blocks.SPRUCE_LOG, Blocks.BIRCH_LOG)
+            .put(Blocks.BIRCH_LOG, Blocks.JUNGLE_LOG)
+            .put(Blocks.JUNGLE_LOG, Blocks.ACACIA_LOG)
+            .put(Blocks.ACACIA_LOG, Blocks.DARK_OAK_LOG)
+            .put(Blocks.DARK_OAK_LOG, Blocks.CRIMSON_STEM)
+            .put(Blocks.CRIMSON_STEM, Blocks.WARPED_STEM)
+            .put(Blocks.WARPED_STEM, ModBlocks.BEASTBOSS_LOG.get())
+            .put(ModBlocks.BEASTBOSS_LOG.get(), Blocks.OAK_LOG)
+            .put(Blocks.STRIPPED_OAK_LOG, Blocks.STRIPPED_SPRUCE_LOG)
+            .put(Blocks.STRIPPED_SPRUCE_LOG, Blocks.STRIPPED_BIRCH_LOG)
+            .put(Blocks.STRIPPED_BIRCH_LOG, Blocks.STRIPPED_JUNGLE_LOG)
+            .put(Blocks.STRIPPED_JUNGLE_LOG, Blocks.STRIPPED_ACACIA_LOG)
+            .put(Blocks.STRIPPED_ACACIA_LOG, Blocks.STRIPPED_DARK_OAK_LOG)
+            .put(Blocks.STRIPPED_DARK_OAK_LOG, Blocks.STRIPPED_CRIMSON_STEM)
+            .put(Blocks.STRIPPED_CRIMSON_STEM, Blocks.STRIPPED_WARPED_STEM)
+            .put(Blocks.STRIPPED_WARPED_STEM, ModBlocks.STRIPPED_BEASTBOSS_LOG.get())
+            .put(ModBlocks.STRIPPED_BEASTBOSS_LOG.get(), Blocks.STRIPPED_OAK_LOG)
+            .put(Blocks.OAK_WOOD, Blocks.SPRUCE_WOOD)
+            .put(Blocks.SPRUCE_WOOD, Blocks.BIRCH_WOOD)
+            .put(Blocks.BIRCH_WOOD, Blocks.JUNGLE_WOOD)
+            .put(Blocks.JUNGLE_WOOD, Blocks.ACACIA_WOOD)
+            .put(Blocks.ACACIA_WOOD, Blocks.DARK_OAK_WOOD)
+            .put(Blocks.DARK_OAK_WOOD, Blocks.CRIMSON_HYPHAE)
+            .put(Blocks.CRIMSON_HYPHAE, Blocks.WARPED_HYPHAE)
+            .put(Blocks.WARPED_HYPHAE, ModBlocks.BEASTBOSS_WOOD.get())
+            .put(ModBlocks.BEASTBOSS_WOOD.get(), Blocks.OAK_WOOD)
+            .put(Blocks.STRIPPED_OAK_WOOD, Blocks.STRIPPED_SPRUCE_WOOD)
+            .put(Blocks.STRIPPED_SPRUCE_WOOD, Blocks.STRIPPED_BIRCH_WOOD)
+            .put(Blocks.STRIPPED_BIRCH_WOOD, Blocks.STRIPPED_JUNGLE_WOOD)
+            .put(Blocks.STRIPPED_JUNGLE_WOOD, Blocks.STRIPPED_ACACIA_WOOD)
+            .put(Blocks.STRIPPED_ACACIA_WOOD, Blocks.STRIPPED_DARK_OAK_WOOD)
+            .put(Blocks.STRIPPED_DARK_OAK_WOOD, Blocks.STRIPPED_CRIMSON_HYPHAE)
+            .put(Blocks.STRIPPED_CRIMSON_HYPHAE, Blocks.STRIPPED_WARPED_HYPHAE)
+            .put(Blocks.STRIPPED_WARPED_HYPHAE, ModBlocks.STRIPPED_BEASTBOSS_WOOD.get())
+            .put(ModBlocks.STRIPPED_BEASTBOSS_WOOD.get(), Blocks.STRIPPED_OAK_WOOD)
             .build();
 
     public WoodTypeChangerItem(Properties pProperties) {
@@ -98,7 +135,7 @@ public class WoodTypeChangerItem extends Item {
     }
 
     @Override
-    public InteractionResult useOn(UseOnContext pContext) {
+    public @NotNull InteractionResult useOn(UseOnContext pContext) {
         Player player = pContext.getPlayer();
         this.canShowCraftText = true;
         if (!pContext.getLevel().isClientSide()) {

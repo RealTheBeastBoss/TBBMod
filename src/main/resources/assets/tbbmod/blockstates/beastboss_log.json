@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "tbbmod:block/beastboss_log_horizontal",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "tbbmod:block/beastboss_log"
+    },
+    "axis=z": {
+      "model": "tbbmod:block/beastboss_log_horizontal",
+      "x": 90
+    }
+  }
+}

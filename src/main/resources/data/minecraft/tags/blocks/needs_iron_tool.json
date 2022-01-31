@@ -13,6 +13,10 @@
 		"tbbmod:beastboss_button",
 		"tbbmod:beastboss_pressure_plate",
 		"tbbmod:beastboss_door",
-		"tbbmod:beastboss_trapdoor"
+		"tbbmod:beastboss_trapdoor",
+		"tbbmod:beastboss_log",
+		"tbbmod:beastboss_wood",
+		"tbbmod:stripped_beastboss_log",
+		"tbbmod:stripped_beastboss_wood"
 	]
 }

@@ -1,9 +1,12 @@
 package com.tbb.tbbmod;
 
+import com.google.common.collect.ImmutableMap;
 import com.tbb.tbbmod.block.ModBlocks;
 import com.tbb.tbbmod.item.ModItems;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
+import net.minecraft.world.item.AxeItem;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -41,7 +44,11 @@ public class TBBMod
 
     private void setup(final FMLCommonSetupEvent event)
     {
-        LOGGER.info("HELLO FROM PREINIT");
-        LOGGER.info("DIRT BLOCK >> {}", Blocks.DIRT.getRegistryName());
+        event.enqueueWork(() -> {
+            AxeItem.STRIPPABLES = new ImmutableMap.Builder<Block, Block>().putAll(AxeItem.STRIPPABLES)
+                    .put(ModBlocks.BEASTBOSS_LOG.get(), ModBlocks.STRIPPED_BEASTBOSS_LOG.get())
+                    .put(ModBlocks.BEASTBOSS_WOOD.get(), ModBlocks.STRIPPED_BEASTBOSS_WOOD.get())
+                    .build();
+        });
     }
 }

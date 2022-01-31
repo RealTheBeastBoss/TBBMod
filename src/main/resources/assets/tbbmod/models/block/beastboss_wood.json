@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "tbbmod:block/beastboss_log",
+    "side": "tbbmod:block/beastboss_log"
+  }
+}
