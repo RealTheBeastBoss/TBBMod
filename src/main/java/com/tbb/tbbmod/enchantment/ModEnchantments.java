@@ -14,6 +14,7 @@ public class ModEnchantments {
 
     public static RegistryObject<Enchantment> BEASTBOSS_KICK = ENCHANTMENTS.register("beastboss_kick", () -> new BeastBossKickEnchantment(Enchantment.Rarity.UNCOMMON, EnchantmentCategory.ARMOR_FEET, EquipmentSlot.FEET));
     public static RegistryObject<Enchantment> MLG_BUCKET = ENCHANTMENTS.register("mlg_bucket", () -> new MLGBucketEnchantment(Enchantment.Rarity.UNCOMMON, EnchantmentCategory.ARMOR_FEET, EquipmentSlot.FEET));
+    public static RegistryObject<Enchantment> WITHER_HOE = ENCHANTMENTS.register("wither_hoe", () -> new WitherHoeEnchantment(Enchantment.Rarity.RARE, EnchantmentCategory.DIGGER, EquipmentSlot.MAINHAND));
 
     public static void register(IEventBus eventBus) {
         ENCHANTMENTS.register(eventBus);
