@@ -2,12 +2,12 @@ package com.tbb.tbbmod;
 
 import com.google.common.collect.ImmutableMap;
 import com.tbb.tbbmod.block.ModBlocks;
+import com.tbb.tbbmod.enchantment.ModEnchantments;
 import com.tbb.tbbmod.item.ModItems;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.world.item.AxeItem;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
@@ -30,6 +30,7 @@ public class TBBMod
         IEventBus eventBus = FMLJavaModLoadingContext.get().getModEventBus();
         ModItems.register(eventBus);
         ModBlocks.register(eventBus);
+        ModEnchantments.register(eventBus);
         eventBus.addListener(this::setup);
         eventBus.addListener(this::setupClient);
 

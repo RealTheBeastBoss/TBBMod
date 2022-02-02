@@ -2,8 +2,12 @@ package com.tbb.tbbmod.item.custom;
 
 import com.google.common.collect.ImmutableMap;
 import com.tbb.tbbmod.block.ModBlocks;
+import net.minecraft.ChatFormatting;
+import net.minecraft.commands.CommandFunction;
 import net.minecraft.core.BlockPos;
+import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.network.chat.TextComponent;
+import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
@@ -19,7 +23,7 @@ import org.jetbrains.annotations.NotNull;
 import java.util.Map;
 
 public class WoodTypeChangerItem extends TieredItem {
-    public boolean canShowCraftText = true;
+    public boolean canShowMessage = true;
     private static final Map<Block, Block> WOOD_CHANGER_MAP = new ImmutableMap.Builder<Block, Block>()
             .put(Blocks.OAK_PLANKS, Blocks.SPRUCE_PLANKS)
             .put(Blocks.SPRUCE_PLANKS, Blocks.BIRCH_PLANKS)
@@ -138,20 +142,32 @@ public class WoodTypeChangerItem extends TieredItem {
     @Override
     public @NotNull InteractionResult useOn(UseOnContext pContext) {
         Player player = pContext.getPlayer();
-        this.canShowCraftText = true;
         if (!pContext.getLevel().isClientSide()) {
             Level level = pContext.getLevel();
             BlockPos positionClicked = pContext.getClickedPos();
             Block blockClicked = level.getBlockState(positionClicked).getBlock();
             if (canChangeWood(blockClicked)) {
                 Block newBlock = WOOD_CHANGER_MAP.get(blockClicked);
+                canShowMessage = true;
                 level.destroyBlock(positionClicked, false);
                 BlockPlaceContext newContext = new BlockPlaceContext(pContext);
                 level.setBlock(positionClicked, newBlock.getStateForPlacement(newContext), 2);
-                player.sendMessage(new TextComponent(player.getDisplayName().getString() + " used the BeastBoss Wand"), player.getUUID());
+                MutableComponent mutableComponent = new TextComponent(player.getDisplayName().getString() + " ");
+                mutableComponent.append(new TranslatableComponent(this.getDescriptionId() + ".use_message"));
+                mutableComponent.append(new TranslatableComponent(blockClicked.getDescriptionId()));
+                mutableComponent.append(new TextComponent(" --> "));
+                mutableComponent.append(new TranslatableComponent(newBlock.getDescriptionId()));
+                mutableComponent.withStyle(ChatFormatting.DARK_AQUA);
+                player.sendMessage(mutableComponent, player.getUUID());
                 pContext.getItemInHand().hurtAndBreak(1, pContext.getPlayer(), (user) -> user.broadcastBreakEvent(user.getUsedItemHand()));
             } else {
-                player.sendMessage(new TextComponent(player.getDisplayName().getString() + ": This block is not changeable."), player.getUUID());
+                MutableComponent mutableComponent = new TextComponent(player.getDisplayName().getString() + ": ");
+                mutableComponent.append(new TranslatableComponent(blockClicked.getDescriptionId()));
+                mutableComponent.append(new TextComponent(" "));
+                mutableComponent.append(new TranslatableComponent(this.getDescriptionId() + ".fail_message"));
+                mutableComponent.withStyle(ChatFormatting.LIGHT_PURPLE);
+                mutableComponent.withStyle(ChatFormatting.UNDERLINE);
+                player.sendMessage(mutableComponent, player.getUUID());
             }
         }
         return super.useOn(pContext);
@@ -159,9 +175,13 @@ public class WoodTypeChangerItem extends TieredItem {
 
     @Override
     public void onCraftedBy(ItemStack pStack, Level pLevel, Player pPlayer) {
-        if (this.canShowCraftText) {
-            pPlayer.sendMessage(new TextComponent(pPlayer.getDisplayName().getString() + " has crafted a BeastBoss Wand, use this on a wood block to change its type."), pPlayer.getUUID());
-            this.canShowCraftText = false;
+        if (!pLevel.isClientSide() && canShowMessage) {
+            MutableComponent mutableComponent = new TextComponent(pPlayer.getDisplayName().getString() + " ");
+            mutableComponent.append(new TranslatableComponent(this.getDescriptionId() + ".craft_message"));
+            mutableComponent.withStyle(ChatFormatting.DARK_GREEN);
+            mutableComponent.withStyle(ChatFormatting.BOLD);
+            pPlayer.sendMessage(mutableComponent, pPlayer.getUUID());
+            canShowMessage = false;
         }
     }
 

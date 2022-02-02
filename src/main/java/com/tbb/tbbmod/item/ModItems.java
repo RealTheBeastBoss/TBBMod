@@ -1,7 +1,9 @@
 package com.tbb.tbbmod.item;
 
 import com.tbb.tbbmod.TBBMod;
+import com.tbb.tbbmod.item.custom.ModArmorItem;
 import com.tbb.tbbmod.item.custom.WoodTypeChangerItem;
+import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.*;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
@@ -19,6 +21,10 @@ public class ModItems {
     public static final RegistryObject<Item> BEASTBOSSANIUM_AXE = ITEMS.register("beastbossanium_axe", () -> new AxeItem(ModTiers.BEASTBOSSANIUM, 6, -2.9f, new Item.Properties().tab(ModCreativeModeTab.TBB_TAB)));
     public static final RegistryObject<Item> BEASTBOSSANIUM_SHOVEL = ITEMS.register("beastbossanium_shovel", () -> new ShovelItem(ModTiers.BEASTBOSSANIUM, 3, -3f, new Item.Properties().tab(ModCreativeModeTab.TBB_TAB)));
     public static final RegistryObject<Item> BEASTBOSSANIUM_HOE = ITEMS.register("beastbossanium_hoe", () -> new HoeItem(ModTiers.BEASTBOSSANIUM, 3, -2f, new Item.Properties().tab(ModCreativeModeTab.TBB_TAB)));
+    public static final RegistryObject<Item> BEASTBOSSANIUM_BOOTS = ITEMS.register("beastbossanium_boots", () -> new ModArmorItem(ModArmorMaterial.BEASTBOSSANIUM, EquipmentSlot.FEET, new Item.Properties().tab(ModCreativeModeTab.TBB_TAB)));
+    public static final RegistryObject<Item> BEASTBOSSANIUM_LEGGINGS = ITEMS.register("beastbossanium_leggings", () -> new ArmorItem(ModArmorMaterial.BEASTBOSSANIUM, EquipmentSlot.LEGS, new Item.Properties().tab(ModCreativeModeTab.TBB_TAB)));
+    public static final RegistryObject<Item> BEASTBOSSANIUM_CHESTPLATE = ITEMS.register("beastbossanium_chestplate", () -> new ArmorItem(ModArmorMaterial.BEASTBOSSANIUM, EquipmentSlot.CHEST, new Item.Properties().tab(ModCreativeModeTab.TBB_TAB)));
+    public static final RegistryObject<Item> BEASTBOSSANIUM_HELMET = ITEMS.register("beastbossanium_helmet", () -> new ArmorItem(ModArmorMaterial.BEASTBOSSANIUM, EquipmentSlot.HEAD, new Item.Properties().tab(ModCreativeModeTab.TBB_TAB)));
 
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);

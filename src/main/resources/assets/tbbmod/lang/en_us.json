@@ -24,5 +24,18 @@
   "item.tbbmod.beastbossanium_pickaxe": "BeastBossanium Pickaxe",
   "item.tbbmod.beastbossanium_axe": "BeastBossanium Axe",
   "item.tbbmod.beastbossanium_shovel": "BeastBossanium Shovel",
-  "item.tbbmod.beastbossanium_hoe": "BeastBossanium Hoe"
+  "item.tbbmod.beastbossanium_hoe": "BeastBossanium Hoe",
+  "item.tbbmod.beastbossanium_boots": "BeastBossanium Boots",
+  "item.tbbmod.beastbossanium_chestplate": "BeastBossanium Chestplate",
+  "item.tbbmod.beastbossanium_leggings": "BeastBossanium Leggings",
+  "item.tbbmod.beastbossanium_helmet": "BeastBossanium Helmet",
+  "enchantment.tbbmod.beastboss_kick": "BeastBoss Kick",
+  "enchantment.tbbmod.beastboss_kick.entity_null_message": "You cannot reach this enemy to kick them",
+  "enchantment.tbbmod.beastboss_kick.kick_message": "used BeastBoss Kick!",
+  "enchantment.tbbmod.mlg_bucket": "Auto MLG",
+  "enchantment.tbbmod.mlg_bucket.use_message": "used Auto MLG!",
+  "item.tbbmod.wood_changer.use_message": "casted spell: ",
+  "item.tbbmod.wood_changer.fail_message": "is not changeable",
+  "item.tbbmod.wood_changer.craft_message": "has crafted a BeastBoss Wand. It can change the wood type of a block, pretty cool!"
+
 }
