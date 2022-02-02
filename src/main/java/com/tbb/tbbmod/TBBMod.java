@@ -4,6 +4,7 @@ import com.google.common.collect.ImmutableMap;
 import com.tbb.tbbmod.block.ModBlocks;
 import com.tbb.tbbmod.enchantment.ModEnchantments;
 import com.tbb.tbbmod.item.ModItems;
+import com.tbb.tbbmod.world.gen.Ores;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.world.item.AxeItem;
@@ -50,6 +51,7 @@ public class TBBMod
                     .put(ModBlocks.BEASTBOSS_LOG.get(), ModBlocks.STRIPPED_BEASTBOSS_LOG.get())
                     .put(ModBlocks.BEASTBOSS_WOOD.get(), ModBlocks.STRIPPED_BEASTBOSS_WOOD.get())
                     .build();
+            Ores.registerConfiguredFeatures();
         });
     }
 }
