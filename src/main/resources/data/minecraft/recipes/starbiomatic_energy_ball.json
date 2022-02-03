@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "GGG",
+    "GBG",
+    "GRG"
+  ],
+  "key": {
+    "B": {
+      "item": "tbbmod:beastbossanium_ingot"
+    },
+    "G": {
+      "item": "minecraft:glass"
+    },
+    "R": {
+      "item": "minecraft:redstone_block"
+    }
+  },
+  "result": {
+    "item": "tbbmod:starbiomatic_energy_ball",
+    "count": 8
+  }
+}
