@@ -40,6 +40,10 @@
   "enchantment.tbbmod.wither_hoe": "Reaper",
   "item.tbbmod.beastboss_banana": "BeastBoss Banana",
   "item.tbbmod.beastbossanium_carrot": "BeastBossanium Carrot",
-  "item.tbbmod.starbiomatic_energy_ball": "Starbiomatic Energy Ball"
+  "item.tbbmod.starbiomatic_energy_ball": "Starbiomatic Energy Ball",
+  "tooltip.tbbmod.wood_changer.shift": "Use this on a wood type block and it will change. §o(Not doors or signs)",
+  "tooltip.tbbmod.wood_changer": "Press §eSHIFT§r for more information",
+  "block.tbbmod.beastboss_flower": "BeastBoss Flower",
+  "block.tbbmod.potted_beastboss_flower": "Potted BeastBoss Flower"
 
 }

@@ -6,6 +6,7 @@ import com.tbb.tbbmod.item.ModCreativeModeTab;
 import com.tbb.tbbmod.item.ModItems;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
@@ -57,6 +58,8 @@ public class ModBlocks {
     public static final RegistryObject<Block> BEASTBOSS_WOOD = registerBlock("beastboss_wood", () -> new ModFlammableRotatedPillarBlock(BlockBehaviour.Properties.of(Material.WOOD, MaterialColor.COLOR_BLUE).strength(4f).sound(SoundType.WOOD).requiresCorrectToolForDrops()), ModCreativeModeTab.TBB_TAB);
     public static final RegistryObject<Block> STRIPPED_BEASTBOSS_LOG = registerBlock("stripped_beastboss_log", () -> new ModFlammableRotatedPillarBlock(BlockBehaviour.Properties.of(Material.WOOD, MaterialColor.COLOR_BLUE).strength(4f).sound(SoundType.WOOD).requiresCorrectToolForDrops()), ModCreativeModeTab.TBB_TAB);
     public static final RegistryObject<Block> STRIPPED_BEASTBOSS_WOOD = registerBlock("stripped_beastboss_wood", () -> new ModFlammableRotatedPillarBlock(BlockBehaviour.Properties.of(Material.WOOD, MaterialColor.COLOR_BLUE).strength(4f).sound(SoundType.WOOD).requiresCorrectToolForDrops()), ModCreativeModeTab.TBB_TAB);
+    public static final RegistryObject<Block> BEASTBOSS_FLOWER = registerBlock("beastboss_flower", () -> new FlowerBlock(MobEffects.DIG_SPEED, 10, BlockBehaviour.Properties.copy(Blocks.CORNFLOWER)), ModCreativeModeTab.TBB_TAB);
+    public static final RegistryObject<Block> POTTED_BEASTBOSS_FLOWER = BLOCKS.register("potted_beastboss_flower", () -> new FlowerPotBlock(null, ModBlocks.BEASTBOSS_FLOWER, BlockBehaviour.Properties.copy(Blocks.POTTED_CORNFLOWER)));
 
     public static <T extends Block>RegistryObject<T> registerBlock(String name, Supplier<T> block, CreativeModeTab tab) {
         RegistryObject<T> toReturn = BLOCKS.register(name, block);
