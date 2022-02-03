@@ -1,0 +1,20 @@
+{
+  "wood_changer_fail": {
+    "subtitle": "tbbmod.wood_changer_fail",
+    "sounds": [
+      "tbbmod:wood_changer_fail"
+    ]
+  },
+  "wood_changer_success": {
+    "subtitle": "tbbmod.wood_changer_success",
+    "sounds": [
+      "tbbmod:wood_changer_success"
+    ]
+  },
+  "wood_changer_craft": {
+    "subtitle": "tbbmod.wood_changer_craft",
+    "sounds": [
+      "tbbmod:wood_changer_craft"
+    ]
+  }
+}

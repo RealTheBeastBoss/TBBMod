@@ -44,6 +44,8 @@
   "tooltip.tbbmod.wood_changer.shift": "Use this on a wood type block and it will change. §o(Not doors or signs)",
   "tooltip.tbbmod.wood_changer": "Press §eSHIFT§r for more information",
   "block.tbbmod.beastboss_flower": "BeastBoss Flower",
-  "block.tbbmod.potted_beastboss_flower": "Potted BeastBoss Flower"
-
+  "block.tbbmod.potted_beastboss_flower": "Potted BeastBoss Flower",
+  "tbbmod.wood_changer_fail": "BeastBoss Wand fails",
+  "tbbmod.wood_changer_success": "BeastBoss Wand casts spell",
+  "tbbmod.wood_changer_craft": "BeastBoss Wand gets crafted"
 }

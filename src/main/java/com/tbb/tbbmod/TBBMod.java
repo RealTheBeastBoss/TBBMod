@@ -4,6 +4,7 @@ import com.google.common.collect.ImmutableMap;
 import com.tbb.tbbmod.block.ModBlocks;
 import com.tbb.tbbmod.enchantment.ModEnchantments;
 import com.tbb.tbbmod.item.ModItems;
+import com.tbb.tbbmod.sounds.ModSounds;
 import com.tbb.tbbmod.world.gen.Ores;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
@@ -34,6 +35,7 @@ public class TBBMod
         ModItems.register(eventBus);
         ModBlocks.register(eventBus);
         ModEnchantments.register(eventBus);
+        ModSounds.register(eventBus);
         eventBus.addListener(this::setup);
         eventBus.addListener(this::setupClient);
 

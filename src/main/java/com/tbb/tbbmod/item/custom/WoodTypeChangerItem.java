@@ -2,14 +2,15 @@ package com.tbb.tbbmod.item.custom;
 
 import com.google.common.collect.ImmutableMap;
 import com.tbb.tbbmod.block.ModBlocks;
+import com.tbb.tbbmod.sounds.ModSounds;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.screens.Screen;
-import net.minecraft.commands.CommandFunction;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.network.chat.TextComponent;
 import net.minecraft.network.chat.TranslatableComponent;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
@@ -21,6 +22,7 @@ import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraftforge.fml.common.Mod;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -172,7 +174,12 @@ public class WoodTypeChangerItem extends TieredItem {
                 mutableComponent.append(new TranslatableComponent(this.getDescriptionId() + ".fail_message"));
                 mutableComponent.withStyle(ChatFormatting.LIGHT_PURPLE);
                 mutableComponent.withStyle(ChatFormatting.UNDERLINE);
-                player.sendMessage(mutableComponent, player.getUUID());
+            }
+        } else {
+            if (!canChangeWood(pContext.getLevel().getBlockState(pContext.getClickedPos()).getBlock())) {
+                pContext.getLevel().playSound(player, pContext.getClickedPos(), ModSounds.WOOD_CHANGER_FAIL.get(), SoundSource.BLOCKS, 1f,1f);
+            } else {
+                pContext.getLevel().playSound(player, pContext.getClickedPos(), ModSounds.WOOD_CHANGER_SUCCESS.get(), SoundSource.BLOCKS, 0.5f,1f);
             }
         }
         return super.useOn(pContext);
@@ -180,12 +187,13 @@ public class WoodTypeChangerItem extends TieredItem {
 
     @Override
     public void onCraftedBy(ItemStack pStack, Level pLevel, Player pPlayer) {
-        if (!pLevel.isClientSide() && canShowMessage) {
+        if (canShowMessage) {
             MutableComponent mutableComponent = new TextComponent(pPlayer.getDisplayName().getString() + " ");
             mutableComponent.append(new TranslatableComponent(this.getDescriptionId() + ".craft_message"));
             mutableComponent.withStyle(ChatFormatting.DARK_GREEN);
             mutableComponent.withStyle(ChatFormatting.BOLD);
             pPlayer.sendMessage(mutableComponent, pPlayer.getUUID());
+            pLevel.playSound(pPlayer, pPlayer.blockPosition(), ModSounds.WOOD_CHANGER_CRAFT.get(), SoundSource.BLOCKS, 1f,1f);
             canShowMessage = false;
         }
     }

@@ -3,7 +3,7 @@
   "group": "planks",
   "ingredients": [
     {
-      "tag": "minecraft:blocks/beastboss_logs"
+      "tag": "tbbmod:blocks/beastboss_logs"
     }
   ],
   "result": {
