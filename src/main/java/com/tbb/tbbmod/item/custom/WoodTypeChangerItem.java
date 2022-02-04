@@ -22,7 +22,6 @@ import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraftforge.fml.common.Mod;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -167,6 +166,7 @@ public class WoodTypeChangerItem extends TieredItem {
                 mutableComponent.withStyle(ChatFormatting.DARK_AQUA);
                 player.sendMessage(mutableComponent, player.getUUID());
                 pContext.getItemInHand().hurtAndBreak(1, pContext.getPlayer(), (user) -> user.broadcastBreakEvent(user.getUsedItemHand()));
+                level.playSound(player, positionClicked, ModSounds.WOOD_CHANGER_SUCCESS.get(), SoundSource.BLOCKS, 1f, 1f);
             } else {
                 MutableComponent mutableComponent = new TextComponent(player.getDisplayName().getString() + ": ");
                 mutableComponent.append(new TranslatableComponent(blockClicked.getDescriptionId()));
@@ -174,10 +174,11 @@ public class WoodTypeChangerItem extends TieredItem {
                 mutableComponent.append(new TranslatableComponent(this.getDescriptionId() + ".fail_message"));
                 mutableComponent.withStyle(ChatFormatting.LIGHT_PURPLE);
                 mutableComponent.withStyle(ChatFormatting.UNDERLINE);
+                level.playSound(player, positionClicked, ModSounds.WOOD_CHANGER_FAIL.get(), SoundSource.BLOCKS, 1f, 1f);
             }
         } else {
             if (!canChangeWood(pContext.getLevel().getBlockState(pContext.getClickedPos()).getBlock())) {
-                pContext.getLevel().playSound(player, pContext.getClickedPos(), ModSounds.WOOD_CHANGER_FAIL.get(), SoundSource.BLOCKS, 1f,1f);
+                pContext.getLevel().playSound(player, pContext.getClickedPos(), ModSounds.WOOD_CHANGER_FAIL.get(), SoundSource.BLOCKS, 0.5f,1f);
             } else {
                 pContext.getLevel().playSound(player, pContext.getClickedPos(), ModSounds.WOOD_CHANGER_SUCCESS.get(), SoundSource.BLOCKS, 0.5f,1f);
             }
@@ -203,7 +204,7 @@ public class WoodTypeChangerItem extends TieredItem {
         if (Screen.hasShiftDown()) {
             pTooltipComponents.add(new TranslatableComponent("tooltip.tbbmod.wood_changer.shift"));
         } else {
-            pTooltipComponents.add(new TranslatableComponent("tooltip.tbbmod.wood_changer"));
+            pTooltipComponents.add(new TranslatableComponent("tooltip.tbbmod.not_shift"));
         }
     }
 

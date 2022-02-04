@@ -1,15 +1,19 @@
 package com.tbb.tbbmod.enchantment;
 
+import com.tbb.tbbmod.sounds.ModSounds;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.network.chat.TextComponent;
 import net.minecraft.network.chat.TranslatableComponent;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.EnchantmentCategory;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.item.enchantment.Enchantments;
+import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.event.entity.living.LivingDamageEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -20,6 +24,20 @@ public class MLGBucketEnchantment extends Enchantment {
 
     protected MLGBucketEnchantment(Rarity pRarity, EnchantmentCategory pCategory, EquipmentSlot... pApplicableSlots) {
         super(pRarity, pCategory, pApplicableSlots);
+    }
+
+    public static boolean mlgLand = false;
+
+    @SubscribeEvent
+    public static void onTick(TickEvent.PlayerTickEvent event) {
+        if (event.phase == TickEvent.Phase.END || !event.player.level.isClientSide()) return;
+
+        int level = EnchantmentHelper.getEnchantmentLevel(ModEnchantments.MLG_BUCKET.get(), event.player);
+
+        if (level > 0 && mlgLand) {
+            event.player.getLevel().playSound(event.player, event.player.blockPosition(), SoundEvents.AMBIENT_UNDERWATER_ENTER, SoundSource.BLOCKS, 1f, 1f);
+            mlgLand = false;
+        }
     }
 
     @SubscribeEvent
@@ -57,6 +75,8 @@ public class MLGBucketEnchantment extends Enchantment {
                             mutableComponent.append(new TranslatableComponent("enchantment.tbbmod.mlg_bucket.use_message"));
                             mutableComponent.withStyle(ChatFormatting.AQUA);
                             player.sendMessage(mutableComponent, player.getUUID());
+                            player.getLevel().playSound(player, player.blockPosition(), SoundEvents.AMBIENT_UNDERWATER_ENTER, SoundSource.BLOCKS, 1f, 1f);
+                            mlgLand = true;
                         }
                     }
                 }

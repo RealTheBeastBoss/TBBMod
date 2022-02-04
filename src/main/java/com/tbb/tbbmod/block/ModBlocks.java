@@ -4,6 +4,7 @@ import com.tbb.tbbmod.TBBMod;
 import com.tbb.tbbmod.block.custom.ModFlammableRotatedPillarBlock;
 import com.tbb.tbbmod.item.ModCreativeModeTab;
 import com.tbb.tbbmod.item.ModItems;
+import com.tbb.tbbmod.world.feature.tree.BeastBossTreeGrower;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.effect.MobEffects;
@@ -60,6 +61,24 @@ public class ModBlocks {
     public static final RegistryObject<Block> STRIPPED_BEASTBOSS_WOOD = registerBlock("stripped_beastboss_wood", () -> new ModFlammableRotatedPillarBlock(BlockBehaviour.Properties.of(Material.WOOD, MaterialColor.COLOR_BLUE).strength(4f).sound(SoundType.WOOD).requiresCorrectToolForDrops()), ModCreativeModeTab.TBB_TAB);
     public static final RegistryObject<Block> BEASTBOSS_FLOWER = registerBlock("beastboss_flower", () -> new FlowerBlock(MobEffects.DIG_SPEED, 10, BlockBehaviour.Properties.copy(Blocks.CORNFLOWER)), ModCreativeModeTab.TBB_TAB);
     public static final RegistryObject<Block> POTTED_BEASTBOSS_FLOWER = BLOCKS.register("potted_beastboss_flower", () -> new FlowerPotBlock(null, ModBlocks.BEASTBOSS_FLOWER, BlockBehaviour.Properties.copy(Blocks.POTTED_CORNFLOWER)));
+    public static final RegistryObject<Block> POTTED_BEASTBOSS_SAPLING = BLOCKS.register("potted_beastboss_sapling", () -> new FlowerPotBlock(null, ModBlocks.BEASTBOSS_SAPLING, BlockBehaviour.Properties.copy(Blocks.POTTED_BIRCH_SAPLING)));
+    public static final RegistryObject<Block> BEASTBOSS_LEAVES = registerBlock("beastboss_leaves", () -> new LeavesBlock(BlockBehaviour.Properties.copy(Blocks.BIRCH_LEAVES).color(MaterialColor.COLOR_BLUE).requiresCorrectToolForDrops().strength(0.4f)){
+        @Override
+        public boolean isFlammable(BlockState state, BlockGetter world, BlockPos pos, Direction face) {
+            return true;
+        }
+
+        @Override
+        public int getFlammability(BlockState state, BlockGetter world, BlockPos pos, Direction face) {
+            return 60;
+        }
+
+        @Override
+        public int getFireSpreadSpeed(BlockState state, BlockGetter world, BlockPos pos, Direction face) {
+            return 30;
+        }
+    }, ModCreativeModeTab.TBB_TAB);
+    public static final RegistryObject<Block> BEASTBOSS_SAPLING = registerBlock("beastboss_sapling", () -> new SaplingBlock(new BeastBossTreeGrower(), BlockBehaviour.Properties.copy(Blocks.BIRCH_SAPLING)), ModCreativeModeTab.TBB_TAB);
 
     public static <T extends Block>RegistryObject<T> registerBlock(String name, Supplier<T> block, CreativeModeTab tab) {
         RegistryObject<T> toReturn = BLOCKS.register(name, block);

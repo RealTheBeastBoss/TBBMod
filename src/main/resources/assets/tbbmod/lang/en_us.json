@@ -30,7 +30,6 @@
   "item.tbbmod.beastbossanium_leggings": "BeastBossanium Leggings",
   "item.tbbmod.beastbossanium_helmet": "BeastBossanium Helmet",
   "enchantment.tbbmod.beastboss_kick": "BeastBoss Kick",
-  "enchantment.tbbmod.beastboss_kick.entity_null_message": "You cannot reach this enemy to kick them",
   "enchantment.tbbmod.beastboss_kick.kick_message": "used BeastBoss Kick!",
   "enchantment.tbbmod.mlg_bucket": "Auto MLG",
   "enchantment.tbbmod.mlg_bucket.use_message": "used Auto MLG!",
@@ -42,10 +41,15 @@
   "item.tbbmod.beastbossanium_carrot": "BeastBossanium Carrot",
   "item.tbbmod.starbiomatic_energy_ball": "Starbiomatic Energy Ball",
   "tooltip.tbbmod.wood_changer.shift": "Use this on a wood type block and it will change. §o(Not doors or signs)",
-  "tooltip.tbbmod.wood_changer": "Press §eSHIFT§r for more information",
+  "tooltip.tbbmod.not_shift": "Press §eSHIFT§r for more information",
   "block.tbbmod.beastboss_flower": "BeastBoss Flower",
   "block.tbbmod.potted_beastboss_flower": "Potted BeastBoss Flower",
+  "block.tbbmod.potted_beastboss_sapling": "Potted BeastBoss Sapling",
   "tbbmod.wood_changer_fail": "BeastBoss Wand fails",
   "tbbmod.wood_changer_success": "BeastBoss Wand casts spell",
-  "tbbmod.wood_changer_craft": "BeastBoss Wand gets crafted"
+  "tbbmod.wood_changer_craft": "BeastBoss Wand gets crafted",
+  "tbbmod.beastboss_kick_launch": "BeastBoss Kick gets performed",
+  "tbbmod.wither_hoe_strike": "The Reaper strikes",
+  "block.tbbmod.beastboss_leaves": "BeastBoss Leaves",
+  "block.tbbmod.beastboss_sapling": "BeastBoss Sapling"
 }

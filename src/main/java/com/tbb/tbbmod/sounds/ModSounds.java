@@ -16,6 +16,8 @@ public class ModSounds {
     public static RegistryObject<SoundEvent> WOOD_CHANGER_FAIL = registerSoundEvents("wood_changer_fail");
     public static RegistryObject<SoundEvent> WOOD_CHANGER_SUCCESS = registerSoundEvents("wood_changer_success");
     public static RegistryObject<SoundEvent> WOOD_CHANGER_CRAFT = registerSoundEvents("wood_changer_craft");
+    public static RegistryObject<SoundEvent> BEASTBOSS_KICK_LAUNCH = registerSoundEvents("beastboss_kick_launch");
+    public static RegistryObject<SoundEvent> WITHER_HOE_STRIKE = registerSoundEvents("wither_hoe_strike");
 
     private static RegistryObject<SoundEvent> registerSoundEvents(String name) {
         ResourceLocation id = new ResourceLocation(TBBMod.MOD_ID, name);

@@ -45,9 +45,12 @@ public class TBBMod
 
     private void setupClient(final FMLClientSetupEvent event) {
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.BEASTBOSS_DOOR.get(), RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(ModBlocks.BEASTBOSS_LEAVES.get(), RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(ModBlocks.BEASTBOSS_SAPLING.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.BEASTBOSS_TRAPDOOR.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.BEASTBOSS_FLOWER.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.POTTED_BEASTBOSS_FLOWER.get(), RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(ModBlocks.POTTED_BEASTBOSS_SAPLING.get(), RenderType.cutout());
     }
 
     private void setup(final FMLCommonSetupEvent event)
@@ -59,6 +62,7 @@ public class TBBMod
                     .build();
             Ores.registerConfiguredFeatures();
             ((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(ModBlocks.BEASTBOSS_FLOWER.getId(), ModBlocks.POTTED_BEASTBOSS_FLOWER);
+            ((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(ModBlocks.BEASTBOSS_SAPLING.getId(), ModBlocks.POTTED_BEASTBOSS_SAPLING);
         });
     }
 }

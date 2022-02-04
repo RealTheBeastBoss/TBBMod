@@ -1,0 +1,6 @@
+{
+	"parent": "minecraft:block/cross",
+	"textures": {
+		"cross": "tbbmod:block/beastboss_sapling"
+	}
+}

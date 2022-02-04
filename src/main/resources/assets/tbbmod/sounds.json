@@ -16,5 +16,17 @@
     "sounds": [
       "tbbmod:wood_changer_craft"
     ]
+  },
+  "beastboss_kick_launch": {
+    "subtitle": "tbbmod.beastboss_kick_launch",
+    "sounds": [
+      "tbbmod:beastboss_kick_launch"
+    ]
+  },
+  "wither_hoe_strike": {
+    "subtitle": "tbbmod.wither_hoe_strike",
+    "sounds": [
+      "tbbmod:wither_hoe_strike"
+    ]
   }
 }
