@@ -11,12 +11,16 @@ import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.network.chat.TextComponent;
 import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.ambient.Bat;
+import net.minecraft.world.entity.animal.Cow;
+import net.minecraft.world.entity.animal.Pig;
+import net.minecraft.world.entity.animal.Sheep;
+import net.minecraft.world.entity.animal.axolotl.Axolotl;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Tier;
-import net.minecraft.world.item.TieredItem;
-import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.item.*;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
@@ -27,6 +31,7 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 
 public class WoodTypeChangerItem extends TieredItem {
     public boolean canShowMessage = true;
@@ -166,7 +171,7 @@ public class WoodTypeChangerItem extends TieredItem {
                 mutableComponent.withStyle(ChatFormatting.DARK_AQUA);
                 player.sendMessage(mutableComponent, player.getUUID());
                 pContext.getItemInHand().hurtAndBreak(1, pContext.getPlayer(), (user) -> user.broadcastBreakEvent(user.getUsedItemHand()));
-                level.playSound(player, positionClicked, ModSounds.WOOD_CHANGER_SUCCESS.get(), SoundSource.BLOCKS, 1f, 1f);
+                level.playSound(player, positionClicked, ModSounds.WOOD_CHANGER_SUCCESS.get(), SoundSource.BLOCKS, 0.5f, 1f);
             } else {
                 MutableComponent mutableComponent = new TextComponent(player.getDisplayName().getString() + ": ");
                 mutableComponent.append(new TranslatableComponent(blockClicked.getDescriptionId()));
@@ -174,16 +179,236 @@ public class WoodTypeChangerItem extends TieredItem {
                 mutableComponent.append(new TranslatableComponent(this.getDescriptionId() + ".fail_message"));
                 mutableComponent.withStyle(ChatFormatting.LIGHT_PURPLE);
                 mutableComponent.withStyle(ChatFormatting.UNDERLINE);
-                level.playSound(player, positionClicked, ModSounds.WOOD_CHANGER_FAIL.get(), SoundSource.BLOCKS, 1f, 1f);
+                player.sendMessage(mutableComponent, player.getUUID());
+                level.playSound(player, positionClicked, ModSounds.WOOD_CHANGER_FAIL.get(), SoundSource.BLOCKS, 0.25f, 1f);
             }
         } else {
             if (!canChangeWood(pContext.getLevel().getBlockState(pContext.getClickedPos()).getBlock())) {
-                pContext.getLevel().playSound(player, pContext.getClickedPos(), ModSounds.WOOD_CHANGER_FAIL.get(), SoundSource.BLOCKS, 0.5f,1f);
+                pContext.getLevel().playSound(player, pContext.getClickedPos(), ModSounds.WOOD_CHANGER_FAIL.get(), SoundSource.BLOCKS, 0.25f,1f);
             } else {
                 pContext.getLevel().playSound(player, pContext.getClickedPos(), ModSounds.WOOD_CHANGER_SUCCESS.get(), SoundSource.BLOCKS, 0.5f,1f);
             }
         }
         return super.useOn(pContext);
+    }
+
+    @Override
+    public InteractionResult interactLivingEntity(ItemStack pStack, Player pPlayer, LivingEntity pInteractionTarget, InteractionHand pUsedHand) {
+        if (!pPlayer.getLevel().isClientSide()) {
+            if (pInteractionTarget instanceof Cow) {
+                Cow cow = ((Cow) pInteractionTarget);
+                if (!cow.isInvulnerable()) {
+                    cow.setInvulnerable(true);
+                    pPlayer.getItemInHand(pUsedHand).hurtAndBreak(1, pPlayer, (user) -> user.broadcastBreakEvent(user.getUsedItemHand()));
+                    pPlayer.getLevel().playSound(pPlayer, pPlayer.blockPosition(), ModSounds.WOOD_CHANGER_SUCCESS.get(), SoundSource.NEUTRAL, 0.5f, 1f);
+                    MutableComponent mutableComponent = new TextComponent(pPlayer.getDisplayName().getString() + " ");
+                    mutableComponent.append(new TranslatableComponent(this.getDescriptionId() + ".use_message"));
+                    mutableComponent.append(new TextComponent("Cow --> Unkillable"));
+                    mutableComponent.withStyle(ChatFormatting.DARK_AQUA);
+                    pPlayer.sendMessage(mutableComponent, pPlayer.getUUID());
+                } else {
+                    cow.setInvulnerable(false);
+                    pPlayer.getItemInHand(pUsedHand).hurtAndBreak(1, pPlayer, (user) -> user.broadcastBreakEvent(user.getUsedItemHand()));
+                    pPlayer.getLevel().playSound(pPlayer, pPlayer.blockPosition(), ModSounds.WOOD_CHANGER_SUCCESS.get(), SoundSource.NEUTRAL, 0.5f, 1f);
+                    MutableComponent mutableComponent = new TextComponent(pPlayer.getDisplayName().getString() + " ");
+                    mutableComponent.append(new TranslatableComponent(this.getDescriptionId() + ".use_message"));
+                    mutableComponent.append(new TextComponent("Cow --> Killable"));
+                    mutableComponent.withStyle(ChatFormatting.DARK_AQUA);
+                    pPlayer.sendMessage(mutableComponent, pPlayer.getUUID());
+                }
+            } else if (pInteractionTarget instanceof Pig) {
+                Pig pig = ((Pig) pInteractionTarget);
+                if (!pig.isNoGravity()) {
+                    pig.setNoGravity(true);
+                    pPlayer.getItemInHand(pUsedHand).hurtAndBreak(1, pPlayer, (user) -> user.broadcastBreakEvent(user.getUsedItemHand()));
+                    pPlayer.getLevel().playSound(pPlayer, pPlayer.blockPosition(), ModSounds.WOOD_CHANGER_SUCCESS.get(), SoundSource.NEUTRAL, 0.5f, 1f);
+                    MutableComponent mutableComponent = new TextComponent(pPlayer.getDisplayName().getString() + " ");
+                    mutableComponent.append(new TranslatableComponent(this.getDescriptionId() + ".use_message"));
+                    mutableComponent.append(new TextComponent("Pig --> No Gravity"));
+                    mutableComponent.withStyle(ChatFormatting.DARK_AQUA);
+                    pPlayer.sendMessage(mutableComponent, pPlayer.getUUID());
+                } else {
+                    pig.setNoGravity(false);
+                    pPlayer.getItemInHand(pUsedHand).hurtAndBreak(1, pPlayer, (user) -> user.broadcastBreakEvent(user.getUsedItemHand()));
+                    pPlayer.getLevel().playSound(pPlayer, pPlayer.blockPosition(), ModSounds.WOOD_CHANGER_SUCCESS.get(), SoundSource.NEUTRAL, 0.5f, 1f);
+                    MutableComponent mutableComponent = new TextComponent(pPlayer.getDisplayName().getString() + " ");
+                    mutableComponent.append(new TranslatableComponent(this.getDescriptionId() + ".use_message"));
+                    mutableComponent.append(new TextComponent("Pig --> Has Gravity"));
+                    mutableComponent.withStyle(ChatFormatting.DARK_AQUA);
+                    pPlayer.sendMessage(mutableComponent, pPlayer.getUUID());
+                }
+            } else if (pInteractionTarget instanceof Sheep) {
+                Sheep sheep = ((Sheep) pInteractionTarget);
+                sheep.setColor(getDye());
+                pPlayer.getItemInHand(pUsedHand).hurtAndBreak(1, pPlayer, (user) -> user.broadcastBreakEvent(user.getUsedItemHand()));
+                pPlayer.getLevel().playSound(pPlayer, pPlayer.blockPosition(), ModSounds.WOOD_CHANGER_SUCCESS.get(), SoundSource.NEUTRAL, 0.5f, 1f);
+                MutableComponent mutableComponent = new TextComponent(pPlayer.getDisplayName().getString() + " ");
+                mutableComponent.append(new TranslatableComponent(this.getDescriptionId() + ".use_message"));
+                mutableComponent.append(new TextComponent("Sheep --> " + getColorString(sheep.getColor()) + " Wool"));
+                mutableComponent.withStyle(ChatFormatting.DARK_AQUA);
+                pPlayer.sendMessage(mutableComponent, pPlayer.getUUID());
+            } else if (pInteractionTarget instanceof Axolotl) {
+                Axolotl axolotl = ((Axolotl) pInteractionTarget);
+                if (!axolotl.isNoAi()) {
+                    axolotl.setNoAi(true);
+                    pPlayer.getItemInHand(pUsedHand).hurtAndBreak(1, pPlayer, (user) -> user.broadcastBreakEvent(user.getUsedItemHand()));
+                    pPlayer.getLevel().playSound(pPlayer, pPlayer.blockPosition(), ModSounds.WOOD_CHANGER_SUCCESS.get(), SoundSource.NEUTRAL, 0.5f, 1f);
+                    MutableComponent mutableComponent = new TextComponent(pPlayer.getDisplayName().getString() + " ");
+                    mutableComponent.append(new TranslatableComponent(this.getDescriptionId() + ".use_message"));
+                    mutableComponent.append(new TextComponent("Axolotl --> No AI"));
+                    mutableComponent.withStyle(ChatFormatting.DARK_AQUA);
+                    pPlayer.sendMessage(mutableComponent, pPlayer.getUUID());
+                } else {
+                    axolotl.setNoAi(false);
+                    pPlayer.getItemInHand(pUsedHand).hurtAndBreak(1, pPlayer, (user) -> user.broadcastBreakEvent(user.getUsedItemHand()));
+                    pPlayer.getLevel().playSound(pPlayer, pPlayer.blockPosition(), ModSounds.WOOD_CHANGER_SUCCESS.get(), SoundSource.NEUTRAL, 0.5f, 1f);
+                    MutableComponent mutableComponent = new TextComponent(pPlayer.getDisplayName().getString() + " ");
+                    mutableComponent.append(new TranslatableComponent(this.getDescriptionId() + ".use_message"));
+                    mutableComponent.append(new TextComponent("Axolotl --> Has AI"));
+                    mutableComponent.withStyle(ChatFormatting.DARK_AQUA);
+                    pPlayer.sendMessage(mutableComponent, pPlayer.getUUID());
+                }
+            } else if (pInteractionTarget instanceof Bat) {
+                if (pInteractionTarget.getAbsorptionAmount() <= 0f) {
+                    pInteractionTarget.setAbsorptionAmount(34f);
+                    pPlayer.getItemInHand(pUsedHand).hurtAndBreak(1, pPlayer, (user) -> user.broadcastBreakEvent(user.getUsedItemHand()));
+                    pPlayer.getLevel().playSound(pPlayer, pPlayer.blockPosition(), ModSounds.WOOD_CHANGER_SUCCESS.get(), SoundSource.NEUTRAL, 0.5f, 1f);
+                    MutableComponent mutableComponent = new TextComponent(pPlayer.getDisplayName().getString() + " ");
+                    mutableComponent.append(new TranslatableComponent(this.getDescriptionId() + ".use_message"));
+                    mutableComponent.append(new TextComponent("Bat --> 40HP"));
+                    mutableComponent.withStyle(ChatFormatting.DARK_AQUA);
+                    pPlayer.sendMessage(mutableComponent, pPlayer.getUUID());
+                } else {
+                    pInteractionTarget.setAbsorptionAmount(0f);
+                    pPlayer.getItemInHand(pUsedHand).hurtAndBreak(1, pPlayer, (user) -> user.broadcastBreakEvent(user.getUsedItemHand()));
+                    pPlayer.getLevel().playSound(pPlayer, pPlayer.blockPosition(), ModSounds.WOOD_CHANGER_SUCCESS.get(), SoundSource.NEUTRAL, 0.5f, 1f);
+                    MutableComponent mutableComponent = new TextComponent(pPlayer.getDisplayName().getString() + " ");
+                    mutableComponent.append(new TranslatableComponent(this.getDescriptionId() + ".use_message"));
+                    mutableComponent.append(new TextComponent("Bat --> 6HP"));
+                    mutableComponent.withStyle(ChatFormatting.DARK_AQUA);
+                    pPlayer.sendMessage(mutableComponent, pPlayer.getUUID());
+                }
+            }
+        } else {
+            if (pInteractionTarget instanceof Cow ||
+                    pInteractionTarget instanceof Pig ||
+                    pInteractionTarget instanceof Sheep ||
+                    pInteractionTarget instanceof Axolotl ||
+                    pInteractionTarget instanceof Bat) {
+                pPlayer.getLevel().playSound(pPlayer, pPlayer.blockPosition(), ModSounds.WOOD_CHANGER_SUCCESS.get(), SoundSource.NEUTRAL, 0.5f, 1f);
+            } else {
+                pPlayer.getLevel().playSound(pPlayer, pPlayer.blockPosition(), ModSounds.WOOD_CHANGER_FAIL.get(), SoundSource.NEUTRAL, 0.25f, 1f);
+            }
+        }
+        return super.interactLivingEntity(pStack, pPlayer, pInteractionTarget, pUsedHand);
+    }
+
+    public String getColorString(DyeColor dyeColor) {
+        String color = "White";
+        switch (dyeColor) {
+            case WHITE:
+                break;
+            case ORANGE:
+                color = "Orange";
+                break;
+            case LIGHT_BLUE:
+                color = "Light Blue";
+                break;
+            case MAGENTA:
+                color = "Magenta";
+                break;
+            case YELLOW:
+                color = "Yellow";
+                break;
+            case LIME:
+                color = "Lime";
+                break;
+            case PINK:
+                color = "Pink";
+                break;
+            case GRAY:
+                color = "Gray";
+                break;
+            case LIGHT_GRAY:
+                color = "Light Gray";
+                break;
+            case CYAN:
+                color = "Cyan";
+                break;
+            case PURPLE:
+                color = "Purple";
+                break;
+            case BLUE:
+                color = "Blue";
+                break;
+            case BROWN:
+                color = "Brown";
+                break;
+            case BLACK:
+                color = "Black";
+                break;
+            case GREEN:
+                color = "Green";
+                break;
+            case RED:
+                color = "Red";
+                break;
+        }
+        return color;
+    }
+
+    public DyeColor getDye() {
+        DyeColor color = DyeColor.WHITE;
+        switch (new Random().nextInt(1, 17)) {
+            case 1:
+                break;
+            case 2:
+                color = DyeColor.ORANGE;
+                break;
+            case 3:
+                color = DyeColor.LIGHT_BLUE;
+                break;
+            case 4:
+                color = DyeColor.YELLOW;
+                break;
+            case 5:
+                color = DyeColor.LIME;
+                break;
+            case 6:
+                color = DyeColor.PINK;
+                break;
+            case 7:
+                color = DyeColor.GRAY;
+                break;
+            case 8:
+                color = DyeColor.LIGHT_GRAY;
+                break;
+            case 9:
+                color = DyeColor.CYAN;
+                break;
+            case 10:
+                color = DyeColor.PURPLE;
+                break;
+            case 11:
+                color = DyeColor.BLUE;
+                break;
+            case 12:
+                color = DyeColor.BROWN;
+                break;
+            case 13:
+                color = DyeColor.GREEN;
+                break;
+            case 14:
+                color = DyeColor.RED;
+                break;
+            case 15:
+                color = DyeColor.BLACK;
+                break;
+            case 16:
+                color = DyeColor.MAGENTA;
+                break;
+        }
+        return color;
     }
 
     @Override
