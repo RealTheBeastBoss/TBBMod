@@ -1,6 +1,7 @@
 package com.tbb.tbbmod.item;
 
 import com.tbb.tbbmod.TBBMod;
+import com.tbb.tbbmod.block.ModBlocks;
 import com.tbb.tbbmod.item.custom.ModArmorItem;
 import com.tbb.tbbmod.item.custom.ModFoods;
 import com.tbb.tbbmod.item.custom.StarbiomaticEnergyBallItem;
@@ -30,6 +31,9 @@ public class ModItems {
     public static final RegistryObject<Item> BEASTBOSS_BANANA = ITEMS.register("beastboss_banana", () -> new Item(new Item.Properties().tab(ModCreativeModeTab.TBB_TAB).food(ModFoods.BEASTBOSS_BANANA)));
     public static final RegistryObject<Item> BEASTBOSSANIUM_CARROT = ITEMS.register("beastbossanium_carrot", () -> new Item(new Item.Properties().tab(ModCreativeModeTab.TBB_TAB).food(ModFoods.BEASTBOSSANIUM_CARROT)));
     public static final RegistryObject<Item> STARBIOMATIC_ENERGY_BALL = ITEMS.register("starbiomatic_energy_ball", () -> new StarbiomaticEnergyBallItem(new Item.Properties().tab(ModCreativeModeTab.TBB_TAB)));
+    public static final RegistryObject<Item> BEASTBOSS_SIGN_ITEM = ITEMS.register("beastboss_sign",
+            () -> new SignItem(new Item.Properties().tab(ModCreativeModeTab.TBB_TAB).stacksTo(16),
+                    ModBlocks.BEASTBOSS_SIGN.get(), ModBlocks.BEASTBOSS_WALL_SIGN.get()));
 
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);

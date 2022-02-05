@@ -2,16 +2,23 @@ package com.tbb.tbbmod;
 
 import com.google.common.collect.ImmutableMap;
 import com.tbb.tbbmod.block.ModBlocks;
+import com.tbb.tbbmod.block.custom.ModWoodTypes;
+import com.tbb.tbbmod.block.entity.ModBlockEntities;
 import com.tbb.tbbmod.enchantment.ModEnchantments;
 import com.tbb.tbbmod.item.ModItems;
 import com.tbb.tbbmod.sounds.ModSounds;
 import com.tbb.tbbmod.world.gen.Ores;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
+import net.minecraft.client.renderer.Sheets;
+import net.minecraft.client.renderer.blockentity.BlockEntityRenderer;
+import net.minecraft.client.renderer.blockentity.BlockEntityRenderers;
+import net.minecraft.client.renderer.blockentity.SignRenderer;
 import net.minecraft.world.item.AxeItem;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.FlowerPotBlock;
+import net.minecraft.world.level.block.state.properties.WoodType;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
@@ -36,6 +43,7 @@ public class TBBMod
         ModBlocks.register(eventBus);
         ModEnchantments.register(eventBus);
         ModSounds.register(eventBus);
+        ModBlockEntities.register(eventBus);
         eventBus.addListener(this::setup);
         eventBus.addListener(this::setupClient);
 
@@ -51,6 +59,7 @@ public class TBBMod
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.BEASTBOSS_FLOWER.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.POTTED_BEASTBOSS_FLOWER.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.POTTED_BEASTBOSS_SAPLING.get(), RenderType.cutout());
+        WoodType.register(ModWoodTypes.BEASTBOSS);
     }
 
     private void setup(final FMLCommonSetupEvent event)
@@ -63,6 +72,8 @@ public class TBBMod
             Ores.registerConfiguredFeatures();
             ((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(ModBlocks.BEASTBOSS_FLOWER.getId(), ModBlocks.POTTED_BEASTBOSS_FLOWER);
             ((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(ModBlocks.BEASTBOSS_SAPLING.getId(), ModBlocks.POTTED_BEASTBOSS_SAPLING);
+            BlockEntityRenderers.register(ModBlockEntities.SIGN_BLOCK_ENTITIES.get(), SignRenderer :: new);
+            Sheets.addWoodType(ModWoodTypes.BEASTBOSS);
         });
     }
 }

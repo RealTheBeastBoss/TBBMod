@@ -2,6 +2,9 @@ package com.tbb.tbbmod.block;
 
 import com.tbb.tbbmod.TBBMod;
 import com.tbb.tbbmod.block.custom.ModFlammableRotatedPillarBlock;
+import com.tbb.tbbmod.block.custom.ModStandingSignBlock;
+import com.tbb.tbbmod.block.custom.ModWallSignBlock;
+import com.tbb.tbbmod.block.custom.ModWoodTypes;
 import com.tbb.tbbmod.item.ModCreativeModeTab;
 import com.tbb.tbbmod.item.ModItems;
 import com.tbb.tbbmod.world.feature.tree.BeastBossTreeGrower;
@@ -79,6 +82,8 @@ public class ModBlocks {
         }
     }, ModCreativeModeTab.TBB_TAB);
     public static final RegistryObject<Block> BEASTBOSS_SAPLING = registerBlock("beastboss_sapling", () -> new SaplingBlock(new BeastBossTreeGrower(), BlockBehaviour.Properties.copy(Blocks.BIRCH_SAPLING)), ModCreativeModeTab.TBB_TAB);
+    public static final RegistryObject<Block> BEASTBOSS_SIGN = BLOCKS.register("beastboss_sign", () -> new ModStandingSignBlock(BlockBehaviour.Properties.of(Material.WOOD).requiresCorrectToolForDrops(), ModWoodTypes.BEASTBOSS));
+    public static final RegistryObject<Block> BEASTBOSS_WALL_SIGN = BLOCKS.register("beastboss_wall_sign", () -> new ModWallSignBlock(BlockBehaviour.Properties.of(Material.WOOD).requiresCorrectToolForDrops(), ModWoodTypes.BEASTBOSS));
 
     public static <T extends Block>RegistryObject<T> registerBlock(String name, Supplier<T> block, CreativeModeTab tab) {
         RegistryObject<T> toReturn = BLOCKS.register(name, block);

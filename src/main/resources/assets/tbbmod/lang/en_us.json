@@ -40,7 +40,7 @@
   "item.tbbmod.beastboss_banana": "BeastBoss Banana",
   "item.tbbmod.beastbossanium_carrot": "BeastBossanium Carrot",
   "item.tbbmod.starbiomatic_energy_ball": "Starbiomatic Energy Ball",
-  "tooltip.tbbmod.wood_changer.shift": "Use this on a wood type block and it will change. §o(Not doors, signs, leaves or saplings)",
+  "tooltip.tbbmod.wood_changer.shift": "Use this on a wood type block and it will change. §o(Not doors, signs, leaves or saplings) §rYou can also use it on some mobs",
   "tooltip.tbbmod.not_shift": "Press §eSHIFT§r for more information",
   "block.tbbmod.beastboss_flower": "BeastBoss Flower",
   "block.tbbmod.potted_beastboss_flower": "Potted BeastBoss Flower",
@@ -51,5 +51,6 @@
   "tbbmod.beastboss_kick_launch": "BeastBoss Kick gets performed",
   "tbbmod.wither_hoe_strike": "The Reaper strikes",
   "block.tbbmod.beastboss_leaves": "BeastBoss Leaves",
-  "block.tbbmod.beastboss_sapling": "BeastBoss Sapling"
+  "block.tbbmod.beastboss_sapling": "BeastBoss Sapling",
+  "block.tbbmod.beastboss_sign": "BeastBoss Sign"
 }

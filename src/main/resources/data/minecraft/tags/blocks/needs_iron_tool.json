@@ -17,6 +17,7 @@
 		"tbbmod:beastboss_log",
 		"tbbmod:beastboss_wood",
 		"tbbmod:stripped_beastboss_log",
-		"tbbmod:stripped_beastboss_wood"
+		"tbbmod:stripped_beastboss_wood",
+		"tbbmod:beastboss_sign"
 	]
 }
