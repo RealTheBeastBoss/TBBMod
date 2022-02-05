@@ -13,12 +13,15 @@ import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ambient.Bat;
 import net.minecraft.world.entity.animal.Cow;
 import net.minecraft.world.entity.animal.Pig;
 import net.minecraft.world.entity.animal.Sheep;
 import net.minecraft.world.entity.animal.axolotl.Axolotl;
+import net.minecraft.world.entity.monster.Skeleton;
+import net.minecraft.world.entity.monster.Zombie;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.context.BlockPlaceContext;
@@ -286,19 +289,116 @@ public class WoodTypeChangerItem extends TieredItem {
                     mutableComponent.withStyle(ChatFormatting.DARK_AQUA);
                     pPlayer.sendMessage(mutableComponent, pPlayer.getUUID());
                 }
+            } else if (pInteractionTarget instanceof Zombie) {
+                String name = giveName();
+                pInteractionTarget.setCustomName(new TextComponent(name));
+                pPlayer.getItemInHand(pUsedHand).hurtAndBreak(1, pPlayer, (user) -> user.broadcastBreakEvent(user.getUsedItemHand()));
+                pPlayer.getLevel().playSound(pPlayer, pPlayer.blockPosition(), ModSounds.WOOD_CHANGER_SUCCESS.get(), SoundSource.NEUTRAL, 0.5f, 1f);
+                MutableComponent mutableComponent = new TextComponent(pPlayer.getDisplayName().getString() + " ");
+                mutableComponent.append(new TranslatableComponent(this.getDescriptionId() + ".use_message"));
+                mutableComponent.append(new TextComponent("Zombie --> " + name));
+                mutableComponent.withStyle(ChatFormatting.DARK_AQUA);
+                pPlayer.sendMessage(mutableComponent, pPlayer.getUUID());
+            } else if (pInteractionTarget instanceof Skeleton) {
+                pInteractionTarget.remove(Entity.RemovalReason.DISCARDED);
+                pPlayer.giveExperienceLevels(1);
+                pPlayer.getItemInHand(pUsedHand).hurtAndBreak(1, pPlayer, (user) -> user.broadcastBreakEvent(user.getUsedItemHand()));
+                pPlayer.getLevel().playSound(pPlayer, pPlayer.blockPosition(), ModSounds.WOOD_CHANGER_SUCCESS.get(), SoundSource.NEUTRAL, 0.5f, 1f);
+                MutableComponent mutableComponent = new TextComponent(pPlayer.getDisplayName().getString() + " ");
+                mutableComponent.append(new TranslatableComponent(this.getDescriptionId() + ".use_message"));
+                mutableComponent.append(new TextComponent("Skeleton --> XP"));
+                mutableComponent.withStyle(ChatFormatting.DARK_AQUA);
+                pPlayer.sendMessage(mutableComponent, pPlayer.getUUID());
             }
         } else {
             if (pInteractionTarget instanceof Cow ||
                     pInteractionTarget instanceof Pig ||
                     pInteractionTarget instanceof Sheep ||
                     pInteractionTarget instanceof Axolotl ||
-                    pInteractionTarget instanceof Bat) {
+                    pInteractionTarget instanceof Bat ||
+                    pInteractionTarget instanceof Zombie ||
+                    pInteractionTarget instanceof Skeleton) {
                 pPlayer.getLevel().playSound(pPlayer, pPlayer.blockPosition(), ModSounds.WOOD_CHANGER_SUCCESS.get(), SoundSource.NEUTRAL, 0.5f, 1f);
             } else {
                 pPlayer.getLevel().playSound(pPlayer, pPlayer.blockPosition(), ModSounds.WOOD_CHANGER_FAIL.get(), SoundSource.NEUTRAL, 0.25f, 1f);
             }
         }
         return super.interactLivingEntity(pStack, pPlayer, pInteractionTarget, pUsedHand);
+    }
+
+    public String giveName() {
+        String name = "TheBeastBoss";
+        switch (new Random().nextInt(1, 24)) {
+            case 1:
+                break;
+            case 2:
+                name = "CaptainThatGuy";
+                break;
+            case 3:
+                name = "YellowBeastBoss";
+                break;
+            case 4:
+                name = "BlazeBeastBoss";
+                break;
+            case 5:
+                name = "CatBeastBoss";
+                break;
+            case 6:
+                name = "CaptainThatGirl";
+                break;
+            case 7:
+                name = "DanTBB";
+                break;
+            case 8:
+                name = "DarkBeastBoss";
+                break;
+            case 9:
+                name = "De-Saturated BeastBoss";
+                break;
+            case 10:
+                name = "DiverBeastBoss";
+                break;
+            case 11:
+                name = "EnderBeastBoss";
+                break;
+            case 12:
+                name = "Holy Music Stops";
+                break;
+            case 13:
+                name = "KingBeastBoss";
+                break;
+            case 14:
+                name = "MeanBeastBoss";
+                break;
+            case 15:
+                name = "PhantomBB";
+                break;
+            case 16:
+                name = "PhilzaBeastBoss";
+                break;
+            case 17:
+                name = "PinkBeastBoss";
+                break;
+            case 18:
+                name = "Prankster Pinkie";
+                break;
+            case 19:
+                name = "Red Riding Hoodie";
+                break;
+            case 20:
+                name = "RedBeastBoss";
+                break;
+            case 21:
+                name = "ShulkBB";
+                break;
+            case 22:
+                name = "SpiderBeastBoss";
+                break;
+            case 23:
+                name = "TechnoBeastBoss";
+                break;
+        }
+        return name;
     }
 
     public String getColorString(DyeColor dyeColor) {
