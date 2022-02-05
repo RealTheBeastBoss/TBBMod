@@ -6,6 +6,7 @@ import com.tbb.tbbmod.block.custom.ModWoodTypes;
 import com.tbb.tbbmod.block.entity.ModBlockEntities;
 import com.tbb.tbbmod.enchantment.ModEnchantments;
 import com.tbb.tbbmod.item.ModItems;
+import com.tbb.tbbmod.painting.ModPaintings;
 import com.tbb.tbbmod.sounds.ModSounds;
 import com.tbb.tbbmod.world.gen.Ores;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
@@ -44,6 +45,7 @@ public class TBBMod
         ModEnchantments.register(eventBus);
         ModSounds.register(eventBus);
         ModBlockEntities.register(eventBus);
+        ModPaintings.register(eventBus);
         eventBus.addListener(this::setup);
         eventBus.addListener(this::setupClient);
 
