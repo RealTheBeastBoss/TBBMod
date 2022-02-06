@@ -13,7 +13,7 @@ public class ModPaintings {
     public static final RegistryObject<Motive> BEASTBOSSANIUM_COLLECTION = PAINTING_MOTIVES.register("beastbossanium_collection",
             () -> new Motive(64, 64));
     public static final RegistryObject<Motive> BEASTBOSS_TREE_PAINTING = PAINTING_MOTIVES.register("beastboss_tree_painting",
-            () -> new Motive(32, 64));
+            () -> new Motive(16, 32));
 
     public static void register(IEventBus eventBus) {
         PAINTING_MOTIVES.register(eventBus);
