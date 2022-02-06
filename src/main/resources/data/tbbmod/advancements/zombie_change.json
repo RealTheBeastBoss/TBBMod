@@ -1,22 +1,22 @@
 {
   "display": {
     "icon": {
-      "item": "tbbmod:beastboss_log"
+      "item": "minecraft:name_tag"
     },
-    "title": "Transfiguration",
-    "description": "Use the BeastBoss Wand on wood",
+    "title": "Hello, it me",
+    "description": "Well, he looks nice now",
     "frame": "task",
     "show_toast": true,
     "announce_to_chat": true,
     "hidden": false
   },
-  "parent": "tbbmod:wood_changer_get",
+  "parent": "tbbmod:bat_change",
   "criteria": {
     "requirement": {
       "trigger": "minecraft:item_durability_changed",
       "conditions": {
         "player": {
-          "nbt": "{Tags:[\"woodchanged\"]}"
+          "nbt": "{Tags:[\"zombiechanged\"]}"
         },
         "item": {
           "items": [

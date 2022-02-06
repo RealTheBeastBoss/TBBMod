@@ -1,22 +1,22 @@
 {
   "display": {
     "icon": {
-      "item": "tbbmod:beastboss_log"
+      "item": "minecraft:bat_spawn_egg"
     },
-    "title": "Transfiguration",
-    "description": "Use the BeastBoss Wand on wood",
+    "title": "He's a vampire now",
+    "description": "Create The Batman",
     "frame": "task",
     "show_toast": true,
     "announce_to_chat": true,
     "hidden": false
   },
-  "parent": "tbbmod:wood_changer_get",
+  "parent": "tbbmod:axolotl_change",
   "criteria": {
     "requirement": {
       "trigger": "minecraft:item_durability_changed",
       "conditions": {
         "player": {
-          "nbt": "{Tags:[\"woodchanged\"]}"
+          "nbt": "{Tags:[\"batchanged\"]}"
         },
         "item": {
           "items": [

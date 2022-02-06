@@ -5,6 +5,7 @@ import com.tbb.tbbmod.block.ModBlocks;
 import com.tbb.tbbmod.sounds.ModSounds;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.screens.Screen;
+import net.minecraft.commands.CommandFunction;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
@@ -163,6 +164,7 @@ public class WoodTypeChangerItem extends TieredItem {
             if (canChangeWood(blockClicked)) {
                 Block newBlock = WOOD_CHANGER_MAP.get(blockClicked);
                 canShowMessage = true;
+                player.addTag("woodchanged");
                 level.destroyBlock(positionClicked, false);
                 BlockPlaceContext newContext = new BlockPlaceContext(pContext);
                 level.setBlock(positionClicked, newBlock.getStateForPlacement(newContext), 2);
@@ -199,6 +201,7 @@ public class WoodTypeChangerItem extends TieredItem {
     public InteractionResult interactLivingEntity(ItemStack pStack, Player pPlayer, LivingEntity pInteractionTarget, InteractionHand pUsedHand) {
         if (!pPlayer.getLevel().isClientSide()) {
             if (pInteractionTarget instanceof Cow) {
+                pPlayer.addTag("cowchanged");
                 if (!pInteractionTarget.isInvulnerable()) {
                     pInteractionTarget.setInvulnerable(true);
                     pPlayer.getItemInHand(pUsedHand).hurtAndBreak(1, pPlayer, (user) -> user.broadcastBreakEvent(user.getUsedItemHand()));
@@ -219,6 +222,7 @@ public class WoodTypeChangerItem extends TieredItem {
                     pPlayer.sendMessage(mutableComponent, pPlayer.getUUID());
                 }
             } else if (pInteractionTarget instanceof Pig) {
+                pPlayer.addTag("pigchanged");
                 if (!pInteractionTarget.isNoGravity()) {
                     pInteractionTarget.setNoGravity(true);
                     pPlayer.getItemInHand(pUsedHand).hurtAndBreak(1, pPlayer, (user) -> user.broadcastBreakEvent(user.getUsedItemHand()));
@@ -239,6 +243,7 @@ public class WoodTypeChangerItem extends TieredItem {
                     pPlayer.sendMessage(mutableComponent, pPlayer.getUUID());
                 }
             } else if (pInteractionTarget instanceof Sheep) {
+                pPlayer.addTag("sheepchanged");
                 Sheep sheep = ((Sheep) pInteractionTarget);
                 sheep.setColor(getDye());
                 pPlayer.getItemInHand(pUsedHand).hurtAndBreak(1, pPlayer, (user) -> user.broadcastBreakEvent(user.getUsedItemHand()));
@@ -249,6 +254,7 @@ public class WoodTypeChangerItem extends TieredItem {
                 mutableComponent.withStyle(ChatFormatting.DARK_AQUA);
                 pPlayer.sendMessage(mutableComponent, pPlayer.getUUID());
             } else if (pInteractionTarget instanceof Axolotl) {
+                pPlayer.addTag("axolotlchanged");
                 Axolotl axolotl = ((Axolotl) pInteractionTarget);
                 if (!axolotl.isNoAi()) {
                     axolotl.setNoAi(true);
@@ -270,6 +276,7 @@ public class WoodTypeChangerItem extends TieredItem {
                     pPlayer.sendMessage(mutableComponent, pPlayer.getUUID());
                 }
             } else if (pInteractionTarget instanceof Bat) {
+                pPlayer.addTag("batchanged");
                 if (pInteractionTarget.getAbsorptionAmount() <= 0f) {
                     pInteractionTarget.setAbsorptionAmount(34f);
                     pPlayer.getItemInHand(pUsedHand).hurtAndBreak(1, pPlayer, (user) -> user.broadcastBreakEvent(user.getUsedItemHand()));
@@ -290,6 +297,7 @@ public class WoodTypeChangerItem extends TieredItem {
                     pPlayer.sendMessage(mutableComponent, pPlayer.getUUID());
                 }
             } else if (pInteractionTarget instanceof Zombie) {
+                pPlayer.addTag("zombiechanged");
                 String name = giveName();
                 pInteractionTarget.setCustomName(new TextComponent(name));
                 pPlayer.getItemInHand(pUsedHand).hurtAndBreak(1, pPlayer, (user) -> user.broadcastBreakEvent(user.getUsedItemHand()));
@@ -300,6 +308,7 @@ public class WoodTypeChangerItem extends TieredItem {
                 mutableComponent.withStyle(ChatFormatting.DARK_AQUA);
                 pPlayer.sendMessage(mutableComponent, pPlayer.getUUID());
             } else if (pInteractionTarget instanceof Skeleton) {
+                pPlayer.addTag("skeletonchanged");
                 pInteractionTarget.remove(Entity.RemovalReason.DISCARDED);
                 pPlayer.giveExperienceLevels(1);
                 pPlayer.getItemInHand(pUsedHand).hurtAndBreak(1, pPlayer, (user) -> user.broadcastBreakEvent(user.getUsedItemHand()));
@@ -315,6 +324,7 @@ public class WoodTypeChangerItem extends TieredItem {
                     ItemStack item = player.getItemInHand(player.getUsedItemHand());
                     player.drop(item, false, true);
                     player.setItemInHand(player.getUsedItemHand(), ItemStack.EMPTY);
+                    pPlayer.addTag("playerchanged");
                     pPlayer.getItemInHand(pUsedHand).hurtAndBreak(1, pPlayer, (user) -> user.broadcastBreakEvent(user.getUsedItemHand()));
                     pPlayer.getLevel().playSound(pPlayer, pPlayer.blockPosition(), ModSounds.WOOD_CHANGER_SUCCESS.get(), SoundSource.NEUTRAL, 0.5f, 1f);
                     MutableComponent mutableComponent = new TextComponent(pPlayer.getDisplayName().getString() + " ");

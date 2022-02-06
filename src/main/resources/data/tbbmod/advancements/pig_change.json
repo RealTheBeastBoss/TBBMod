@@ -1,22 +1,22 @@
 {
   "display": {
     "icon": {
-      "item": "tbbmod:beastboss_log"
+      "item": "minecraft:porkchop"
     },
-    "title": "Transfiguration",
-    "description": "Use the BeastBoss Wand on wood",
+    "title": "Wingardium Leviosa",
+    "description": "When pigs fly...",
     "frame": "task",
     "show_toast": true,
     "announce_to_chat": true,
     "hidden": false
   },
-  "parent": "tbbmod:wood_changer_get",
+  "parent": "tbbmod:cow_change",
   "criteria": {
     "requirement": {
       "trigger": "minecraft:item_durability_changed",
       "conditions": {
         "player": {
-          "nbt": "{Tags:[\"woodchanged\"]}"
+          "nbt": "{Tags:[\"pigchanged\"]}"
         },
         "item": {
           "items": [
