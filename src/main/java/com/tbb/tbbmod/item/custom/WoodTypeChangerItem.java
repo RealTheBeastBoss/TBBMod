@@ -5,7 +5,6 @@ import com.tbb.tbbmod.block.ModBlocks;
 import com.tbb.tbbmod.sounds.ModSounds;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.screens.Screen;
-import net.minecraft.commands.CommandFunction;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;

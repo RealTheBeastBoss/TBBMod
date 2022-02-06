@@ -1,0 +1,32 @@
+{
+  "display": {
+    "icon": {
+      "item": "minecraft:bookshelf"
+    },
+    "title": "Lucky Number 15",
+    "description": "Get 15 bookshelves",
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "tbbmod:beastboss_log_get",
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:bookshelf"
+            ],
+            "count": {
+              "min": 15,
+              "max": 64
+            }
+          }
+        ]
+      }
+    }
+  }
+}

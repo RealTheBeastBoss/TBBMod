@@ -1,0 +1,45 @@
+{
+  "display": {
+    "icon": {
+      "item": "tbbmod:beastbossanium_pickaxe",
+      "nbt": "{Enchantments:[{id:\"unbreaking\",lvl:3}]}"
+    },
+    "title": "Ultimate Silk Touch Pickaxe",
+    "description": "Get the best silk touch pickaxe",
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "tbbmod:moar_gear",
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "tbbmod:beastbossanium_pickaxe"
+            ],
+            "enchantments": [
+              {
+                "enchantment": "minecraft:efficiency",
+                "levels": 5
+              },
+              {
+                "enchantment": "minecraft:silk_touch"
+              },
+              {
+                "enchantment": "minecraft:unbreaking",
+                "levels": 3
+              },
+              {
+                "enchantment": "minecraft:mending"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

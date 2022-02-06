@@ -9,5 +9,5 @@ public class ModFoods {
     public static final FoodProperties BEASTBOSSANIUM_CARROT = new FoodProperties.Builder().nutrition(2).saturationMod(0.3f).alwaysEat()
             .effect(new MobEffectInstance(MobEffects.DAMAGE_BOOST, 200, 0), 0.5f)
             .effect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 400, 1), 0.5f)
-            .effect(new MobEffectInstance(MobEffects.HEALTH_BOOST, 800, 1), 0.5f).build();
+            .effect(new MobEffectInstance(MobEffects.HEALTH_BOOST, 800, 1), 0.5f).build(); // TODO: Finish these effects
 }

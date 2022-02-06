@@ -86,7 +86,7 @@ public class MLGBucketEnchantment extends Enchantment {
 
     @Override
     protected boolean checkCompatibility(Enchantment pOther) {
-        return super.checkCompatibility(pOther) && pOther != Enchantments.FROST_WALKER;
+        return super.checkCompatibility(pOther) && pOther != Enchantments.FROST_WALKER && pOther != ModEnchantments.BEASTBOSS_KICK.get();
     }
 
     @Override

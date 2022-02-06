@@ -1,0 +1,73 @@
+{
+  "display": {
+    "icon": {
+      "item": "tbbmod:beastbossanium_leggings",
+      "nbt": "{Enchantments:[{id:\"unbreaking\",lvl:3}]}"
+    },
+    "title": "Ultimate Leggings",
+    "description": "Get the best leggings",
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "tbbmod:moar_gear",
+  "criteria": {
+    "prot": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "tbbmod:beastbossanium_leggings"
+            ],
+            "enchantments": [
+              {
+                "enchantment": "minecraft:protection",
+                "levels": 4
+              },
+              {
+                "enchantment": "minecraft:unbreaking",
+                "levels": 3
+              },
+              {
+                "enchantment": "minecraft:mending"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "fire": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "tbbmod:beastbossanium_leggings"
+            ],
+            "enchantments": [
+              {
+                "enchantment": "minecraft:fire_protection",
+                "levels": 4
+              },
+              {
+                "enchantment": "minecraft:unbreaking",
+                "levels": 3
+              },
+              {
+                "enchantment": "minecraft:mending"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "fire",
+      "prot"
+    ]
+  ]
+}

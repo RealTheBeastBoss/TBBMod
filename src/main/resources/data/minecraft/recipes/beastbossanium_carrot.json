@@ -1,8 +1,7 @@
 {
   "type": "minecraft:smithing",
   "base": {
-    "item": "minecraft:carrot",
-    "count": 16
+    "item": "minecraft:carrot"
   },
   "addition": {
     "item": "tbbmod:beastbossanium_ingot"

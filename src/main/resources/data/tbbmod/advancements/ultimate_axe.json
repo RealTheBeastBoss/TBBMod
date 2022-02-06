@@ -1,0 +1,46 @@
+{
+  "display": {
+    "icon": {
+      "item": "tbbmod:beastbossanium_axe",
+      "nbt": "{Enchantments:[{id:\"unbreaking\",lvl:3}]}"
+    },
+    "title": "Ultimate Axe",
+    "description": "Get the best axe",
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "tbbmod:moar_gear",
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "tbbmod:beastbossanium_axe"
+            ],
+            "enchantments": [
+              {
+                "enchantment": "minecraft:efficiency",
+                "levels": 5
+              },
+              {
+                "enchantment": "minecraft:sharpness",
+                "levels": 5
+              },
+              {
+                "enchantment": "minecraft:unbreaking",
+                "levels": 3
+              },
+              {
+                "enchantment": "minecraft:mending"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,124 @@
+{
+  "display": {
+    "icon": {
+      "item": "tbbmod:beastbossanium_pickaxe"
+    },
+    "title": "MOAR Gear",
+    "description": "You know what this is",
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "tbbmod:raw_beastbossanium_get",
+  "criteria": {
+    "sword": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "tbbmod:beastbossanium_sword"
+            ]
+          }
+        ]
+      }
+    },
+    "pickaxe": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "tbbmod:beastbossanium_pickaxe"
+            ]
+          }
+        ]
+      }
+    },
+    "axe": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "tbbmod:beastbossanium_axe"
+            ]
+          }
+        ]
+      }
+    },
+    "shovel": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "tbbmod:beastbossanium_shovel"
+            ]
+          }
+        ]
+      }
+    },
+    "hoe": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "tbbmod:beastbossanium_hoe"
+            ]
+          }
+        ]
+      }
+    },
+    "helmet": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "tbbmod:beastbossanium_helmet"
+            ]
+          }
+        ]
+      }
+    },
+    "chestplate": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "tbbmod:beastbossanium_chestplate"
+            ]
+          }
+        ]
+      }
+    },
+    "leggings": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "tbbmod:beastbossanium_leggings"
+            ]
+          }
+        ]
+      }
+    },
+    "boots": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "tbbmod:beastbossanium_boots"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

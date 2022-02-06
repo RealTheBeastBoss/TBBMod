@@ -1,0 +1,87 @@
+{
+  "display": {
+    "icon": {
+      "item": "tbbmod:beastbossanium_helmet",
+      "nbt": "{Enchantments:[{id:\"unbreaking\",lvl:3}]}"
+    },
+    "title": "Ultimate Helmet",
+    "description": "Get the best helmet",
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "tbbmod:moar_gear",
+  "criteria": {
+    "prot": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "tbbmod:beastbossanium_helmet"
+            ],
+            "enchantments": [
+              {
+                "enchantment": "minecraft:protection",
+                "levels": 4
+              },
+              {
+                "enchantment": "minecraft:respiration",
+                "levels": 3
+              },
+              {
+                "enchantment": "minecraft:aqua_affinity"
+              },
+              {
+                "enchantment": "minecraft:unbreaking",
+                "levels": 3
+              },
+              {
+                "enchantment": "minecraft:mending"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "fire": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "tbbmod:beastbossanium_helmet"
+            ],
+            "enchantments": [
+              {
+                "enchantment": "minecraft:fire_protection",
+                "levels": 4
+              },
+              {
+                "enchantment": "minecraft:respiration",
+                "levels": 3
+              },
+              {
+                "enchantment": "minecraft:aqua_affinity"
+              },
+              {
+                "enchantment": "minecraft:unbreaking",
+                "levels": 3
+              },
+              {
+                "enchantment": "minecraft:mending"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "fire",
+      "prot"
+    ]
+  ]
+}

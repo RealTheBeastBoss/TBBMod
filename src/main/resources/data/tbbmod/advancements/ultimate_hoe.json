@@ -1,0 +1,50 @@
+{
+  "display": {
+    "icon": {
+      "item": "tbbmod:beastbossanium_hoe",
+      "nbt": "{Enchantments:[{id:\"unbreaking\",lvl:3}]}"
+    },
+    "title": "Ultimate Hoe",
+    "description": "Get the best hoe",
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "tbbmod:moar_gear",
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "tbbmod:beastbossanium_hoe"
+            ],
+            "enchantments": [
+              {
+                "enchantment": "minecraft:efficiency",
+                "levels": 5
+              },
+              {
+                "enchantment": "minecraft:fortune",
+                "levels": 3
+              },
+              {
+                "enchantment": "tbbmod:wither_hoe",
+                "levels": 3
+              },
+              {
+                "enchantment": "minecraft:unbreaking",
+                "levels": 3
+              },
+              {
+                "enchantment": "minecraft:mending"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

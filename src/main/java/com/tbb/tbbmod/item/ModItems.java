@@ -29,7 +29,7 @@ public class ModItems {
     public static final RegistryObject<Item> BEASTBOSSANIUM_CHESTPLATE = ITEMS.register("beastbossanium_chestplate", () -> new ArmorItem(ModArmorMaterial.BEASTBOSSANIUM, EquipmentSlot.CHEST, new Item.Properties().tab(ModCreativeModeTab.TBB_TAB)));
     public static final RegistryObject<Item> BEASTBOSSANIUM_HELMET = ITEMS.register("beastbossanium_helmet", () -> new ArmorItem(ModArmorMaterial.BEASTBOSSANIUM, EquipmentSlot.HEAD, new Item.Properties().tab(ModCreativeModeTab.TBB_TAB)));
     public static final RegistryObject<Item> BEASTBOSS_BANANA = ITEMS.register("beastboss_banana", () -> new Item(new Item.Properties().tab(ModCreativeModeTab.TBB_TAB).food(ModFoods.BEASTBOSS_BANANA)));
-    public static final RegistryObject<Item> BEASTBOSSANIUM_CARROT = ITEMS.register("beastbossanium_carrot", () -> new Item(new Item.Properties().tab(ModCreativeModeTab.TBB_TAB).food(ModFoods.BEASTBOSSANIUM_CARROT)));
+    public static final RegistryObject<Item> BEASTBOSSANIUM_CARROT = ITEMS.register("beastbossanium_carrot", () -> new Item(new Item.Properties().tab(ModCreativeModeTab.TBB_TAB).food(ModFoods.BEASTBOSSANIUM_CARROT))); // TODO: Add tooltips
     public static final RegistryObject<Item> STARBIOMATIC_ENERGY_BALL = ITEMS.register("starbiomatic_energy_ball", () -> new StarbiomaticEnergyBallItem(new Item.Properties().tab(ModCreativeModeTab.TBB_TAB)));
     public static final RegistryObject<Item> BEASTBOSS_SIGN_ITEM = ITEMS.register("beastboss_sign",
             () -> new SignItem(new Item.Properties().tab(ModCreativeModeTab.TBB_TAB).stacksTo(16),

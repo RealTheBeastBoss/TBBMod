@@ -1,0 +1,185 @@
+{
+  "display": {
+    "icon": {
+      "item": "tbbmod:beastbossanium_boots",
+      "nbt": "{Enchantments:[{id:\"unbreaking\",lvl:3}]}"
+    },
+    "title": "Ultimate Boots",
+    "description": "Get the best boots",
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "tbbmod:moar_gear",
+  "criteria": {
+    "fire_kick": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "tbbmod:beastbossanium_boots"
+            ],
+            "enchantments": [
+              {
+                "enchantment": "minecraft:fire_protection",
+                "levels": 4
+              },
+              {
+                "enchantment": "minecraft:depth_strider",
+                "levels": 3
+              },
+              {
+                "enchantment": "tbbmod:beastboss_kick",
+                "levels": 4
+              },
+              {
+                "enchantment": "minecraft:feather_falling",
+                "levels": 4
+              },
+              {
+                "enchantment": "minecraft:soul_speed",
+                "levels": 3
+              },
+              {
+                "enchantment": "minecraft:unbreaking",
+                "levels": 3
+              },
+              {
+                "enchantment": "minecraft:mending"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "fire_mlg": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "tbbmod:beastbossanium_boots"
+            ],
+            "enchantments": [
+              {
+                "enchantment": "minecraft:fire_protection",
+                "levels": 4
+              },
+              {
+                "enchantment": "minecraft:depth_strider",
+                "levels": 3
+              },
+              {
+                "enchantment": "tbbmod:mlg_bucket",
+                "levels": 6
+              },
+              {
+                "enchantment": "minecraft:feather_falling",
+                "levels": 4
+              },
+              {
+                "enchantment": "minecraft:soul_speed",
+                "levels": 3
+              },
+              {
+                "enchantment": "minecraft:unbreaking",
+                "levels": 3
+              },
+              {
+                "enchantment": "minecraft:mending"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "prot_kick": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "tbbmod:beastbossanium_boots"
+            ],
+            "enchantments": [
+              {
+                "enchantment": "minecraft:protection",
+                "levels": 4
+              },
+              {
+                "enchantment": "minecraft:depth_strider",
+                "levels": 3
+              },
+              {
+                "enchantment": "tbbmod:beastboss_kick",
+                "levels": 4
+              },
+              {
+                "enchantment": "minecraft:feather_falling",
+                "levels": 4
+              },
+              {
+                "enchantment": "minecraft:soul_speed",
+                "levels": 3
+              },
+              {
+                "enchantment": "minecraft:unbreaking",
+                "levels": 3
+              },
+              {
+                "enchantment": "minecraft:mending"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "prot_mlg": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "tbbmod:beastbossanium_boots"
+            ],
+            "enchantments": [
+              {
+                "enchantment": "minecraft:protection",
+                "levels": 4
+              },
+              {
+                "enchantment": "minecraft:depth_strider",
+                "levels": 3
+              },
+              {
+                "enchantment": "tbbmod:mlg_bucket",
+                "levels": 6
+              },
+              {
+                "enchantment": "minecraft:soul_speed",
+                "levels": 3
+              },
+              {
+                "enchantment": "minecraft:unbreaking",
+                "levels": 3
+              },
+              {
+                "enchantment": "minecraft:mending"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "fire_kick",
+      "fire_mlg",
+      "prot_kick",
+      "prot_mlg"
+    ]
+  ]
+}

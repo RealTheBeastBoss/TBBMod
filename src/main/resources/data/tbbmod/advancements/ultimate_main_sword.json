@@ -1,0 +1,50 @@
+{
+  "display": {
+    "icon": {
+      "item": "tbbmod:beastbossanium_sword",
+      "nbt": "{Enchantments:[{id:\"unbreaking\",lvl:3}]}"
+    },
+    "title": "Ultimate Main Sword",
+    "description": "Get the best main sword",
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "tbbmod:moar_gear",
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "tbbmod:beastbossanium_sword"
+            ],
+            "enchantments": [
+              {
+                "enchantment": "minecraft:sharpness",
+                "levels": 5
+              },
+              {
+                "enchantment": "minecraft:sweeping",
+                "levels": 3
+              },
+              {
+                "enchantment": "minecraft:looting",
+                "levels": 3
+              },
+              {
+                "enchantment": "minecraft:unbreaking",
+                "levels": 3
+              },
+              {
+                "enchantment": "minecraft:mending"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

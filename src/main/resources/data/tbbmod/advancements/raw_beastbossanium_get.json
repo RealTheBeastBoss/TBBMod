@@ -1,0 +1,28 @@
+{
+  "display": {
+    "icon": {
+      "item": "tbbmod:raw_beastbossanium_chunk"
+    },
+    "title": "Raw BeastBossanium",
+    "description": "Merely a chunk of what's to come",
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "tbbmod:tbbmod",
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "tbbmod:raw_beastbossanium_chunk"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}
