@@ -545,7 +545,6 @@ public class WoodTypeChangerItem extends TieredItem {
             MutableComponent mutableComponent = new TextComponent(pPlayer.getDisplayName().getString() + " ");
             mutableComponent.append(new TranslatableComponent(this.getDescriptionId() + ".craft_message"));
             mutableComponent.withStyle(ChatFormatting.DARK_GREEN);
-            mutableComponent.withStyle(ChatFormatting.BOLD);
             pPlayer.sendMessage(mutableComponent, pPlayer.getUUID());
             pLevel.playSound(pPlayer, pPlayer.blockPosition(), ModSounds.WOOD_CHANGER_CRAFT.get(), SoundSource.BLOCKS, 1f,1f);
             canShowMessage = false;

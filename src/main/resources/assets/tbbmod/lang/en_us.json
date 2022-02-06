@@ -38,9 +38,9 @@
   "item.tbbmod.wood_changer.craft_message": "has crafted a BeastBoss Wand. It can do magic, pretty cool!",
   "enchantment.tbbmod.wither_hoe": "Reaper",
   "item.tbbmod.beastboss_banana": "BeastBoss Banana",
-  "item.tbbmod.beastbossanium_carrot": "BeastBossanium Carrot",
+  "item.tbbmod.beastbossanium_carrot": "§1BeastBossanium Carrot",
   "item.tbbmod.starbiomatic_energy_ball": "Starbiomatic Energy Ball",
-  "tooltip.tbbmod.wood_changer.shift": "Use this on a wood type block and it will change. §o(Not doors, signs, leaves or saplings) §rYou can also use it on some mobs",
+  "tooltip.tbbmod.wood_changer.shift": "Use this on a wood type block and it will change. §o(Not doors, signs, leaves or saplings) §r\n§3You can also use it on some mobs",
   "tooltip.tbbmod.not_shift": "Press §eSHIFT§r for more information",
   "block.tbbmod.beastboss_flower": "BeastBoss Flower",
   "block.tbbmod.potted_beastboss_flower": "Potted BeastBoss Flower",
@@ -52,5 +52,6 @@
   "tbbmod.wither_hoe_strike": "The Reaper strikes",
   "block.tbbmod.beastboss_leaves": "BeastBoss Leaves",
   "block.tbbmod.beastboss_sapling": "BeastBoss Sapling",
-  "block.tbbmod.beastboss_sign": "BeastBoss Sign"
+  "block.tbbmod.beastboss_sign": "BeastBoss Sign",
+  "tooltip.tbbmod.beastbossanium_carrot.shift": "Eat this to get (20s):\n§250% chance of Strength I\n50% chance of Resistance II\n50% chance of Health Boost II\n50% chance of Fire Resistance\n50% chance of Haste II\n50% chance of Night Vision\n50% chance of Regeneration I\n50% chance of Water Breathing"
 }

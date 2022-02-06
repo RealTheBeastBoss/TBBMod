@@ -6,12 +6,19 @@ import com.tbb.tbbmod.item.custom.ModArmorItem;
 import com.tbb.tbbmod.item.custom.ModFoods;
 import com.tbb.tbbmod.item.custom.StarbiomaticEnergyBallItem;
 import com.tbb.tbbmod.item.custom.WoodTypeChangerItem;
+import net.minecraft.client.gui.screens.Screen;
+import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.*;
+import net.minecraft.world.level.Level;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
+import org.jetbrains.annotations.Nullable;
+
+import java.util.List;
 
 public class ModItems {
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, TBBMod.MOD_ID);
@@ -29,7 +36,16 @@ public class ModItems {
     public static final RegistryObject<Item> BEASTBOSSANIUM_CHESTPLATE = ITEMS.register("beastbossanium_chestplate", () -> new ArmorItem(ModArmorMaterial.BEASTBOSSANIUM, EquipmentSlot.CHEST, new Item.Properties().tab(ModCreativeModeTab.TBB_TAB)));
     public static final RegistryObject<Item> BEASTBOSSANIUM_HELMET = ITEMS.register("beastbossanium_helmet", () -> new ArmorItem(ModArmorMaterial.BEASTBOSSANIUM, EquipmentSlot.HEAD, new Item.Properties().tab(ModCreativeModeTab.TBB_TAB)));
     public static final RegistryObject<Item> BEASTBOSS_BANANA = ITEMS.register("beastboss_banana", () -> new Item(new Item.Properties().tab(ModCreativeModeTab.TBB_TAB).food(ModFoods.BEASTBOSS_BANANA)));
-    public static final RegistryObject<Item> BEASTBOSSANIUM_CARROT = ITEMS.register("beastbossanium_carrot", () -> new Item(new Item.Properties().tab(ModCreativeModeTab.TBB_TAB).food(ModFoods.BEASTBOSSANIUM_CARROT))); // TODO: Add tooltips
+    public static final RegistryObject<Item> BEASTBOSSANIUM_CARROT = ITEMS.register("beastbossanium_carrot", () -> new Item(new Item.Properties().tab(ModCreativeModeTab.TBB_TAB).food(ModFoods.BEASTBOSSANIUM_CARROT)){
+        @Override
+        public void appendHoverText(ItemStack pStack, @Nullable Level pLevel, List<Component> pTooltipComponents, TooltipFlag pIsAdvanced) {
+            if (Screen.hasShiftDown()) {
+                pTooltipComponents.add(new TranslatableComponent("tooltip.tbbmod.beastbossanium_carrot.shift"));
+            } else {
+                pTooltipComponents.add(new TranslatableComponent("tooltip.tbbmod.not_shift"));
+            }
+        }
+    });
     public static final RegistryObject<Item> STARBIOMATIC_ENERGY_BALL = ITEMS.register("starbiomatic_energy_ball", () -> new StarbiomaticEnergyBallItem(new Item.Properties().tab(ModCreativeModeTab.TBB_TAB)));
     public static final RegistryObject<Item> BEASTBOSS_SIGN_ITEM = ITEMS.register("beastboss_sign",
             () -> new SignItem(new Item.Properties().tab(ModCreativeModeTab.TBB_TAB).stacksTo(16),
