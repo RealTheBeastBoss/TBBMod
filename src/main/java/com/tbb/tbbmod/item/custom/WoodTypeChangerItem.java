@@ -309,6 +309,26 @@ public class WoodTypeChangerItem extends TieredItem {
                 mutableComponent.append(new TextComponent("Skeleton --> XP"));
                 mutableComponent.withStyle(ChatFormatting.DARK_AQUA);
                 pPlayer.sendMessage(mutableComponent, pPlayer.getUUID());
+            } else if (pInteractionTarget instanceof Player) {
+                Player player = ((Player) pInteractionTarget);
+                if (new Random().nextFloat() >= 0.9f) {
+                    ItemStack item = player.getItemInHand(player.getUsedItemHand());
+                    player.drop(item, false, true);
+                    player.setItemInHand(player.getUsedItemHand(), ItemStack.EMPTY);
+                    pPlayer.getItemInHand(pUsedHand).hurtAndBreak(1, pPlayer, (user) -> user.broadcastBreakEvent(user.getUsedItemHand()));
+                    pPlayer.getLevel().playSound(pPlayer, pPlayer.blockPosition(), ModSounds.WOOD_CHANGER_SUCCESS.get(), SoundSource.NEUTRAL, 0.5f, 1f);
+                    MutableComponent mutableComponent = new TextComponent(pPlayer.getDisplayName().getString() + " ");
+                    mutableComponent.append(new TranslatableComponent(this.getDescriptionId() + ".use_message"));
+                    mutableComponent.append(new TextComponent(player.getDisplayName().getString() + " --> Expelliarmus"));
+                    mutableComponent.withStyle(ChatFormatting.DARK_AQUA);
+                    pPlayer.sendMessage(mutableComponent, pPlayer.getUUID());
+                } else {
+                    MutableComponent mutableComponent = new TextComponent(player.getDisplayName().getString() + " used Protego");
+                    mutableComponent.withStyle(ChatFormatting.DARK_AQUA);
+                    pPlayer.sendMessage(mutableComponent, pPlayer.getUUID());
+                    pPlayer.getItemInHand(pUsedHand).hurtAndBreak(1, pPlayer, (user) -> user.broadcastBreakEvent(user.getUsedItemHand()));
+                    pPlayer.getLevel().playSound(pPlayer, pPlayer.blockPosition(), ModSounds.WOOD_CHANGER_SUCCESS.get(), SoundSource.NEUTRAL, 0.5f, 1f);
+                }
             }
         } else {
             if (pInteractionTarget instanceof Cow ||
@@ -317,7 +337,8 @@ public class WoodTypeChangerItem extends TieredItem {
                     pInteractionTarget instanceof Axolotl ||
                     pInteractionTarget instanceof Bat ||
                     pInteractionTarget instanceof Zombie ||
-                    pInteractionTarget instanceof Skeleton) {
+                    pInteractionTarget instanceof Skeleton ||
+                    pInteractionTarget instanceof Player) {
                 pPlayer.getLevel().playSound(pPlayer, pPlayer.blockPosition(), ModSounds.WOOD_CHANGER_SUCCESS.get(), SoundSource.NEUTRAL, 0.5f, 1f);
             } else {
                 pPlayer.getLevel().playSound(pPlayer, pPlayer.blockPosition(), ModSounds.WOOD_CHANGER_FAIL.get(), SoundSource.NEUTRAL, 0.25f, 1f);

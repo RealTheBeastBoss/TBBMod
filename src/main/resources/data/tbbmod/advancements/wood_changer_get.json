@@ -1,0 +1,28 @@
+{
+  "display": {
+    "icon": {
+      "item": "tbbmod:wood_changer"
+    },
+    "title": "Delving into Magic",
+    "description": "Yer a wizard 'arry",
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "tbbmod:tbbmod",
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "tbbmod:wood_changer"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}
