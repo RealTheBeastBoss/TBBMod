@@ -1,0 +1,29 @@
+{
+  "display": {
+    "icon": {
+      "item": "minecraft:ender_pearl"
+    },
+    "title": "Slenderman",
+    "description": "It's invisible now, don't look at it",
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "tbbmod:player_change",
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:item_durability_changed",
+      "conditions": {
+        "player": {
+          "nbt": "{Tags:[\"enderchanged\"]}"
+        },
+        "item": {
+          "items": [
+            "tbbmod:wood_changer"
+          ]
+        }
+      }
+    }
+  }
+}

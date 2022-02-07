@@ -1,6 +1,7 @@
 package com.tbb.tbbmod.item.custom;
 
 import com.google.common.collect.ImmutableMap;
+import com.ibm.icu.impl.coll.BOCSU;
 import com.tbb.tbbmod.block.ModBlocks;
 import com.tbb.tbbmod.sounds.ModSounds;
 import net.minecraft.ChatFormatting;
@@ -10,6 +11,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.network.chat.TextComponent;
 import net.minecraft.network.chat.TranslatableComponent;
+import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
@@ -20,6 +22,7 @@ import net.minecraft.world.entity.animal.Cow;
 import net.minecraft.world.entity.animal.Pig;
 import net.minecraft.world.entity.animal.Sheep;
 import net.minecraft.world.entity.animal.axolotl.Axolotl;
+import net.minecraft.world.entity.monster.EnderMan;
 import net.minecraft.world.entity.monster.Skeleton;
 import net.minecraft.world.entity.monster.Zombie;
 import net.minecraft.world.entity.player.Player;
@@ -29,6 +32,7 @@ import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.BlockState;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -338,6 +342,29 @@ public class WoodTypeChangerItem extends TieredItem {
                     pPlayer.getItemInHand(pUsedHand).hurtAndBreak(1, pPlayer, (user) -> user.broadcastBreakEvent(user.getUsedItemHand()));
                     pPlayer.getLevel().playSound(pPlayer, pPlayer.blockPosition(), ModSounds.WOOD_CHANGER_SUCCESS.get(), SoundSource.NEUTRAL, 0.5f, 1f);
                 }
+            } else if (pInteractionTarget instanceof EnderMan) {
+                EnderMan enderman = ((EnderMan) pInteractionTarget);
+                if (enderman.isInvisible()) {
+                    enderman.setInvisible(false);
+                    pPlayer.addTag("enderchanged");
+                    pPlayer.getItemInHand(pUsedHand).hurtAndBreak(1, pPlayer, (user) -> user.broadcastBreakEvent(user.getUsedItemHand()));
+                    pPlayer.getLevel().playSound(pPlayer, pPlayer.blockPosition(), ModSounds.WOOD_CHANGER_SUCCESS.get(), SoundSource.NEUTRAL, 0.5f, 1f);
+                    MutableComponent mutableComponent = new TextComponent(pPlayer.getDisplayName().getString() + " ");
+                    mutableComponent.append(new TranslatableComponent(this.getDescriptionId() + ".use_message"));
+                    mutableComponent.append(new TextComponent("Enderman --> Visible"));
+                    mutableComponent.withStyle(ChatFormatting.DARK_AQUA);
+                    pPlayer.sendMessage(mutableComponent, pPlayer.getUUID());
+                } else {
+                    enderman.setInvisible(true);
+                    pPlayer.addTag("enderchanged");
+                    pPlayer.getItemInHand(pUsedHand).hurtAndBreak(1, pPlayer, (user) -> user.broadcastBreakEvent(user.getUsedItemHand()));
+                    pPlayer.getLevel().playSound(pPlayer, pPlayer.blockPosition(), ModSounds.WOOD_CHANGER_SUCCESS.get(), SoundSource.NEUTRAL, 0.5f, 1f);
+                    MutableComponent mutableComponent = new TextComponent(pPlayer.getDisplayName().getString() + " ");
+                    mutableComponent.append(new TranslatableComponent(this.getDescriptionId() + ".use_message"));
+                    mutableComponent.append(new TextComponent("Enderman --> Invisible"));
+                    mutableComponent.withStyle(ChatFormatting.DARK_AQUA);
+                    pPlayer.sendMessage(mutableComponent, pPlayer.getUUID());
+                }
             }
         } else {
             if (pInteractionTarget instanceof Cow ||
@@ -347,8 +374,12 @@ public class WoodTypeChangerItem extends TieredItem {
                     pInteractionTarget instanceof Bat ||
                     pInteractionTarget instanceof Zombie ||
                     pInteractionTarget instanceof Skeleton ||
-                    pInteractionTarget instanceof Player) {
+                    pInteractionTarget instanceof Player ||
+                    pInteractionTarget instanceof EnderMan) {
                 pPlayer.getLevel().playSound(pPlayer, pPlayer.blockPosition(), ModSounds.WOOD_CHANGER_SUCCESS.get(), SoundSource.NEUTRAL, 0.5f, 1f);
+                if (pInteractionTarget instanceof Skeleton) {
+                    pPlayer.getLevel().playSound(pPlayer, pPlayer.blockPosition(), SoundEvents.EXPERIENCE_ORB_PICKUP, SoundSource.PLAYERS, 1f, 1f);
+                }
             } else {
                 pPlayer.getLevel().playSound(pPlayer, pPlayer.blockPosition(), ModSounds.WOOD_CHANGER_FAIL.get(), SoundSource.NEUTRAL, 0.25f, 1f);
             }
