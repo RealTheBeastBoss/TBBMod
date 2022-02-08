@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "wooden_button",
+  "ingredients": [
+    {
+      "item": "tbbmod:beastboss_planks"
+    }
+  ],
+  "result": {
+    "item": "tbbmod:beastboss_button"
+  }
+}

@@ -1,7 +1,6 @@
 package com.tbb.tbbmod.item.custom;
 
 import com.google.common.collect.ImmutableMap;
-import com.ibm.icu.impl.coll.BOCSU;
 import com.tbb.tbbmod.block.ModBlocks;
 import com.tbb.tbbmod.sounds.ModSounds;
 import net.minecraft.ChatFormatting;
@@ -32,7 +31,6 @@ import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.state.BlockState;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
