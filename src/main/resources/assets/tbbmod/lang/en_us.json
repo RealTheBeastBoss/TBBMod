@@ -40,7 +40,7 @@
   "item.tbbmod.beastboss_banana": "BeastBoss Banana",
   "item.tbbmod.beastbossanium_carrot": "§1BeastBossanium Carrot",
   "item.tbbmod.starbiomatic_energy_ball": "Starbiomatic Energy Ball",
-  "tooltip.tbbmod.wood_changer.shift": "Use this on a wood type block and it will change. §o(Not doors, signs, leaves or saplings) §r\n§3You can also use it on some mobs",
+  "tooltip.tbbmod.wood_changer.shift": "Use this on a wood type block and it will change. §o(Not doors, signs, leaves or saplings) §r\n§3You can also use it on some mobs§r\nIt can also locate valuables in the right conditions",
   "tooltip.tbbmod.not_shift": "Press §eSHIFT§r for more information",
   "block.tbbmod.beastboss_flower": "BeastBoss Flower",
   "block.tbbmod.potted_beastboss_flower": "Potted BeastBoss Flower",

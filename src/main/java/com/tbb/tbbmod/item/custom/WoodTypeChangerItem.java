@@ -3,6 +3,7 @@ package com.tbb.tbbmod.item.custom;
 import com.google.common.collect.ImmutableMap;
 import com.tbb.tbbmod.block.ModBlocks;
 import com.tbb.tbbmod.sounds.ModSounds;
+import com.tbb.tbbmod.util.ModTags;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.core.BlockPos;
@@ -158,9 +159,9 @@ public class WoodTypeChangerItem extends TieredItem {
     @Override
     public @NotNull InteractionResult useOn(UseOnContext pContext) {
         Player player = pContext.getPlayer();
+        BlockPos positionClicked = pContext.getClickedPos();
         if (!pContext.getLevel().isClientSide()) {
             Level level = pContext.getLevel();
-            BlockPos positionClicked = pContext.getClickedPos();
             Block blockClicked = level.getBlockState(positionClicked).getBlock();
             if (canChangeWood(blockClicked)) {
                 Block newBlock = WOOD_CHANGER_MAP.get(blockClicked);
@@ -176,26 +177,59 @@ public class WoodTypeChangerItem extends TieredItem {
                 mutableComponent.append(new TranslatableComponent(newBlock.getDescriptionId()));
                 mutableComponent.withStyle(ChatFormatting.DARK_AQUA);
                 player.sendMessage(mutableComponent, player.getUUID());
-                pContext.getItemInHand().hurtAndBreak(1, pContext.getPlayer(), (user) -> user.broadcastBreakEvent(user.getUsedItemHand()));
+                pContext.getItemInHand().hurtAndBreak(1, player, (user) -> user.broadcastBreakEvent(user.getUsedItemHand()));
                 level.playSound(player, positionClicked, ModSounds.WOOD_CHANGER_SUCCESS.get(), SoundSource.BLOCKS, 0.5f, 1f);
             } else {
+                for (int i = 0; i <= positionClicked.getY() + 64; i++) {
+                    Block blockBelow = pContext.getLevel().getBlockState(positionClicked.below(i)).getBlock();
+                    if (isValuableBlock(blockBelow)) {
+                        pContext.getItemInHand().hurtAndBreak(1, player, (user) -> user.broadcastBreakEvent(user.getUsedItemHand()));
+                        break;
+                    }
+                }
+            }
+        } else {
+            boolean foundBlock = false;
+            if (!canChangeWood(pContext.getLevel().getBlockState(positionClicked).getBlock())) {
+                for (int i = 0; i <= positionClicked.getY() + 64; i++) {
+                    Block blockBelow = pContext.getLevel().getBlockState(positionClicked.below(i)).getBlock();
+                    if (isValuableBlock(blockBelow)) {
+                        outputFoundValuables(positionClicked, player, blockBelow, positionClicked.below(i));
+                        foundBlock = true;
+                        break;
+                    }
+                }
+            }
+            if (!canChangeWood(pContext.getLevel().getBlockState(positionClicked).getBlock()) && !foundBlock) {
+                pContext.getLevel().playSound(player, pContext.getClickedPos(), ModSounds.WOOD_CHANGER_FAIL.get(), SoundSource.BLOCKS, 0.25f, 1f);
                 MutableComponent mutableComponent = new TextComponent(player.getDisplayName().getString() + ": ");
-                mutableComponent.append(new TranslatableComponent(blockClicked.getDescriptionId()));
+                mutableComponent.append(new TranslatableComponent(pContext.getLevel().getBlockState(positionClicked).getBlock().getDescriptionId()));
                 mutableComponent.append(new TextComponent(" "));
                 mutableComponent.append(new TranslatableComponent(this.getDescriptionId() + ".fail_message"));
                 mutableComponent.withStyle(ChatFormatting.LIGHT_PURPLE);
                 mutableComponent.withStyle(ChatFormatting.UNDERLINE);
                 player.sendMessage(mutableComponent, player.getUUID());
-                level.playSound(player, positionClicked, ModSounds.WOOD_CHANGER_FAIL.get(), SoundSource.BLOCKS, 0.25f, 1f);
-            }
-        } else {
-            if (!canChangeWood(pContext.getLevel().getBlockState(pContext.getClickedPos()).getBlock())) {
-                pContext.getLevel().playSound(player, pContext.getClickedPos(), ModSounds.WOOD_CHANGER_FAIL.get(), SoundSource.BLOCKS, 0.25f,1f);
             } else {
-                pContext.getLevel().playSound(player, pContext.getClickedPos(), ModSounds.WOOD_CHANGER_SUCCESS.get(), SoundSource.BLOCKS, 0.5f,1f);
+                pContext.getLevel().playSound(player, positionClicked, ModSounds.WOOD_CHANGER_SUCCESS.get(), SoundSource.BLOCKS, 0.5f, 1f);
             }
         }
         return super.useOn(pContext);
+    }
+
+    private void outputFoundValuables(BlockPos blockClickedPos, Player player, Block blockBelow, BlockPos blockPos) {
+        int numY = blockClickedPos.getY() - blockPos.getY();
+        MutableComponent mutableComponent = new TextComponent(player.getDisplayName().getString() + " ");
+        mutableComponent.append(new TranslatableComponent(this.getDescriptionId() + ".use_message"));
+        mutableComponent.append(new TextComponent("Located "));
+        mutableComponent.append(new TranslatableComponent(blockBelow.getDescriptionId()));
+        mutableComponent.append(new TextComponent(" " + numY + " Blocks Below"));
+        mutableComponent.withStyle(ChatFormatting.AQUA);
+        mutableComponent.withStyle(ChatFormatting.ITALIC);
+        player.sendMessage(mutableComponent, player.getUUID());
+    }
+
+    private boolean isValuableBlock(Block block) {
+        return ModTags.Blocks.WOOD_CHANGER_VALUABLES.contains(block);
     }
 
     @Override
