@@ -18,6 +18,7 @@ import net.minecraft.client.renderer.blockentity.SignRenderer;
 import net.minecraft.world.item.AxeItem;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.ComposterBlock;
 import net.minecraft.world.level.block.FlowerPotBlock;
 import net.minecraft.world.level.block.state.properties.WoodType;
 import net.minecraftforge.common.MinecraftForge;
@@ -76,6 +77,9 @@ public class TBBMod
             ((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(ModBlocks.BEASTBOSS_SAPLING.getId(), ModBlocks.POTTED_BEASTBOSS_SAPLING);
             BlockEntityRenderers.register(ModBlockEntities.SIGN_BLOCK_ENTITIES.get(), SignRenderer :: new);
             Sheets.addWoodType(ModWoodTypes.BEASTBOSS);
+            ComposterBlock.COMPOSTABLES.put(ModBlocks.BEASTBOSS_SAPLING.get().asItem(), 0.4f);
+            ComposterBlock.COMPOSTABLES.put(ModBlocks.BEASTBOSS_FLOWER.get().asItem(), 1f);
+            ComposterBlock.COMPOSTABLES.put(ModItems.BEASTBOSS_BANANA.get(), 1f);
         });
     }
 }

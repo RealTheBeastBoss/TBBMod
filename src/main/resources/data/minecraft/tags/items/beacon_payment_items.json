@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+    "tbbmod:beastbossanium_ingot",
+    "tbbmod:raw_beastbossanium_chunk",
+    "minecraft:lapis_lazuli"
+  ]
+}

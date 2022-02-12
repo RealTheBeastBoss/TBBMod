@@ -222,7 +222,7 @@ public class WoodTypeChangerItem extends TieredItem {
         mutableComponent.append(new TranslatableComponent(this.getDescriptionId() + ".use_message"));
         mutableComponent.append(new TextComponent("Located "));
         mutableComponent.append(new TranslatableComponent(blockBelow.getDescriptionId()));
-        mutableComponent.append(new TextComponent(" " + numY + " Blocks Below"));
+        mutableComponent.append(new TextComponent(" " + numY + " Blocks Below (" + blockPos.getX() + ", " + blockPos.getZ() + ")"));
         mutableComponent.withStyle(ChatFormatting.AQUA);
         mutableComponent.withStyle(ChatFormatting.ITALIC);
         player.sendMessage(mutableComponent, player.getUUID());

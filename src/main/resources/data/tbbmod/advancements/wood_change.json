@@ -1,10 +1,10 @@
 {
   "display": {
     "icon": {
-      "item": "tbbmod:beastboss_log"
+      "item": "tbbmod:beastboss_planks"
     },
     "title": "Transfiguration",
-    "description": "Use the BeastBoss Wand on wood",
+    "description": "Use the BeastBoss Wand on a wooden block",
     "frame": "task",
     "show_toast": true,
     "announce_to_chat": true,
