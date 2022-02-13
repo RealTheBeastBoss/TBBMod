@@ -19,7 +19,8 @@
         "items": [
           {
             "items": [
-              "tbbmod:beastbossanium_leggings"
+              "tbbmod:beastbossanium_leggings",
+              "tbbmod:strong_beastbossanium_leggings"
             ],
             "enchantments": [
               {
@@ -44,7 +45,8 @@
         "items": [
           {
             "items": [
-              "tbbmod:beastbossanium_leggings"
+              "tbbmod:beastbossanium_leggings",
+              "tbbmod:strong_beastbossanium_leggings"
             ],
             "enchantments": [
               {

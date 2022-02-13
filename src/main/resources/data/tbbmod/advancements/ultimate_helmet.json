@@ -19,7 +19,8 @@
         "items": [
           {
             "items": [
-              "tbbmod:beastbossanium_helmet"
+              "tbbmod:beastbossanium_helmet",
+              "tbbmod:strong_beastbossanium_helmet"
             ],
             "enchantments": [
               {
@@ -51,7 +52,8 @@
         "items": [
           {
             "items": [
-              "tbbmod:beastbossanium_helmet"
+              "tbbmod:beastbossanium_helmet",
+              "tbbmod:strong_beastbossanium_helmet"
             ],
             "enchantments": [
               {

@@ -19,7 +19,8 @@
         "items": [
           {
             "items": [
-              "tbbmod:beastbossanium_pickaxe"
+              "tbbmod:beastbossanium_pickaxe",
+              "tbbmod:strong_beastbossanium_pickaxe"
             ],
             "enchantments": [
               {

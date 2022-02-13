@@ -19,7 +19,8 @@
         "items": [
           {
             "items": [
-              "tbbmod:beastbossanium_shovel"
+              "tbbmod:beastbossanium_shovel",
+              "tbbmod:strong_beastbossanium_shovel"
             ],
             "enchantments": [
               {
@@ -48,7 +49,8 @@
         "items": [
           {
             "items": [
-              "tbbmod:beastbossanium_shovel"
+              "tbbmod:beastbossanium_shovel",
+              "tbbmod:strong_beastbossanium_shovel"
             ],
             "enchantments": [
               {

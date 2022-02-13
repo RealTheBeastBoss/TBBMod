@@ -19,7 +19,8 @@
         "items": [
           {
             "items": [
-              "tbbmod:beastbossanium_chestplate"
+              "tbbmod:beastbossanium_chestplate",
+              "tbbmod:strong_beastbossanium_chestplate"
             ],
             "enchantments": [
               {
@@ -44,7 +45,8 @@
         "items": [
           {
             "items": [
-              "tbbmod:beastbossanium_chestplate"
+              "tbbmod:beastbossanium_chestplate",
+              "tbbmod:strong_beastbossanium_chestplate"
             ],
             "enchantments": [
               {

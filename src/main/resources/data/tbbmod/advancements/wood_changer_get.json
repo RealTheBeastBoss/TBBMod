@@ -18,7 +18,8 @@
         "items": [
           {
             "items": [
-              "tbbmod:wood_changer"
+              "tbbmod:wood_changer",
+              "tbbmod:strong_wood_changer"
             ]
           }
         ]

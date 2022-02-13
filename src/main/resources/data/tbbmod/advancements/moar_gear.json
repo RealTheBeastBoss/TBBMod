@@ -18,7 +18,8 @@
         "items": [
           {
             "items": [
-              "tbbmod:beastbossanium_sword"
+              "tbbmod:beastbossanium_sword",
+              "tbbmod:strong_beastbossanium_sword"
             ]
           }
         ]
@@ -30,7 +31,8 @@
         "items": [
           {
             "items": [
-              "tbbmod:beastbossanium_pickaxe"
+              "tbbmod:beastbossanium_pickaxe",
+              "tbbmod:strong_beastbossanium_pickaxe"
             ]
           }
         ]
@@ -42,7 +44,8 @@
         "items": [
           {
             "items": [
-              "tbbmod:beastbossanium_axe"
+              "tbbmod:beastbossanium_axe",
+              "tbbmod:strong_beastbossanium_axe"
             ]
           }
         ]
@@ -54,7 +57,8 @@
         "items": [
           {
             "items": [
-              "tbbmod:beastbossanium_shovel"
+              "tbbmod:beastbossanium_shovel",
+              "tbbmod:strong_beastbossanium_shovel"
             ]
           }
         ]
@@ -66,7 +70,8 @@
         "items": [
           {
             "items": [
-              "tbbmod:beastbossanium_hoe"
+              "tbbmod:beastbossanium_hoe",
+              "tbbmod:strong_beastbossanium_hoe"
             ]
           }
         ]
@@ -78,7 +83,8 @@
         "items": [
           {
             "items": [
-              "tbbmod:beastbossanium_helmet"
+              "tbbmod:beastbossanium_helmet",
+              "tbbmod:strong_beastbossanium_helmet"
             ]
           }
         ]
@@ -90,7 +96,8 @@
         "items": [
           {
             "items": [
-              "tbbmod:beastbossanium_chestplate"
+              "tbbmod:beastbossanium_chestplate",
+              "tbbmod:strong_beastbossanium_chestplate"
             ]
           }
         ]
@@ -102,7 +109,8 @@
         "items": [
           {
             "items": [
-              "tbbmod:beastbossanium_leggings"
+              "tbbmod:beastbossanium_leggings",
+              "tbbmod:strong_beastbossanium_leggings"
             ]
           }
         ]
@@ -114,7 +122,8 @@
         "items": [
           {
             "items": [
-              "tbbmod:beastbossanium_boots"
+              "tbbmod:beastbossanium_boots",
+              "tbbmod:strong_beastbossanium_boots"
             ]
           }
         ]

@@ -12,85 +12,20 @@
   },
   "parent": "tbbmod:bookshelves_get",
   "criteria": {
-    "gold_pick": {
+    "requirement": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
             "items": [
-              "minecraft:golden_pickaxe"
-            ],
-            "enchantments": [
-              {
-                "enchantment": "minecraft:fortune",
-                "levels": 3
-              }
-            ]
-          }
-        ]
-      }
-    },
-    "iron_pick": {
-      "trigger": "minecraft:inventory_changed",
-      "conditions": {
-        "items": [
-          {
-            "items": [
-              "minecraft:iron_pickaxe"
-            ],
-            "enchantments": [
-              {
-                "enchantment": "minecraft:fortune",
-                "levels": 3
-              }
-            ]
-          }
-        ]
-      }
-    },
-    "diamond_pick": {
-      "trigger": "minecraft:inventory_changed",
-      "conditions": {
-        "items": [
-          {
-            "items": [
-              "minecraft:diamond_pickaxe"
-            ],
-            "enchantments": [
-              {
-                "enchantment": "minecraft:fortune",
-                "levels": 3
-              }
-            ]
-          }
-        ]
-      }
-    },
-    "netherite_pick": {
-      "trigger": "minecraft:inventory_changed",
-      "conditions": {
-        "items": [
-          {
-            "items": [
-              "minecraft:netherite_pickaxe"
-            ],
-            "enchantments": [
-              {
-                "enchantment": "minecraft:fortune",
-                "levels": 3
-              }
-            ]
-          }
-        ]
-      }
-    },
-    "beastbossanium_pick": {
-      "trigger": "minecraft:inventory_changed",
-      "conditions": {
-        "items": [
-          {
-            "items": [
-              "tbbmod:beastbossanium_pickaxe"
+              "minecraft:golden_pickaxe",
+              "minecraft:wooden_pickaxe",
+              "minecraft:stone_pickaxe",
+              "minecraft:iron_pickaxe",
+              "minecraft:diamond_pickaxe",
+              "minecraft:netherite_pickaxe",
+              "tbbmod:beastbossanium_pickaxe",
+              "tbbmod:strong_beastbossanium_pickaxe"
             ],
             "enchantments": [
               {
@@ -102,14 +37,5 @@
         ]
       }
     }
-  },
-  "requirements": [
-    [
-      "gold_pick",
-      "iron_pick",
-      "diamond_pick",
-      "netherite_pick",
-      "beastbossanium_pick"
-    ]
-  ]
+  }
 }

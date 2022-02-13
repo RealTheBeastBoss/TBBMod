@@ -19,7 +19,8 @@
         "items": [
           {
             "items": [
-              "tbbmod:beastbossanium_axe"
+              "tbbmod:beastbossanium_axe",
+              "tbbmod:strong_beastbossanium_axe"
             ],
             "enchantments": [
               {
