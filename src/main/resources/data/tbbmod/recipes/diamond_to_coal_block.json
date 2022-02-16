@@ -1,0 +1,15 @@
+{
+  "type": "tbbmod:diamond_converting",
+  "ingredients": [
+    {
+      "item": "minecraft:diamond"
+    },
+    {
+      "item": "minecraft:coal_block"
+    }
+  ],
+  "output": {
+    "item": "minecraft:coal_block",
+    "count": 5
+  }
+}

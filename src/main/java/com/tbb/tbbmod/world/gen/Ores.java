@@ -18,8 +18,8 @@ import net.minecraftforge.fml.common.Mod;
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.FORGE)
 public class Ores {
-    public static final int OVERWORLD_AMOUNT = 1;
-    public static final int DEEPSLATE_AMOUNT = 2;
+    public static final int OVERWORLD_AMOUNT = 4; // Spawns on average once every 4 chunks
+    public static final int DEEPSLATE_AMOUNT = 2; // Spawns on average once every 2 chunks
     public static final int OVERWORLD_VEINSIZE = 3;
     public static final int DEEPSLATE_VEINSIZE = 4;
 
@@ -30,12 +30,12 @@ public class Ores {
         OreConfiguration overworldConfig = new OreConfiguration(OreFeatures.STONE_ORE_REPLACEABLES,
                 ModBlocks.BEASTBOSSANIUM_ORE.get().defaultBlockState(), OVERWORLD_VEINSIZE);
         OVERWORLD_OREGEN = registerPlacedFeature("overworld_beastbossanium_ore", Feature.ORE.configured(overworldConfig),
-                CountPlacement.of(OVERWORLD_AMOUNT), InSquarePlacement.spread(), BiomeFilter.biome(),
+                RarityFilter.onAverageOnceEvery(OVERWORLD_AMOUNT), InSquarePlacement.spread(), BiomeFilter.biome(),
                 HeightRangePlacement.uniform(VerticalAnchor.absolute(0), VerticalAnchor.absolute(16)));
         OreConfiguration deepslateConfig = new OreConfiguration(OreFeatures.DEEPSLATE_ORE_REPLACEABLES,
                 ModBlocks.DEEPSLATE_BEASTBOSSANIUM_ORE.get().defaultBlockState(), DEEPSLATE_VEINSIZE);
         DEEPSLATE_OREGEN = registerPlacedFeature("deepslate_beastbossanium_ore", Feature.ORE.configured(deepslateConfig),
-                CountPlacement.of(DEEPSLATE_AMOUNT), InSquarePlacement.spread(), BiomeFilter.biome(),
+                RarityFilter.onAverageOnceEvery(DEEPSLATE_AMOUNT), InSquarePlacement.spread(), BiomeFilter.biome(),
                 HeightRangePlacement.uniform(VerticalAnchor.bottom(), VerticalAnchor.absolute(0)));
     }
 

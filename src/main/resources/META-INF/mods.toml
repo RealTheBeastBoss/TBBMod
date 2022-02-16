@@ -27,15 +27,16 @@ displayName="TheBeastBoss' Mod" #mandatory
 # A URL for the "homepage" for this mod, displayed in the mod UI
 #displayURL="https://change.me.to.your.mods.homepage.example.invalid/" #optional
 # A file name (in the root of the mod JAR) containing a logo for display
-logoFile="examplemod.png" #optional
+logoFile="tbbmod.png" #optional
 # A text field displayed in the mod UI
-credits="Thanks for this example mod goes to Java" #optional
+credits="Thanks for this mod goes to me, TheBeastBoss" #optional
 # A text field displayed in the mod UI
 authors="TheBeastBoss" #optional
 # The description text for the mod (multi line!) (#mandatory)
 description='''
-Hello, this is a mod made by me.
-Please Enjoy!
+Hello, this mod was made by TheBeastBoss.
+I have made this mod for Ravenclaw reasons.
+Enjoy using the mod!
 '''
 # A dependency - use the . to indicate dependency for a specific modid. Dependencies are optional.
 [[dependencies.tbbmod]] #optional

@@ -1,0 +1,15 @@
+{
+  "type": "tbbmod:diamond_converting",
+  "ingredients": [
+    {
+      "item": "minecraft:diamond"
+    },
+    {
+      "item": "minecraft:lapis_lazuli"
+    }
+  ],
+  "output": {
+    "item": "minecraft:lapis_lazuli",
+    "count": 16
+  }
+}

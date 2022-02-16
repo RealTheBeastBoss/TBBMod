@@ -12,6 +12,6 @@ public class StarbiomaticEnergyBallItem extends Item {
 
     @Override
     public int getBurnTime(ItemStack itemStack, @Nullable RecipeType<?> recipeType) {
-        return 200 * 64;
+        return 200 * 128;
     }
 }

@@ -3,8 +3,6 @@
 	"values": [
 		"tbbmod:raw_beastbossanium_block",
 		"tbbmod:beastbossanium_block",
-		"tbbmod:beastbossanium_ore",
-		"tbbmod:deepslate_beastbossanium_ore",
 		"tbbmod:beastboss_planks",
 		"tbbmod:beastboss_stairs",
 		"tbbmod:beastboss_fence",
@@ -18,6 +16,7 @@
 		"tbbmod:beastboss_wood",
 		"tbbmod:stripped_beastboss_log",
 		"tbbmod:stripped_beastboss_wood",
-		"tbbmod:beastboss_sign"
+		"tbbmod:beastboss_sign",
+		"tbbmod:diamond_converter"
 	]
 }

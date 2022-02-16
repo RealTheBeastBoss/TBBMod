@@ -1,0 +1,15 @@
+{
+  "type": "tbbmod:diamond_converting",
+  "ingredients": [
+    {
+      "item": "minecraft:diamond"
+    },
+    {
+      "item": "minecraft:gold_ingot"
+    }
+  ],
+  "output": {
+    "item": "minecraft:gold_ingot",
+    "count": 11
+  }
+}

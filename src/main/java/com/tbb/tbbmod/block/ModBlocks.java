@@ -1,10 +1,7 @@
 package com.tbb.tbbmod.block;
 
 import com.tbb.tbbmod.TBBMod;
-import com.tbb.tbbmod.block.custom.ModFlammableRotatedPillarBlock;
-import com.tbb.tbbmod.block.custom.ModStandingSignBlock;
-import com.tbb.tbbmod.block.custom.ModWallSignBlock;
-import com.tbb.tbbmod.block.custom.ModWoodTypes;
+import com.tbb.tbbmod.block.custom.*;
 import com.tbb.tbbmod.item.ModCreativeModeTab;
 import com.tbb.tbbmod.item.ModItems;
 import com.tbb.tbbmod.world.feature.tree.BeastBossTreeGrower;
@@ -84,6 +81,23 @@ public class ModBlocks {
     public static final RegistryObject<Block> BEASTBOSS_SAPLING = registerBlock("beastboss_sapling", () -> new SaplingBlock(new BeastBossTreeGrower(), BlockBehaviour.Properties.copy(Blocks.BIRCH_SAPLING)), ModCreativeModeTab.TBB_TAB);
     public static final RegistryObject<Block> BEASTBOSS_SIGN = BLOCKS.register("beastboss_sign", () -> new ModStandingSignBlock(BlockBehaviour.Properties.of(Material.WOOD).requiresCorrectToolForDrops(), ModWoodTypes.BEASTBOSS));
     public static final RegistryObject<Block> BEASTBOSS_WALL_SIGN = BLOCKS.register("beastboss_wall_sign", () -> new ModWallSignBlock(BlockBehaviour.Properties.of(Material.WOOD).requiresCorrectToolForDrops(), ModWoodTypes.BEASTBOSS));
+    public static final RegistryObject<Block> DIAMOND_CONVERTER = registerBlock("diamond_converter", () -> new DiamondConverterBlock(BlockBehaviour.Properties.of(Material.METAL, MaterialColor.DIAMOND).sound(SoundType.METAL).noOcclusion().strength(4f, 6f)), ModCreativeModeTab.TBB_TAB);
+    // Diamond Conversions:
+
+    // Diamond = 7 BeastBoss Bananas
+    // Diamond = 31 Coal
+    // Diamond = 4 Coal Blocks
+    // Diamond = 1 Starbiomatic Energy Ball
+    // Diamond = 31 Charcoal
+    // Diamond = 20 Blaze Rods
+    // Diamond = 31 Emeralds
+    // Diamond = 10 Gold
+    // Diamond = 15 Iron
+    // Diamond = 24 Copper
+    // Diamond = 15 Lapis
+    // Diamond = 8 Golden Carrots
+    // Diamond = 3 BeastBossanium Carrots
+    // Diamond = 63 Redstone Dust
 
     public static <T extends Block>RegistryObject<T> registerBlock(String name, Supplier<T> block, CreativeModeTab tab) {
         RegistryObject<T> toReturn = BLOCKS.register(name, block);

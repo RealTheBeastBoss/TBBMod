@@ -16,6 +16,9 @@ public class ModBlockEntities {
                     BlockEntityType.Builder.of(ModSignBlockEntity::new,
                             ModBlocks.BEASTBOSS_WALL_SIGN.get(),
                             ModBlocks.BEASTBOSS_SIGN.get()).build(null));
+    public static final RegistryObject<BlockEntityType<DiamondConverterBlockEntity>> DIAMOND_CONVERTER =
+            BLOCK_ENTITIES.register("diamond_converter", () ->
+            BlockEntityType.Builder.of(DiamondConverterBlockEntity::new, ModBlocks.DIAMOND_CONVERTER.get()).build(null));
 
     public static void register(IEventBus eventBus) {
         BLOCK_ENTITIES.register(eventBus);

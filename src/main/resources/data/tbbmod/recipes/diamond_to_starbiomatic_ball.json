@@ -1,0 +1,15 @@
+{
+  "type": "tbbmod:diamond_converting",
+  "ingredients": [
+    {
+      "item": "minecraft:diamond"
+    },
+    {
+      "item": "tbbmod:starbiomatic_energy_ball"
+    }
+  ],
+  "output": {
+    "item": "tbbmod:starbiomatic_energy_ball",
+    "count": 2
+  }
+}

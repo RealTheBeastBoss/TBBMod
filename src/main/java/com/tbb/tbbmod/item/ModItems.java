@@ -39,7 +39,7 @@ public class ModItems {
     public static final RegistryObject<Item> BEASTBOSSANIUM_PICKAXE = ITEMS.register("beastbossanium_pickaxe", () -> new PickaxeItem(ModTiers.BEASTBOSSANIUM, 1, -2.8f, new Item.Properties().tab(ModCreativeModeTab.TBB_TAB)));
     public static final RegistryObject<Item> BEASTBOSSANIUM_AXE = ITEMS.register("beastbossanium_axe", () -> new AxeItem(ModTiers.BEASTBOSSANIUM, 6, -2.9f, new Item.Properties().tab(ModCreativeModeTab.TBB_TAB)));
     public static final RegistryObject<Item> BEASTBOSSANIUM_SHOVEL = ITEMS.register("beastbossanium_shovel", () -> new ShovelItem(ModTiers.BEASTBOSSANIUM, 3, -3f, new Item.Properties().tab(ModCreativeModeTab.TBB_TAB)));
-    public static final RegistryObject<Item> BEASTBOSSANIUM_HOE = ITEMS.register("beastbossanium_hoe", () -> new HoeItem(ModTiers.BEASTBOSSANIUM, 3, -2f, new Item.Properties().tab(ModCreativeModeTab.TBB_TAB)));
+    public static final RegistryObject<Item> BEASTBOSSANIUM_HOE = ITEMS.register("beastbossanium_hoe", () -> new HoeItem(ModTiers.BEASTBOSSANIUM, 1, -2f, new Item.Properties().tab(ModCreativeModeTab.TBB_TAB)));
     public static final RegistryObject<Item> BEASTBOSSANIUM_BOOTS = ITEMS.register("beastbossanium_boots", () -> new ModArmorItem(ModArmorMaterial.BEASTBOSSANIUM, EquipmentSlot.FEET, new Item.Properties().tab(ModCreativeModeTab.TBB_TAB)));
     public static final RegistryObject<Item> BEASTBOSSANIUM_LEGGINGS = ITEMS.register("beastbossanium_leggings", () -> new ArmorItem(ModArmorMaterial.BEASTBOSSANIUM, EquipmentSlot.LEGS, new Item.Properties().tab(ModCreativeModeTab.TBB_TAB)));
     public static final RegistryObject<Item> BEASTBOSSANIUM_CHESTPLATE = ITEMS.register("beastbossanium_chestplate", () -> new ArmorItem(ModArmorMaterial.BEASTBOSSANIUM, EquipmentSlot.CHEST, new Item.Properties().tab(ModCreativeModeTab.TBB_TAB)));
@@ -123,7 +123,7 @@ public class ModItems {
             pTooltipComponents.add(new TranslatableComponent("tooltip.tbbmod.strong"));
         }
     });
-    public static final RegistryObject<Item> STRONG_BEASTBOSSANIUM_HOE = ITEMS.register("strong_beastbossanium_hoe", () -> new HoeItem(ModTiers.BEASTBOSSANIUM, 3, -2f, new Item.Properties().tab(ModCreativeModeTab.TBB_TAB).fireResistant()){
+    public static final RegistryObject<Item> STRONG_BEASTBOSSANIUM_HOE = ITEMS.register("strong_beastbossanium_hoe", () -> new HoeItem(ModTiers.BEASTBOSSANIUM, 1, -2f, new Item.Properties().tab(ModCreativeModeTab.TBB_TAB).fireResistant()){
         @Override
         public boolean canBeHurtBy(@NotNull DamageSource pDamageSource) {
             return !pDamageSource.isFire() && !pDamageSource.isExplosion() && !pDamageSource.equals(DamageSource.CACTUS) && !pDamageSource.equals(DamageSource.LIGHTNING_BOLT);

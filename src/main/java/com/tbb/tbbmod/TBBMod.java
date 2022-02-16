@@ -7,12 +7,15 @@ import com.tbb.tbbmod.block.entity.ModBlockEntities;
 import com.tbb.tbbmod.enchantment.ModEnchantments;
 import com.tbb.tbbmod.item.ModItems;
 import com.tbb.tbbmod.painting.ModPaintings;
+import com.tbb.tbbmod.recipe.ModRecipes;
+import com.tbb.tbbmod.screen.DiamondConverterScreen;
+import com.tbb.tbbmod.screen.ModMenuTypes;
 import com.tbb.tbbmod.sounds.ModSounds;
 import com.tbb.tbbmod.world.gen.Ores;
+import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.Sheets;
-import net.minecraft.client.renderer.blockentity.BlockEntityRenderer;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderers;
 import net.minecraft.client.renderer.blockentity.SignRenderer;
 import net.minecraft.world.item.AxeItem;
@@ -47,6 +50,8 @@ public class TBBMod
         ModSounds.register(eventBus);
         ModBlockEntities.register(eventBus);
         ModPaintings.register(eventBus);
+        ModMenuTypes.register(eventBus);
+        ModRecipes.register(eventBus);
         eventBus.addListener(this::setup);
         eventBus.addListener(this::setupClient);
 
@@ -62,7 +67,9 @@ public class TBBMod
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.BEASTBOSS_FLOWER.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.POTTED_BEASTBOSS_FLOWER.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.POTTED_BEASTBOSS_SAPLING.get(), RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(ModBlocks.DIAMOND_CONVERTER.get(), RenderType.cutout());
         WoodType.register(ModWoodTypes.BEASTBOSS);
+        MenuScreens.register(ModMenuTypes.DIAMOND_CONVERTER_MENU.get(), DiamondConverterScreen::new);
     }
 
     private void setup(final FMLCommonSetupEvent event)
