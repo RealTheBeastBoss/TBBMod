@@ -44,7 +44,7 @@ public class WitherHoeEnchantment extends Enchantment {
             LivingEntity enemy = ((LivingEntity) pTarget);
             float chance = 0f;
             int duration = 0;
-            switch (pLevel) {
+            switch (pLevel) { // Enchantment Level
                 case 1:
                     chance = 0.8f; // 20% chance (1 in 5)
                     duration = 8 * 20; // 8 seconds

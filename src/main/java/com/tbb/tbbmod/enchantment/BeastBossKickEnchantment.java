@@ -37,13 +37,13 @@ public class BeastBossKickEnchantment extends Enchantment {
             LivingEntity enemy = ((LivingEntity) pAttacker);
             float chance = 0f;
             if (pLevel == 1) {
-                chance = 0.975f;
+                chance = 0.975f; // 2.5% Chance ()
             } else if (pLevel == 2) {
-                chance = 0.9667f;
+                chance = 0.9667f; // 3.33% Chance ()
             } else if (pLevel == 3) {
-                chance = 0.95f;
+                chance = 0.95f; // 5% Chance (1 in 20)
             } else {
-                chance = 0.9f;
+                chance = 0.9f; // 10% Chance (1 in 10)
             }
             if (new Random().nextFloat() >= chance) {
                 enemy.move(MoverType.PLAYER, new Vec3(0, 15, 0));

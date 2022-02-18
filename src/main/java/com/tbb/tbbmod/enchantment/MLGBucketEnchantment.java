@@ -13,6 +13,7 @@ import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.EnchantmentCategory;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.item.enchantment.Enchantments;
+import net.minecraft.world.level.Level;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.event.entity.living.LivingDamageEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -43,7 +44,7 @@ public class MLGBucketEnchantment extends Enchantment {
     @SubscribeEvent
     public static void onFall(LivingDamageEvent source) {
         if (!source.getEntity().getLevel().isClientSide()) {
-            if (source.getSource().isFall()) {
+            if (source.getSource().isFall() && !source.getEntity().getLevel().dimension().equals(Level.NETHER)) {
                 if (source.getEntity() instanceof Player) {
                     Player player = ((Player) source.getEntity());
                     int level = EnchantmentHelper.getEnchantmentLevel(ModEnchantments.MLG_BUCKET.get(), player);
