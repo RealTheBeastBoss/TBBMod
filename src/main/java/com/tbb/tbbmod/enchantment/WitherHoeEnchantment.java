@@ -43,7 +43,7 @@ public class WitherHoeEnchantment extends Enchantment {
         if (!pAttacker.getLevel().isClientSide()) {
             LivingEntity enemy = ((LivingEntity) pTarget);
             float chance = 0f;
-            int duration = 0;
+            int duration = 0; // The effect duration in ticks
             switch (pLevel) { // Enchantment Level
                 case 1:
                     chance = 0.8f; // 20% chance (1 in 5)
@@ -56,6 +56,10 @@ public class WitherHoeEnchantment extends Enchantment {
                 case 3:
                     chance = 0.6667f; // 33.33% chance (1 in 3)
                     duration = 20 * 20; // 20 seconds
+                    break;
+                default: // This is in case Quark increases the enchant level
+                    chance = 0.5f; // 50% chance (1 in 2)
+                    duration = 25 * 20; // 25 seconds
                     break;
             }
             if (new Random().nextFloat() >= chance) {

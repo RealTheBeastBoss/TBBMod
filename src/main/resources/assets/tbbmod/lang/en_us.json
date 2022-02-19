@@ -68,7 +68,7 @@
   "item.tbbmod.strong_beastbossanium_leggings": "BeastBossanium Leggings",
   "item.tbbmod.strong_beastbossanium_helmet": "BeastBossanium Helmet",
   "block.tbbmod.diamond_converter": "Diamond Converter",
-  "enchantment.tbbmod.mlg_bucket.desc": "Makes your boots have a chance to MLG Bucket for you. (Doesn't work in the end)",
+  "enchantment.tbbmod.mlg_bucket.desc": "Makes your boots have a chance to MLG Bucket for you. (Doesn't work in the nether)",
   "enchantment.tbbmod.beastboss_kick.desc": "Gives the wearer a chance to kick their attacker 15 blocks in the air",
   "enchantment.tbbmod.wither_hoe.desc": "Has a chance to inflict the Wither effect for a certain length when used to attack"
 }

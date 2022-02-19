@@ -69,6 +69,9 @@ public class MLGBucketEnchantment extends Enchantment {
                             case 6:
                                 chance = 0.25f; // 75% chance (1 in 1.25)
                                 break;
+                            default:
+                                chance = 0.2f; // 80% chance (1 in 1.2) This is in case the enchant level gets increases to 7 by a mod
+                                break;
                         }
                         if (new Random().nextFloat() >= chance) {
                             source.setCanceled(true);

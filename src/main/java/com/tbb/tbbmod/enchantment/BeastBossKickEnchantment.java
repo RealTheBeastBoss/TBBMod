@@ -42,8 +42,10 @@ public class BeastBossKickEnchantment extends Enchantment {
                 chance = 0.9667f; // 3.33% Chance ()
             } else if (pLevel == 3) {
                 chance = 0.95f; // 5% Chance (1 in 20)
-            } else {
+            } else if (pLevel == 4) {
                 chance = 0.9f; // 10% Chance (1 in 10)
+            } else {
+                chance = 0.8f; // 20% Chance (1 in 5) This is here because there is a mod that can increase the maximum enchant level by one.
             }
             if (new Random().nextFloat() >= chance) {
                 enemy.move(MoverType.PLAYER, new Vec3(0, 15, 0));
