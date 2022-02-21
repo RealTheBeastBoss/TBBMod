@@ -178,7 +178,7 @@ public class WoodTypeChangerItem extends TieredItem {
                 mutableComponent.withStyle(ChatFormatting.DARK_AQUA);
                 player.sendMessage(mutableComponent, player.getUUID());
                 pContext.getItemInHand().hurtAndBreak(1, player, (user) -> user.broadcastBreakEvent(user.getUsedItemHand()));
-                level.playSound(player, positionClicked, ModSounds.WOOD_CHANGER_SUCCESS.get(), SoundSource.BLOCKS, 0.5f, 1f);
+                level.playSound(player, positionClicked, ModSounds.WOOD_CHANGER_SUCCESS.get(), SoundSource.PLAYERS, 0.25f, 1f);
             } else {
                 for (int i = 0; i <= positionClicked.getY() + 64; i++) {
                     Block blockBelow = pContext.getLevel().getBlockState(positionClicked.below(i)).getBlock();
@@ -201,7 +201,7 @@ public class WoodTypeChangerItem extends TieredItem {
                 }
             }
             if (!canChangeWood(pContext.getLevel().getBlockState(positionClicked).getBlock()) && !foundBlock) {
-                pContext.getLevel().playSound(player, pContext.getClickedPos(), ModSounds.WOOD_CHANGER_FAIL.get(), SoundSource.BLOCKS, 0.25f, 1f);
+                pContext.getLevel().playSound(player, pContext.getClickedPos(), ModSounds.WOOD_CHANGER_FAIL.get(), SoundSource.PLAYERS, 0.25f, 1f);
                 MutableComponent mutableComponent = new TextComponent(player.getDisplayName().getString() + ": ");
                 mutableComponent.append(new TranslatableComponent(pContext.getLevel().getBlockState(positionClicked).getBlock().getDescriptionId()));
                 mutableComponent.append(new TextComponent(" "));
@@ -210,7 +210,7 @@ public class WoodTypeChangerItem extends TieredItem {
                 mutableComponent.withStyle(ChatFormatting.UNDERLINE);
                 player.sendMessage(mutableComponent, player.getUUID());
             } else {
-                pContext.getLevel().playSound(player, positionClicked, ModSounds.WOOD_CHANGER_SUCCESS.get(), SoundSource.BLOCKS, 0.5f, 1f);
+                pContext.getLevel().playSound(player, positionClicked, ModSounds.WOOD_CHANGER_SUCCESS.get(), SoundSource.PLAYERS, 0.25f, 1f);
             }
         }
         return super.useOn(pContext);
@@ -240,7 +240,7 @@ public class WoodTypeChangerItem extends TieredItem {
                 if (!pInteractionTarget.isInvulnerable()) {
                     pInteractionTarget.setInvulnerable(true);
                     pPlayer.getItemInHand(pUsedHand).hurtAndBreak(1, pPlayer, (user) -> user.broadcastBreakEvent(user.getUsedItemHand()));
-                    pPlayer.getLevel().playSound(pPlayer, pPlayer.blockPosition(), ModSounds.WOOD_CHANGER_SUCCESS.get(), SoundSource.NEUTRAL, 0.5f, 1f);
+                    pPlayer.getLevel().playSound(pPlayer, pPlayer.blockPosition(), ModSounds.WOOD_CHANGER_SUCCESS.get(), SoundSource.PLAYERS, 0.25f, 1f);
                     MutableComponent mutableComponent = new TextComponent(pPlayer.getDisplayName().getString() + " ");
                     mutableComponent.append(new TranslatableComponent("item.tbbmod.wood_changer.use_message"));
                     mutableComponent.append(new TextComponent("Cow --> Unkillable"));
@@ -249,7 +249,7 @@ public class WoodTypeChangerItem extends TieredItem {
                 } else {
                     pInteractionTarget.setInvulnerable(false);
                     pPlayer.getItemInHand(pUsedHand).hurtAndBreak(1, pPlayer, (user) -> user.broadcastBreakEvent(user.getUsedItemHand()));
-                    pPlayer.getLevel().playSound(pPlayer, pPlayer.blockPosition(), ModSounds.WOOD_CHANGER_SUCCESS.get(), SoundSource.NEUTRAL, 0.5f, 1f);
+                    pPlayer.getLevel().playSound(pPlayer, pPlayer.blockPosition(), ModSounds.WOOD_CHANGER_SUCCESS.get(), SoundSource.PLAYERS, 0.25f, 1f);
                     MutableComponent mutableComponent = new TextComponent(pPlayer.getDisplayName().getString() + " ");
                     mutableComponent.append(new TranslatableComponent("item.tbbmod.wood_changer.use_message"));
                     mutableComponent.append(new TextComponent("Cow --> Killable"));
@@ -261,7 +261,7 @@ public class WoodTypeChangerItem extends TieredItem {
                 if (!pInteractionTarget.isNoGravity()) {
                     pInteractionTarget.setNoGravity(true);
                     pPlayer.getItemInHand(pUsedHand).hurtAndBreak(1, pPlayer, (user) -> user.broadcastBreakEvent(user.getUsedItemHand()));
-                    pPlayer.getLevel().playSound(pPlayer, pPlayer.blockPosition(), ModSounds.WOOD_CHANGER_SUCCESS.get(), SoundSource.NEUTRAL, 0.5f, 1f);
+                    pPlayer.getLevel().playSound(pPlayer, pPlayer.blockPosition(), ModSounds.WOOD_CHANGER_SUCCESS.get(), SoundSource.PLAYERS, 0.25f, 1f);
                     MutableComponent mutableComponent = new TextComponent(pPlayer.getDisplayName().getString() + " ");
                     mutableComponent.append(new TranslatableComponent("item.tbbmod.wood_changer.use_message"));
                     mutableComponent.append(new TextComponent("Pig --> No Gravity"));
@@ -270,7 +270,7 @@ public class WoodTypeChangerItem extends TieredItem {
                 } else {
                     pInteractionTarget.setNoGravity(false);
                     pPlayer.getItemInHand(pUsedHand).hurtAndBreak(1, pPlayer, (user) -> user.broadcastBreakEvent(user.getUsedItemHand()));
-                    pPlayer.getLevel().playSound(pPlayer, pPlayer.blockPosition(), ModSounds.WOOD_CHANGER_SUCCESS.get(), SoundSource.NEUTRAL, 0.5f, 1f);
+                    pPlayer.getLevel().playSound(pPlayer, pPlayer.blockPosition(), ModSounds.WOOD_CHANGER_SUCCESS.get(), SoundSource.PLAYERS, 0.25f, 1f);
                     MutableComponent mutableComponent = new TextComponent(pPlayer.getDisplayName().getString() + " ");
                     mutableComponent.append(new TranslatableComponent("item.tbbmod.wood_changer.use_message"));
                     mutableComponent.append(new TextComponent("Pig --> Has Gravity"));
@@ -280,9 +280,15 @@ public class WoodTypeChangerItem extends TieredItem {
             } else if (pInteractionTarget instanceof Sheep) {
                 pPlayer.addTag("sheepchanged");
                 Sheep sheep = ((Sheep) pInteractionTarget);
-                sheep.setColor(getDye());
+                DyeColor currColour = sheep.getColor();
+                DyeColor newColour;
+                do {
+                    newColour = getDye();
+                }
+                while (newColour.equals(currColour));
+                sheep.setColor(newColour);
                 pPlayer.getItemInHand(pUsedHand).hurtAndBreak(1, pPlayer, (user) -> user.broadcastBreakEvent(user.getUsedItemHand()));
-                pPlayer.getLevel().playSound(pPlayer, pPlayer.blockPosition(), ModSounds.WOOD_CHANGER_SUCCESS.get(), SoundSource.NEUTRAL, 0.5f, 1f);
+                pPlayer.getLevel().playSound(pPlayer, pPlayer.blockPosition(), ModSounds.WOOD_CHANGER_SUCCESS.get(), SoundSource.PLAYERS, 0.25f, 1f);
                 MutableComponent mutableComponent = new TextComponent(pPlayer.getDisplayName().getString() + " ");
                 mutableComponent.append(new TranslatableComponent("item.tbbmod.wood_changer.use_message"));
                 mutableComponent.append(new TextComponent("Sheep --> " + getColorString(sheep.getColor()) + " Wool"));
@@ -294,7 +300,7 @@ public class WoodTypeChangerItem extends TieredItem {
                 if (!axolotl.isNoAi()) {
                     axolotl.setNoAi(true);
                     pPlayer.getItemInHand(pUsedHand).hurtAndBreak(1, pPlayer, (user) -> user.broadcastBreakEvent(user.getUsedItemHand()));
-                    pPlayer.getLevel().playSound(pPlayer, pPlayer.blockPosition(), ModSounds.WOOD_CHANGER_SUCCESS.get(), SoundSource.NEUTRAL, 0.5f, 1f);
+                    pPlayer.getLevel().playSound(pPlayer, pPlayer.blockPosition(), ModSounds.WOOD_CHANGER_SUCCESS.get(), SoundSource.PLAYERS, 0.25f, 1f);
                     MutableComponent mutableComponent = new TextComponent(pPlayer.getDisplayName().getString() + " ");
                     mutableComponent.append(new TranslatableComponent("item.tbbmod.wood_changer.use_message"));
                     mutableComponent.append(new TextComponent("Axolotl --> No AI"));
@@ -303,7 +309,7 @@ public class WoodTypeChangerItem extends TieredItem {
                 } else {
                     axolotl.setNoAi(false);
                     pPlayer.getItemInHand(pUsedHand).hurtAndBreak(1, pPlayer, (user) -> user.broadcastBreakEvent(user.getUsedItemHand()));
-                    pPlayer.getLevel().playSound(pPlayer, pPlayer.blockPosition(), ModSounds.WOOD_CHANGER_SUCCESS.get(), SoundSource.NEUTRAL, 0.5f, 1f);
+                    pPlayer.getLevel().playSound(pPlayer, pPlayer.blockPosition(), ModSounds.WOOD_CHANGER_SUCCESS.get(), SoundSource.PLAYERS, 0.25f, 1f);
                     MutableComponent mutableComponent = new TextComponent(pPlayer.getDisplayName().getString() + " ");
                     mutableComponent.append(new TranslatableComponent("item.tbbmod.wood_changer.use_message"));
                     mutableComponent.append(new TextComponent("Axolotl --> Has AI"));
@@ -315,7 +321,7 @@ public class WoodTypeChangerItem extends TieredItem {
                 if (pInteractionTarget.getAbsorptionAmount() <= 0f) {
                     pInteractionTarget.setAbsorptionAmount(34f);
                     pPlayer.getItemInHand(pUsedHand).hurtAndBreak(1, pPlayer, (user) -> user.broadcastBreakEvent(user.getUsedItemHand()));
-                    pPlayer.getLevel().playSound(pPlayer, pPlayer.blockPosition(), ModSounds.WOOD_CHANGER_SUCCESS.get(), SoundSource.NEUTRAL, 0.5f, 1f);
+                    pPlayer.getLevel().playSound(pPlayer, pPlayer.blockPosition(), ModSounds.WOOD_CHANGER_SUCCESS.get(), SoundSource.PLAYERS, 0.25f, 1f);
                     MutableComponent mutableComponent = new TextComponent(pPlayer.getDisplayName().getString() + " ");
                     mutableComponent.append(new TranslatableComponent("item.tbbmod.wood_changer.use_message"));
                     mutableComponent.append(new TextComponent("Bat --> 40HP"));
@@ -324,7 +330,7 @@ public class WoodTypeChangerItem extends TieredItem {
                 } else {
                     pInteractionTarget.setAbsorptionAmount(0f);
                     pPlayer.getItemInHand(pUsedHand).hurtAndBreak(1, pPlayer, (user) -> user.broadcastBreakEvent(user.getUsedItemHand()));
-                    pPlayer.getLevel().playSound(pPlayer, pPlayer.blockPosition(), ModSounds.WOOD_CHANGER_SUCCESS.get(), SoundSource.NEUTRAL, 0.5f, 1f);
+                    pPlayer.getLevel().playSound(pPlayer, pPlayer.blockPosition(), ModSounds.WOOD_CHANGER_SUCCESS.get(), SoundSource.PLAYERS, 0.25f, 1f);
                     MutableComponent mutableComponent = new TextComponent(pPlayer.getDisplayName().getString() + " ");
                     mutableComponent.append(new TranslatableComponent("item.tbbmod.wood_changer.use_message"));
                     mutableComponent.append(new TextComponent("Bat --> 6HP"));
@@ -333,10 +339,14 @@ public class WoodTypeChangerItem extends TieredItem {
                 }
             } else if (pInteractionTarget instanceof Zombie) {
                 pPlayer.addTag("zombiechanged");
-                String name = giveName();
+                String currName = pInteractionTarget.getDisplayName().getString();
+                String name;
+                do {
+                    name = giveName();
+                } while (name.equals(currName));
                 pInteractionTarget.setCustomName(new TextComponent(name));
                 pPlayer.getItemInHand(pUsedHand).hurtAndBreak(1, pPlayer, (user) -> user.broadcastBreakEvent(user.getUsedItemHand()));
-                pPlayer.getLevel().playSound(pPlayer, pPlayer.blockPosition(), ModSounds.WOOD_CHANGER_SUCCESS.get(), SoundSource.NEUTRAL, 0.5f, 1f);
+                pPlayer.getLevel().playSound(pPlayer, pPlayer.blockPosition(), ModSounds.WOOD_CHANGER_SUCCESS.get(), SoundSource.PLAYERS, 0.25f, 1f);
                 MutableComponent mutableComponent = new TextComponent(pPlayer.getDisplayName().getString() + " ");
                 mutableComponent.append(new TranslatableComponent("item.tbbmod.wood_changer.use_message"));
                 mutableComponent.append(new TextComponent("Zombie --> " + name));
@@ -347,7 +357,7 @@ public class WoodTypeChangerItem extends TieredItem {
                 pInteractionTarget.remove(Entity.RemovalReason.DISCARDED);
                 pPlayer.giveExperienceLevels(1);
                 pPlayer.getItemInHand(pUsedHand).hurtAndBreak(1, pPlayer, (user) -> user.broadcastBreakEvent(user.getUsedItemHand()));
-                pPlayer.getLevel().playSound(pPlayer, pPlayer.blockPosition(), ModSounds.WOOD_CHANGER_SUCCESS.get(), SoundSource.NEUTRAL, 0.5f, 1f);
+                pPlayer.getLevel().playSound(pPlayer, pPlayer.blockPosition(), ModSounds.WOOD_CHANGER_SUCCESS.get(), SoundSource.PLAYERS, 0.25f, 1f);
                 MutableComponent mutableComponent = new TextComponent(pPlayer.getDisplayName().getString() + " ");
                 mutableComponent.append(new TranslatableComponent("item.tbbmod.wood_changer.use_message"));
                 mutableComponent.append(new TextComponent("Skeleton --> XP"));
@@ -361,7 +371,7 @@ public class WoodTypeChangerItem extends TieredItem {
                     player.setItemInHand(player.getUsedItemHand(), ItemStack.EMPTY);
                     pPlayer.addTag("playerchanged");
                     pPlayer.getItemInHand(pUsedHand).hurtAndBreak(1, pPlayer, (user) -> user.broadcastBreakEvent(user.getUsedItemHand()));
-                    pPlayer.getLevel().playSound(pPlayer, pPlayer.blockPosition(), ModSounds.WOOD_CHANGER_SUCCESS.get(), SoundSource.NEUTRAL, 0.5f, 1f);
+                    pPlayer.getLevel().playSound(pPlayer, pPlayer.blockPosition(), ModSounds.WOOD_CHANGER_SUCCESS.get(), SoundSource.PLAYERS, 0.25f, 1f);
                     MutableComponent mutableComponent = new TextComponent(pPlayer.getDisplayName().getString() + " ");
                     mutableComponent.append(new TranslatableComponent("item.tbbmod.wood_changer.use_message"));
                     mutableComponent.append(new TextComponent(player.getDisplayName().getString() + " --> Expelliarmus"));
@@ -372,7 +382,7 @@ public class WoodTypeChangerItem extends TieredItem {
                     mutableComponent.withStyle(ChatFormatting.DARK_AQUA);
                     pPlayer.sendMessage(mutableComponent, pPlayer.getUUID());
                     pPlayer.getItemInHand(pUsedHand).hurtAndBreak(1, pPlayer, (user) -> user.broadcastBreakEvent(user.getUsedItemHand()));
-                    pPlayer.getLevel().playSound(pPlayer, pPlayer.blockPosition(), ModSounds.WOOD_CHANGER_SUCCESS.get(), SoundSource.NEUTRAL, 0.5f, 1f);
+                    pPlayer.getLevel().playSound(pPlayer, pPlayer.blockPosition(), ModSounds.WOOD_CHANGER_SUCCESS.get(), SoundSource.PLAYERS, 0.25f, 1f);
                 }
             } else if (pInteractionTarget instanceof EnderMan) {
                 EnderMan enderman = ((EnderMan) pInteractionTarget);
@@ -380,7 +390,7 @@ public class WoodTypeChangerItem extends TieredItem {
                     enderman.setInvisible(false);
                     pPlayer.addTag("enderchanged");
                     pPlayer.getItemInHand(pUsedHand).hurtAndBreak(1, pPlayer, (user) -> user.broadcastBreakEvent(user.getUsedItemHand()));
-                    pPlayer.getLevel().playSound(pPlayer, pPlayer.blockPosition(), ModSounds.WOOD_CHANGER_SUCCESS.get(), SoundSource.NEUTRAL, 0.5f, 1f);
+                    pPlayer.getLevel().playSound(pPlayer, pPlayer.blockPosition(), ModSounds.WOOD_CHANGER_SUCCESS.get(), SoundSource.PLAYERS, 0.25f, 1f);
                     MutableComponent mutableComponent = new TextComponent(pPlayer.getDisplayName().getString() + " ");
                     mutableComponent.append(new TranslatableComponent("item.tbbmod.wood_changer.use_message"));
                     mutableComponent.append(new TextComponent("Enderman --> Visible"));
@@ -390,7 +400,7 @@ public class WoodTypeChangerItem extends TieredItem {
                     enderman.setInvisible(true);
                     pPlayer.addTag("enderchanged");
                     pPlayer.getItemInHand(pUsedHand).hurtAndBreak(1, pPlayer, (user) -> user.broadcastBreakEvent(user.getUsedItemHand()));
-                    pPlayer.getLevel().playSound(pPlayer, pPlayer.blockPosition(), ModSounds.WOOD_CHANGER_SUCCESS.get(), SoundSource.NEUTRAL, 0.5f, 1f);
+                    pPlayer.getLevel().playSound(pPlayer, pPlayer.blockPosition(), ModSounds.WOOD_CHANGER_SUCCESS.get(), SoundSource.PLAYERS, 0.25f, 1f);
                     MutableComponent mutableComponent = new TextComponent(pPlayer.getDisplayName().getString() + " ");
                     mutableComponent.append(new TranslatableComponent("item.tbbmod.wood_changer.use_message"));
                     mutableComponent.append(new TextComponent("Enderman --> Invisible"));
@@ -408,12 +418,12 @@ public class WoodTypeChangerItem extends TieredItem {
                     pInteractionTarget instanceof Skeleton ||
                     pInteractionTarget instanceof Player ||
                     pInteractionTarget instanceof EnderMan) {
-                pPlayer.getLevel().playSound(pPlayer, pPlayer.blockPosition(), ModSounds.WOOD_CHANGER_SUCCESS.get(), SoundSource.NEUTRAL, 0.5f, 1f);
+                pPlayer.getLevel().playSound(pPlayer, pPlayer.blockPosition(), ModSounds.WOOD_CHANGER_SUCCESS.get(), SoundSource.PLAYERS, 0.25f, 1f);
                 if (pInteractionTarget instanceof Skeleton) {
                     pPlayer.getLevel().playSound(pPlayer, pPlayer.blockPosition(), SoundEvents.EXPERIENCE_ORB_PICKUP, SoundSource.PLAYERS, 1f, 1f);
                 }
             } else {
-                pPlayer.getLevel().playSound(pPlayer, pPlayer.blockPosition(), ModSounds.WOOD_CHANGER_FAIL.get(), SoundSource.NEUTRAL, 0.25f, 1f);
+                pPlayer.getLevel().playSound(pPlayer, pPlayer.blockPosition(), ModSounds.WOOD_CHANGER_FAIL.get(), SoundSource.PLAYERS, 0.25f, 1f);
             }
         }
         return super.interactLivingEntity(pStack, pPlayer, pInteractionTarget, pUsedHand);
@@ -609,7 +619,7 @@ public class WoodTypeChangerItem extends TieredItem {
             mutableComponent.append(new TranslatableComponent(this.getDescriptionId() + ".craft_message"));
             mutableComponent.withStyle(ChatFormatting.DARK_GREEN);
             pPlayer.sendMessage(mutableComponent, pPlayer.getUUID());
-            pLevel.playSound(pPlayer, pPlayer.blockPosition(), ModSounds.WOOD_CHANGER_CRAFT.get(), SoundSource.BLOCKS, 1f,1f);
+            pLevel.playSound(pPlayer, pPlayer.blockPosition(), ModSounds.WOOD_CHANGER_CRAFT.get(), SoundSource.PLAYERS, 1f,1f);
             canShowMessage = false;
         }
     }
