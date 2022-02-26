@@ -5,7 +5,7 @@
       "nbt": "{Enchantments:[{id:\"unbreaking\",lvl:3}]}"
     },
     "title": "Ultimate Silk Touch Pickaxe",
-    "description": "Get the best silk touch pickaxe",
+    "description": "Get the best silk touch pickaxe enchantments",
     "frame": "challenge",
     "show_toast": true,
     "announce_to_chat": true,
@@ -18,10 +18,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "tbbmod:beastbossanium_pickaxe",
-              "tbbmod:strong_beastbossanium_pickaxe"
-            ],
+            "tag": "forge:gear/pickaxes",
             "enchantments": [
               {
                 "enchantment": "minecraft:efficiency",

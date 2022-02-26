@@ -5,7 +5,7 @@
       "nbt": "{Enchantments:[{id:\"unbreaking\",lvl:3}]}"
     },
     "title": "Ultimate Chestplate",
-    "description": "Get the best chestplate",
+    "description": "Get the best chestplate enchantments",
     "frame": "challenge",
     "show_toast": true,
     "announce_to_chat": true,
@@ -18,10 +18,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "tbbmod:beastbossanium_chestplate",
-              "tbbmod:strong_beastbossanium_chestplate"
-            ],
+            "tag": "forge:gear/chestplates",
             "enchantments": [
               {
                 "enchantment": "minecraft:protection",
@@ -44,10 +41,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "tbbmod:beastbossanium_chestplate",
-              "tbbmod:strong_beastbossanium_chestplate"
-            ],
+            "tag": "forge:gear/chestplates",
             "enchantments": [
               {
                 "enchantment": "minecraft:fire_protection",

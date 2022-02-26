@@ -5,7 +5,7 @@
       "nbt": "{Enchantments:[{id:\"unbreaking\",lvl:3}]}"
     },
     "title": "Ultimate Hoe",
-    "description": "Get the best hoe",
+    "description": "Get the best hoe enchantments",
     "frame": "challenge",
     "show_toast": true,
     "announce_to_chat": true,
@@ -18,10 +18,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "tbbmod:beastbossanium_hoe",
-              "tbbmod:strong_beastbossanium_hoe"
-            ],
+            "tag": "forge:gear/hoes",
             "enchantments": [
               {
                 "enchantment": "minecraft:efficiency",

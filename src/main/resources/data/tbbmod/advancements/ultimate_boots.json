@@ -5,7 +5,7 @@
       "nbt": "{Enchantments:[{id:\"unbreaking\",lvl:3}]}"
     },
     "title": "Ultimate Boots",
-    "description": "Get the best boots",
+    "description": "Get the best boot enchantments",
     "frame": "challenge",
     "show_toast": true,
     "announce_to_chat": true,
@@ -18,10 +18,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "tbbmod:beastbossanium_boots",
-              "tbbmod:strong_beastbossanium_boots"
-            ],
+            "tag": "forge:gear/boots",
             "enchantments": [
               {
                 "enchantment": "minecraft:fire_protection",
@@ -60,10 +57,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "tbbmod:beastbossanium_boots",
-              "tbbmod:strong_beastbossanium_boots"
-            ],
+            "tag": "forge:gear/boots",
             "enchantments": [
               {
                 "enchantment": "minecraft:fire_protection",
@@ -102,10 +96,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "tbbmod:beastbossanium_boots",
-              "tbbmod:strong_beastbossanium_boots"
-            ],
+            "tag": "forge:gear/boots",
             "enchantments": [
               {
                 "enchantment": "minecraft:protection",
@@ -144,10 +135,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "tbbmod:beastbossanium_boots",
-              "tbbmod:strong_beastbossanium_boots"
-            ],
+            "tag": "forge:gear/boots",
             "enchantments": [
               {
                 "enchantment": "minecraft:protection",

@@ -1,0 +1,52 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:golden_boots",
+    "minecraft:leather_boots",
+    "minecraft:iron_boots",
+    "minecraft:diamond_boots",
+    "minecraft:netherite_boots",
+    "tbbmod:beastbossanium_boots",
+    "tbbmod:strong_beastbossanium_boots",
+    {
+      "id": "upgradednetherite:gold_upgraded_netherite_boots",
+      "required": false
+    },
+    {
+      "id": "upgradednetherite:fire_upgraded_netherite_boots",
+      "required": false
+    },
+    {
+      "id": "upgradednetherite:ender_upgraded_netherite_boots",
+      "required": false
+    },
+    {
+      "id": "upgradednetherite:water_upgraded_netherite_boots",
+      "required": false
+    },
+    {
+      "id": "upgradednetherite:wither_upgraded_netherite_boots",
+      "required": false
+    },
+    {
+      "id": "upgradednetherite:poison_upgraded_netherite_boots",
+      "required": false
+    },
+    {
+      "id": "upgradednetherite:phantom_upgraded_netherite_boots",
+      "required": false
+    },
+    {
+      "id": "upgradednetherite:feather_upgraded_netherite_boots",
+      "required": false
+    },
+    {
+      "id": "upgradednetherite:corrupt_upgraded_netherite_boots",
+      "required": false
+    },
+    {
+      "id": "upgradednetherite_ultimate:ultimate_upgraded_netherite_boots",
+      "required": false
+    }
+  ]
+}

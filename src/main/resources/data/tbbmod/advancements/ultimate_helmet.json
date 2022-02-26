@@ -5,7 +5,7 @@
       "nbt": "{Enchantments:[{id:\"unbreaking\",lvl:3}]}"
     },
     "title": "Ultimate Helmet",
-    "description": "Get the best helmet",
+    "description": "Get the best helmet enchantments",
     "frame": "challenge",
     "show_toast": true,
     "announce_to_chat": true,
@@ -18,10 +18,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "tbbmod:beastbossanium_helmet",
-              "tbbmod:strong_beastbossanium_helmet"
-            ],
+            "tag": "forge:gear/helmets",
             "enchantments": [
               {
                 "enchantment": "minecraft:protection",
@@ -51,10 +48,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "tbbmod:beastbossanium_helmet",
-              "tbbmod:strong_beastbossanium_helmet"
-            ],
+            "tag": "forge:gear/helmets",
             "enchantments": [
               {
                 "enchantment": "minecraft:fire_protection",

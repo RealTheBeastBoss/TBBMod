@@ -1,0 +1,45 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:wooden_shovel",
+    "minecraft:golden_shovel",
+    "minecraft:stone_shovel",
+    "minecraft:iron_shovel",
+    "minecraft:diamond_shovel",
+    "minecraft:netherite_shovel",
+    "tbbmod:beastbossanium_shovel",
+    "tbbmod:strong_beastbossanium_shovel",
+    {
+      "id": "upgradednetherite:gold_upgraded_netherite_shovel",
+      "required": false
+    },
+    {
+      "id": "upgradednetherite:fire_upgraded_netherite_shovel",
+      "required": false
+    },
+    {
+      "id": "upgradednetherite:ender_upgraded_netherite_shovel",
+      "required": false
+    },
+    {
+      "id": "upgradednetherite:water_upgraded_netherite_shovel",
+      "required": false
+    },
+    {
+      "id": "upgradednetherite:phantom_upgraded_netherite_shovel",
+      "required": false
+    },
+    {
+      "id": "upgradednetherite:feather_upgraded_netherite_shovel",
+      "required": false
+    },
+    {
+      "id": "upgradednetherite:corrupt_upgraded_netherite_shovel",
+      "required": false
+    },
+    {
+      "id": "upgradednetherite_ultimate:ultimate_upgraded_netherite_shovel",
+      "required": false
+    }
+  ]
+}

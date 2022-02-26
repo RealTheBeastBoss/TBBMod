@@ -5,7 +5,7 @@
       "nbt": "{Enchantments:[{id:\"unbreaking\",lvl:3}]}"
     },
     "title": "Ultimate Leggings",
-    "description": "Get the best leggings",
+    "description": "Get the best leggings enchantments",
     "frame": "challenge",
     "show_toast": true,
     "announce_to_chat": true,
@@ -18,10 +18,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "tbbmod:beastbossanium_leggings",
-              "tbbmod:strong_beastbossanium_leggings"
-            ],
+            "tag": "forge:gear/leggings",
             "enchantments": [
               {
                 "enchantment": "minecraft:protection",
@@ -44,10 +41,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "tbbmod:beastbossanium_leggings",
-              "tbbmod:strong_beastbossanium_leggings"
-            ],
+            "tag": "forge:gear/leggings",
             "enchantments": [
               {
                 "enchantment": "minecraft:fire_protection",

@@ -365,10 +365,10 @@ public class WoodTypeChangerItem extends TieredItem {
                 pPlayer.sendMessage(mutableComponent, pPlayer.getUUID());
             } else if (pInteractionTarget instanceof Player) {
                 Player player = ((Player) pInteractionTarget);
-                if (new Random().nextFloat() >= 0.9f) {
-                    ItemStack item = player.getItemInHand(player.getUsedItemHand());
+                if (new Random().nextFloat() >= 0.25f) {
+                    ItemStack item = player.getItemInHand(InteractionHand.MAIN_HAND);
                     player.drop(item, false, true);
-                    player.setItemInHand(player.getUsedItemHand(), ItemStack.EMPTY);
+                    player.setItemInHand(InteractionHand.MAIN_HAND, ItemStack.EMPTY);
                     pPlayer.addTag("playerchanged");
                     pPlayer.getItemInHand(pUsedHand).hurtAndBreak(1, pPlayer, (user) -> user.broadcastBreakEvent(user.getUsedItemHand()));
                     pPlayer.getLevel().playSound(pPlayer, pPlayer.blockPosition(), ModSounds.WOOD_CHANGER_SUCCESS.get(), SoundSource.PLAYERS, 0.25f, 1f);
@@ -378,10 +378,12 @@ public class WoodTypeChangerItem extends TieredItem {
                     mutableComponent.withStyle(ChatFormatting.DARK_AQUA);
                     pPlayer.sendMessage(mutableComponent, pPlayer.getUUID());
                 } else {
+                    if (new Random().nextFloat() >= 0.5f) {
+                        pPlayer.getItemInHand(pUsedHand).hurtAndBreak(1, pPlayer, (user) -> user.broadcastBreakEvent(user.getUsedItemHand()));
+                    }
                     MutableComponent mutableComponent = new TextComponent(player.getDisplayName().getString() + " used Protego");
                     mutableComponent.withStyle(ChatFormatting.DARK_AQUA);
                     pPlayer.sendMessage(mutableComponent, pPlayer.getUUID());
-                    pPlayer.getItemInHand(pUsedHand).hurtAndBreak(1, pPlayer, (user) -> user.broadcastBreakEvent(user.getUsedItemHand()));
                     pPlayer.getLevel().playSound(pPlayer, pPlayer.blockPosition(), ModSounds.WOOD_CHANGER_SUCCESS.get(), SoundSource.PLAYERS, 0.25f, 1f);
                 }
             } else if (pInteractionTarget instanceof EnderMan) {
@@ -614,7 +616,7 @@ public class WoodTypeChangerItem extends TieredItem {
 
     @Override
     public void onCraftedBy(ItemStack pStack, Level pLevel, Player pPlayer) {
-        if (canShowMessage) {
+        if (canShowMessage && pLevel.isClientSide()) {
             MutableComponent mutableComponent = new TextComponent(pPlayer.getDisplayName().getString() + " ");
             mutableComponent.append(new TranslatableComponent(this.getDescriptionId() + ".craft_message"));
             mutableComponent.withStyle(ChatFormatting.DARK_GREEN);

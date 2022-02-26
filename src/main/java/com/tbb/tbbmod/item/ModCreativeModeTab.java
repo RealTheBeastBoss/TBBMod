@@ -7,7 +7,7 @@ public class ModCreativeModeTab {
     public static final CreativeModeTab TBB_TAB = new CreativeModeTab("tbbtab") {
         @Override
         public ItemStack makeIcon() {
-            return new ItemStack(ModItems.BEASTBOSSANIUM_INGOT.get());
+            return new ItemStack(ModItems.WOOD_CHANGER.get());
         }
     };
 }

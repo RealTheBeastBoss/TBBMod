@@ -12,7 +12,6 @@ import net.minecraft.world.item.HoeItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.EnchantmentCategory;
-import net.minecraft.world.item.enchantment.EnchantmentHelper;
 
 import java.util.Random;
 public class WitherHoeEnchantment extends Enchantment {
@@ -46,9 +45,8 @@ public class WitherHoeEnchantment extends Enchantment {
             }
             if (new Random().nextFloat() >= chance) {
                 enemy.addEffect(new MobEffectInstance(MobEffects.WITHER, duration));
-                witherStrike = true;
                 pAttacker.getLevel().playSound((Player) pAttacker, pAttacker.blockPosition(), ModSounds.WITHER_HOE_STRIKE.get(), SoundSource.PLAYERS, 1f, 1f);
-                if (pTarget instanceof Player) { // Coming out in next mod version
+                if (pTarget instanceof Player) {
                     pTarget.getLevel().playSound((Player) pTarget, pTarget.blockPosition(), ModSounds.WITHER_HOE_STRIKE.get(), SoundSource.PLAYERS, 1f, 1f);
                 }
             }

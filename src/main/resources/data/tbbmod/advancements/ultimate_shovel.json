@@ -5,7 +5,7 @@
       "nbt": "{Enchantments:[{id:\"unbreaking\",lvl:3}]}"
     },
     "title": "Ultimate Shovel",
-    "description": "Get the best shovel",
+    "description": "Get the best shovel enchantments",
     "frame": "challenge",
     "show_toast": true,
     "announce_to_chat": true,
@@ -18,10 +18,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "tbbmod:beastbossanium_shovel",
-              "tbbmod:strong_beastbossanium_shovel"
-            ],
+            "tag": "forge:gear/shovels",
             "enchantments": [
               {
                 "enchantment": "minecraft:efficiency",
@@ -48,10 +45,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "tbbmod:beastbossanium_shovel",
-              "tbbmod:strong_beastbossanium_shovel"
-            ],
+            "tag": "forge:gear/shovels",
             "enchantments": [
               {
                 "enchantment": "minecraft:efficiency",

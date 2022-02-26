@@ -5,7 +5,7 @@
       "nbt": "{Enchantments:[{id:\"unbreaking\",lvl:3}]}"
     },
     "title": "Ultimate Axe",
-    "description": "Get the best axe",
+    "description": "Get the best axe enchantments",
     "frame": "challenge",
     "show_toast": true,
     "announce_to_chat": true,
@@ -18,10 +18,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "tbbmod:beastbossanium_axe",
-              "tbbmod:strong_beastbossanium_axe"
-            ],
+            "tag": "forge:gear/axes",
             "enchantments": [
               {
                 "enchantment": "minecraft:efficiency",

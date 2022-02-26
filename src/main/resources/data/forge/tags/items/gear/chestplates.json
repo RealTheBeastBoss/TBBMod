@@ -1,0 +1,52 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:golden_chestplate",
+    "minecraft:leather_chestplate",
+    "minecraft:iron_chestplate",
+    "minecraft:diamond_chestplate",
+    "minecraft:netherite_chestplate",
+    "tbbmod:beastbossanium_chestplate",
+    "tbbmod:strong_beastbossanium_chestplate",
+    {
+      "id": "upgradednetherite:gold_upgraded_netherite_chestplate",
+      "required": false
+    },
+    {
+      "id": "upgradednetherite:fire_upgraded_netherite_chestplate",
+      "required": false
+    },
+    {
+      "id": "upgradednetherite:ender_upgraded_netherite_chestplate",
+      "required": false
+    },
+    {
+      "id": "upgradednetherite:water_upgraded_netherite_chestplate",
+      "required": false
+    },
+    {
+      "id": "upgradednetherite:wither_upgraded_netherite_chestplate",
+      "required": false
+    },
+    {
+      "id": "upgradednetherite:poison_upgraded_netherite_chestplate",
+      "required": false
+    },
+    {
+      "id": "upgradednetherite:phantom_upgraded_netherite_chestplate",
+      "required": false
+    },
+    {
+      "id": "upgradednetherite:feather_upgraded_netherite_chestplate",
+      "required": false
+    },
+    {
+      "id": "upgradednetherite:corrupt_upgraded_netherite_chestplate",
+      "required": false
+    },
+    {
+      "id": "upgradednetherite_ultimate:ultimate_upgraded_netherite_chestplate",
+      "required": false
+    }
+  ]
+}

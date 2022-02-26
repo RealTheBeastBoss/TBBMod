@@ -5,7 +5,7 @@
       "nbt": "{Enchantments:[{id:\"unbreaking\",lvl:3}]}"
     },
     "title": "Ultimate Second Sword",
-    "description": "Get the best secondary sword",
+    "description": "Get the best secondary sword enchantments",
     "frame": "challenge",
     "show_toast": true,
     "announce_to_chat": true,
@@ -18,10 +18,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "tbbmod:beastbossanium_sword",
-              "tbbmod:strong_beastbossanium_sword"
-            ],
+            "tag": "forge:gear/swords",
             "enchantments": [
               {
                 "enchantment": "minecraft:smite",
