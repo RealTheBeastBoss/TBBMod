@@ -55,8 +55,8 @@ public class WitherHoeEnchantment extends Enchantment {
     }
 
     @Override
-    public boolean canEnchant(ItemStack pStack) {
-        return pStack.getItem() instanceof HoeItem;
+    public boolean canApplyAtEnchantingTable(ItemStack stack) {
+        return stack.getItem() instanceof HoeItem;
     }
 
     @Override
