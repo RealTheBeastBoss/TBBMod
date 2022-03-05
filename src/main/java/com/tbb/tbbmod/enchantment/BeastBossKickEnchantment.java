@@ -34,6 +34,9 @@ public class BeastBossKickEnchantment extends Enchantment {
     @Override
     public void doPostHurt(LivingEntity pUser, Entity pAttacker, int pLevel) {
         if (!pUser.getLevel().isClientSide()) {
+            if (pAttacker.equals(null)) {
+                return;
+            }
             LivingEntity enemy = ((LivingEntity) pAttacker);
             float chance = 0f;
             if (pLevel == 1) {

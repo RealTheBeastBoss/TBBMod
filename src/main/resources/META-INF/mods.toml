@@ -36,6 +36,7 @@ authors="TheBeastBoss" #optional
 description='''
 Hello, this mod was made by TheBeastBoss.
 I have made this mod for Ravenclaw reasons.
+This is the singleplayer only version of my mod.
 Enjoy using the mod!
 '''
 # A dependency - use the . to indicate dependency for a specific modid. Dependencies are optional.
