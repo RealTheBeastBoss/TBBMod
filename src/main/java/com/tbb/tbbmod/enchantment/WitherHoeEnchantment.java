@@ -22,7 +22,7 @@ public class WitherHoeEnchantment extends Enchantment {
     @Override
     public void doPostAttack(LivingEntity pAttacker, Entity pTarget, int pLevel) {
         if (!pAttacker.getLevel().isClientSide()) {
-            if (pTarget.equals(null)) {
+            if (pTarget == null) {
                 return;
             }
             LivingEntity enemy = ((LivingEntity) pTarget);
